@@ -35,4 +35,4 @@ The icons on the five repositories above came out of one such session. Firecrawl
 
 ## Find me
 
-[LinkedIn](https://www.linkedin.com/in/alvieee/) · [Skill Vision](https://alveeerahman.github.io/skill-vision/) · [Agent Oracle](https://alveeerahman.github.io/agent-oracle/) · [Research Hound](https://alveeerahman.github.io/research-hound/)
+[LinkedIn](https://www.linkedin.com/in/alvieee/) 
