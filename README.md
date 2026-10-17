@@ -4,15 +4,9 @@
 
 # Alve Rahman Akash
 
-Research interests include the Benefit of Humanity, Quantum Computing and Edge AI.
-
 I have worked with AI for four years. The theory under it comes from graduate coursework, through a master's degree and now a PhD, in quantum annealing, quantum optimization and artificial intelligence. What interests me in machine learning is the optimization inside it. I take parts of a learning pipeline, such as feature selection or the training of a restricted Boltzmann machine, write them as Ising problems, and run them on a quantum annealer. Then I check whether the result still holds when the input is adversarial or the hardware is small.
 
-My research group takes the same idea on-device. Physics-based Ising solver chips run those formulations at the edge, next to the battery or the inverter, with no cloud in the loop. We want two things from that: faster quantum machine learning, and control and optimization loops for power systems and power electronics that run on the hardware they govern.
-
-I struggle to watch people suffer when the fix is an engineering problem: reliable power, batteries that last, grids that do not fail the people at the end of the line. That is what twenty-plus years of education are for. I want to give power to people, in both senses of the word, and improve their lives with what I know. If you have read One Piece, you know the Drums of Liberation, the heartbeat that plays when someone decides the world as it stands is not good enough. I hear them. The wind of change is coming, and I mean to be one of the people who brings it down for the betterment of humanity.
-
-The second thread here is tooling for Claude Code, built around one habit: verify what a chat model would otherwise just assert.
+My research group takes the same idea on-device. Physics-based Ising solver chips run those formulations at the edge, next to the battery or the inverter, with no cloud in the loop. We want two things from that: faster quantum machine learning, and control and optimization loops for power systems and power electronics that run on the hardware they govern. The below thread here is tooling for Claude Code, built around one habit: verify what a chat model would otherwise just assert.
 
 ## What I build
 
