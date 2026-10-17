@@ -4,7 +4,11 @@
 
 # Alve Rahman Akash
 
-I am a PhD student in electrical engineering and computer science at the University of Missouri, in [Taesic Kim's group](https://sites.google.com/view/taesickim/people). My research puts quantum machine learning to work on power hardware: battery health monitoring on a quantum annealer, malware detection for smart grid devices with a quantum convolutional network, feature selection for electric vehicle batteries with quantum restricted Boltzmann machines. Four years of this has taught me that the quantum part is the easy half. Getting a result that survives an adversarial input, a small edge device, or a reviewer is the work.
+Research interests include the Benefit of Humanity, Quantum Computing and Edge AI.
+
+I have worked with AI for four years, and the knowledge behind it was tested the slow way, through graduate coursework across a master's and a PhD in quantum annealing, quantum optimization and artificial intelligence. The part of machine learning I care about is the optimization inside it. I cast pieces of a learning pipeline, feature selection and the training of restricted Boltzmann machines among them, as Ising problems and run them on a quantum annealer, then check how the result holds up when the input is adversarial or the device is small.
+
+My research group pairs that with on-device optimizers, physics-based Ising solver chips that run the same formulations at the edge, next to the battery or the inverter, with no cloud in the loop. The aim is twofold, faster quantum machine learning, and control and optimization loops for power systems and power electronics that can run on the hardware they govern.
 
 The second thread here is tooling for Claude Code, built around one habit: verify what a chat model would otherwise just assert.
 
@@ -33,19 +37,6 @@ Connectors wired into those sessions: GitHub, Firecrawl, SerpApi, Higgsfield, Re
 
 The icons on the five repositories above came out of one such session. Firecrawl read each project page, Higgsfield rendered the marks on the same near-black tile as the mr-usage app icon, Claude Design laid out the family, and Claude Code pushed the commits.
 
-## Papers
-
-Eight papers, 37 citations and an h-index of 4 as of October 2026 ([Google Scholar](https://scholar.google.com/citations?user=wRWUQQYAAAAJ)).
-
-- [Quantum-Inspired Machine Learning for Energy Efficient and Secure Battery Health Monitoring](https://doi.org/10.1109/pesgm52009.2025.11225365). IEEE PES General Meeting, 2025.
-- [Quantum Restricted Boltzmann Machines-Based Feature Selection for Electric Vehicle Battery Health Monitoring](https://doi.org/10.1109/itec63604.2025.11098077). IEEE ITEC and EATS, 2025.
-- [Quantum-Inspired Machine Learning Framework using a Physics-based Ising Solver Chip](https://doi.org/10.1109/icps59941.2024.10639986). IEEE ICPS, 2024.
-- [Quantum Annealing-Based Machine Learning for Battery Health Monitoring Robust to Adversarial Attacks](https://doi.org/10.1109/ecce53617.2023.10362215). IEEE ECCE, 2023.
-- [Quantum Convolutional Neural Network-based Online Malware File Detection for Smart Grid Devices](https://doi.org/10.1109/dmc58182.2023.10412597). IEEE DMC, 2023.
-- [Online Battery Data Analytics Pipeline using Bigdata Tools for Electric Vehicles](https://doi.org/10.23919/icpe2023-ecceasia54778.2023.10213616). ICPE 2023 and ECCE Asia, 2023.
-- [Device-centric ransomware detection using machine learning-based memory forensics for smart inverters](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=wRWUQQYAAAAJ&citation_for_view=wRWUQQYAAAAJ:UeHWp8X0CEIC). Industrial Control System Security Workshop, 2022.
-- [A Novel Mechanism Design Technique To Develop A Vertical Climbing Robot With High Mobility For Flat And Spherical Surfaces](https://doi.org/10.1109/icrest51555.2021.9331113). ICREST, 2021.
-
 ## Find me
 
-[ORCID](https://orcid.org/0009-0008-8454-6516) · [Google Scholar](https://scholar.google.com/citations?user=wRWUQQYAAAAJ) · [LinkedIn](https://www.linkedin.com/in/alvieee/) · [alveeerahman.github.io/research-hound](https://alveeerahman.github.io/research-hound/)
+[LinkedIn](https://www.linkedin.com/in/alvieee/) · [Skill Vision](https://alveeerahman.github.io/skill-vision/) · [Agent Oracle](https://alveeerahman.github.io/agent-oracle/) · [Research Hound](https://alveeerahman.github.io/research-hound/)
