@@ -33,6 +33,10 @@ Connectors wired into those sessions: GitHub, Firecrawl, SerpApi, Higgsfield, Re
 
 The icons on the five repositories above came out of one such session. Firecrawl read each project page, Higgsfield rendered the marks on the same near-black tile as the mr-usage app icon, Claude Design laid out the family, and Claude Code pushed the commits.
 
+## Google Scholar
+
+<a href="https://scholar.google.com/citations?user=wRWUQQYAAAAJ"><img src="assets/scholar.png" alt="Google Scholar as of October 2026: 37 citations, h-index 4, i10-index 0. Citations per year: 4 in 2023, 5 in 2024, 15 in 2025, 13 in 2026." width="100%"></a>
+
 ## Find me
 
-[LinkedIn](https://www.linkedin.com/in/alvieee/) 
+[LinkedIn](https://www.linkedin.com/in/alvieee/) · [Google Scholar](https://scholar.google.com/citations?user=wRWUQQYAAAAJ)
