@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Alve Rahman Akash. PhD student in EECS at the University of Missouri. Research interests include the Benefit of Humanity, Quantum Computing and Edge AI." width="100%">
+  <img src="assets/banner.png" alt="Alve Rahman. PhD student in EECS at the University of Missouri. Research interests include the Benefit of Humanity, Quantum Computing and Edge AI." width="100%">
 </p>
 
 # Alve Rahman
