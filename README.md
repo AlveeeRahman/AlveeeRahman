@@ -29,8 +29,6 @@ My Claude Code sessions run in the cloud with a short rulebook that Claude reads
 - Skills get validated by skill-vision before they ship. Agent designs start with agent-oracle's four questions. Papers go through research-hound, which checks that each DOI resolves and that its metadata matches the citation.
 - The quantum-computing skill covers Qiskit, PennyLane, QuTiP and D-Wave Ocean, which is where the power systems work and the Claude work meet.
 
-Connectors wired into those sessions: GitHub, Firecrawl, SerpApi, Higgsfield, Replit and Claude Docs, plus the keys mr-usage was written to watch: Elicit, Context7, Tavily, OpenRouter, Apify, Hunter and Runway.
-
 The icons on the five repositories above came out of one such sessions (Clearly I am no Photo Editor). Firecrawl read each project page, Higgsfield rendered the marks on the same near-black tile as the mr-usage app icon, Claude Design laid out the family, and Claude Code pushed the commits.
 
 ## Google Scholar
