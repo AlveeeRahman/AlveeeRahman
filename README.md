@@ -2,7 +2,7 @@
   <img src="assets/banner.png" alt="Alve Rahman Akash. PhD student in EECS at the University of Missouri. Research interests include the Benefit of Humanity, Quantum Computing and Edge AI." width="100%">
 </p>
 
-# Alve Rahman Akash
+# Alve Rahman
 
 I have worked with AI for four years. The theory under it comes from graduate coursework, through a master's degree and now a PhD, in quantum annealing, quantum optimization and artificial intelligence. What interests me in machine learning is the optimization inside it. I take parts of a learning pipeline, such as feature selection or the training of a restricted Boltzmann machine, write them as Ising problems, and run them on a quantum annealer. Then I check whether the result still holds when the input is adversarial or the hardware is small.
 
