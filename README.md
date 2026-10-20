@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Alve Rahman. PhD student in EECS at the University of Missouri. Research interests include the Benefit of Humanity, Quantum Computing and Edge AI." width="100%">
+  <img src="assets/banner.png" alt="Alve Rahman. PhD student in EECS. Research interests include the Benefit of Humanity, Quantum Computing and Edge AI." width="100%">
 </p>
 
 # Alve Rahman
 
-I have been working with AI since 2020, but never got the time to create a git for myself, so here I am. The below thread here are some tooling for Claude Code and some fun apps, I built around one habit since the inception of LLMs: verify what a chat model would otherwise just assert.
+I have been working with AI since 2020, but never got the time to create a git for myself, so here I am. The below thread here are some tooling for Claude Code and some fun apps, I built around one habit, since the inception of LLMs: verify what a chat model would otherwise just assert.
 
 ## What I build
 
