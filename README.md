@@ -25,7 +25,7 @@ Two of my own, still in active development.
 | | Project | What it does |
 |---|---|---|
 | <img src="assets/tigerocr.png" width="44" alt=""> | [TigerOCR](https://tigerocr.buildforpeople.dev) | Hosted GPU OCR: send a PDF or image, get clean Markdown back with tables and formulas preserved. A remote MCP server and REST API, billed by the GPU second. In beta. |
-| <img src="assets/murasaki.png" width="44" alt=""> | Murasaki | A hosted platform for authorised offensive and defensive (purple-team) security research: a reverse-engineering toolchain and a choice of models behind one API key, driven by an agent harness. Metered and invite-only. |
+| <img src="assets/murasaki.png" width="44" alt=""> | Murasaki | A hosted platform for authorized offensive and defensive (purple-team) security research: a reverse-engineering toolchain and a choice of models behind one API key, driven by an agent harness. Metered and invite-only. |
 
 ## How I work with Claude
 
