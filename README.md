@@ -18,6 +18,10 @@ I have been working with AI since 2020, but never got the time to create a git f
 
 NVIDIA SkillSpector scans the three skills on every push, and each ships with a `.skillspector-baseline.yaml` that names every suppressed finding and why.
 
+## In the works
+
+Two more tools are in active development and not public yet: one turns documents into clean, structured text on demand, and the other is an invite-only research platform. I will list them here once they are ready to show.
+
 ## How I work with Claude
 
 My Claude Code sessions run in the cloud with a short rulebook that Claude reads before anything else.
