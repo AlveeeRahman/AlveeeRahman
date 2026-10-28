@@ -20,7 +20,12 @@ NVIDIA SkillSpector scans the three skills on every push, and each ships with a 
 
 ## In the works
 
-Two more tools are in active development and not public yet: one turns documents into clean, structured text on demand, and the other is an invite-only research platform. I will list them here once they are ready to show.
+Two of my own, still in active development.
+
+| | Project | What it does |
+|---|---|---|
+| <img src="assets/tigerocr.png" width="44" alt=""> | [TigerOCR](https://tigerocr.buildforpeople.dev) | Hosted GPU OCR: send a PDF or image, get clean Markdown back with tables and formulas preserved. A remote MCP server and REST API, billed by the GPU second. In beta. |
+| <img src="assets/murasaki.png" width="44" alt=""> | Murasaki | A hosted platform for authorised offensive and defensive (purple-team) security research: a reverse-engineering toolchain and a choice of models behind one API key, driven by an agent harness. Metered and invite-only. |
 
 ## How I work with Claude
 
