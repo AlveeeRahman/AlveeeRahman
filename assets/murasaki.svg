@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="Purple Hollow: a purple orb held between a blue perimeter and a red vortex, watched by two sharp blue eyes">
+  <defs>
+    <filter id="blur6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="blur10" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="blur14" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="blur18" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="blur40" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter>
+    <radialGradient id="orb" cx="0.40" cy="0.34" r="0.78">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.07" stop-color="#FFD9FF"/>
+      <stop offset="0.26" stop-color="#E858FF"/>
+      <stop offset="0.52" stop-color="#9A2BE8"/>
+      <stop offset="0.78" stop-color="#4A12A0"/>
+      <stop offset="1" stop-color="#1B0846"/>
+    </radialGradient>
+    <radialGradient id="orbVoid" cx="0.5" cy="0.56" r="0.5">
+      <stop offset="0.55" stop-color="#12002E" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0A0020" stop-opacity="0.55"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0.5" x2="1" y2="0.5">
+      <stop offset="0" stop-color="#FF4D6A" stop-opacity="0.95"/>
+      <stop offset="0.5" stop-color="#D27CFF" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#4FA8FF" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="threadL" gradientUnits="userSpaceOnUse" x1="350" y1="300" x2="512" y2="598">
+      <stop offset="0" stop-color="#5FE3FF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#C96BFF" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="threadR" gradientUnits="userSpaceOnUse" x1="674" y1="300" x2="512" y2="598">
+      <stop offset="0" stop-color="#5FE3FF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#C96BFF" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8FD0FF"/>
+      <stop offset="0.5" stop-color="#3B8BFF"/>
+      <stop offset="1" stop-color="#2A5BFF"/>
+    </linearGradient>
+    <linearGradient id="violetGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9F8BFF"/>
+      <stop offset="1" stop-color="#6E4BFF"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FF6B7A"/>
+      <stop offset="0.6" stop-color="#E0243F"/>
+      <stop offset="1" stop-color="#A0122F"/>
+    </linearGradient>
+    <linearGradient id="bowlFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7A1230"/>
+      <stop offset="1" stop-color="#3A0714"/>
+    </linearGradient>
+    <radialGradient id="sclera" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0" stop-color="#F4F7FC"/>
+      <stop offset="0.8" stop-color="#DDE5F0"/>
+      <stop offset="1" stop-color="#AEBCD2"/>
+    </radialGradient>
+    <radialGradient id="iris" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.40" stop-color="#9FF0FF"/>
+      <stop offset="0.55" stop-color="#2ED8FF"/>
+      <stop offset="0.82" stop-color="#15B6F2"/>
+      <stop offset="1" stop-color="#0E7CC9"/>
+    </radialGradient>
+    <radialGradient id="pupil" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#03091C"/>
+      <stop offset="0.7" stop-color="#051538"/>
+      <stop offset="1" stop-color="#0A2A66"/>
+    </radialGradient>
+    <clipPath id="orbClip"><circle cx="512" cy="598" r="196"/></clipPath>
+  </defs>
+  
+
+  <!-- ambient glow of the orb -->
+  <circle cx="512" cy="598" r="236" fill="#8A2BE2" opacity="0.55" filter="url(#blur40)"/>
+
+  <!-- the eyes steer both forces: attention threads from each pupil into the core -->
+  <path d="M 350 300 Q 430 420 512 598" fill="none" stroke="#7FD8FF" stroke-width="10" stroke-linecap="round" opacity="0.35" filter="url(#blur10)"/>
+  <path d="M 674 300 Q 594 420 512 598" fill="none" stroke="#7FD8FF" stroke-width="10" stroke-linecap="round" opacity="0.35" filter="url(#blur10)"/>
+  <path d="M 350 300 Q 430 420 512 598" fill="none" stroke="url(#threadL)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 674 300 Q 594 420 512 598" fill="none" stroke="url(#threadR)" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- RED: the vortex arc, pulls in -->
+  <path d="M 288.2 447.0 A 270 270 0 0 0 278.2 733.0" fill="none" stroke="#E0243F" stroke-width="26" stroke-linecap="round" opacity="0.5" filter="url(#blur18)"/>
+  <path d="M 288.2 447.0 A 270 270 0 0 0 278.2 733.0" fill="none" stroke="url(#redGrad)" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- BLUE: the perimeter, pushes back and holds -->
+  <path d="M 638.8 359.6 A 270 270 0 0 1 630.4 840.7" fill="none" stroke="#3B8BFF" stroke-width="26" stroke-linecap="round" opacity="0.5" filter="url(#blur18)"/>
+  <path d="M 638.8 359.6 A 270 270 0 0 1 630.4 840.7" fill="none" stroke="url(#blueGrad)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M 654.8 415.2 A 232 232 0 0 1 694.8 740.8" fill="none" stroke="url(#violetGrad)" stroke-width="8" stroke-linecap="round" opacity="0.95"/>
+
+  <!-- PURPLE: the hollow -->
+  <circle cx="512" cy="598" r="196" fill="url(#orb)"/>
+  <circle cx="512" cy="598" r="196" fill="url(#orbVoid)"/>
+  <g clip-path="url(#orbClip)">
+    <!-- environment reflections of the two forces on the glass -->
+    <circle cx="512" cy="598" r="186" fill="none" stroke="#5FA8FF" stroke-width="14" opacity="0.55" filter="url(#blur10)" stroke-dasharray="350 1168" transform="rotate(-55 512 598)"/>
+    <circle cx="512" cy="598" r="186" fill="none" stroke="#FF4D66" stroke-width="14" opacity="0.5" filter="url(#blur10)" stroke-dasharray="327 1168" transform="rotate(140 512 598)"/>
+    <!-- internal plasma wisps -->
+    <ellipse cx="542" cy="658" rx="150" ry="40" fill="#FF7DFF" opacity="0.25" filter="url(#blur18)" transform="rotate(-25 512 598)"/>
+    <ellipse cx="472" cy="698" rx="120" ry="28" fill="#C04BFF" opacity="0.3" filter="url(#blur14)" transform="rotate(20 512 598)"/>
+  </g>
+  <!-- fresnel rim and specular -->
+  <circle cx="512" cy="598" r="194" fill="none" stroke="url(#rim)" stroke-width="3.5"/>
+  <ellipse cx="450" cy="506" rx="62" ry="34" fill="#FFFFFF" opacity="0.5" filter="url(#blur10)" transform="rotate(-30 450 506)"/>
+  <circle cx="446" cy="502" r="8" fill="#FFFFFF" opacity="0.85"/>
+
+  <!-- the one point: core of the hollow -->
+  <circle cx="512" cy="598" r="40" fill="#FFE6FF" opacity="0.9" filter="url(#blur18)"/>
+  <circle cx="512" cy="598" r="18" fill="#FFFFFF" opacity="0.9" filter="url(#blur6)"/>
+  <circle cx="512" cy="598" r="9" fill="#FFFFFF"/>
+
+  <!-- RED: the cradle, takes apart -->
+  <path d="M 307.6 716.0 A 236 236 0 0 0 702.9 736.7" fill="none" stroke="#E0243F" stroke-width="70" stroke-linecap="round" opacity="0.35" filter="url(#blur18)"/>
+  <path d="M 320.3 717.8 Q 331.9 693.8 357.7 694.4" fill="none" stroke="url(#redGrad)" stroke-width="60" stroke-linecap="round"/><path d="M 320.3 717.8 Q 331.9 693.8 357.7 694.4" fill="none" stroke="url(#bowlFill)" stroke-width="46" stroke-linecap="round"/><path d="M 392.2 789.7 Q 403.3 747.7 435.7 720.1" fill="none" stroke="url(#redGrad)" stroke-width="50" stroke-linecap="round"/><path d="M 392.2 789.7 Q 403.3 747.7 435.7 720.1" fill="none" stroke="url(#bowlFill)" stroke-width="36" stroke-linecap="round"/><path d="M 472.8 820.6 Q 469.9 766.8 490.8 718.1" fill="none" stroke="url(#redGrad)" stroke-width="50" stroke-linecap="round"/><path d="M 472.8 820.6 Q 469.9 766.8 490.8 718.1" fill="none" stroke="url(#bowlFill)" stroke-width="36" stroke-linecap="round"/><path d="M 559.0 819.1 Q 561.6 771.0 539.9 729.1" fill="none" stroke="url(#redGrad)" stroke-width="48" stroke-linecap="round"/><path d="M 559.0 819.1 Q 561.6 771.0 539.9 729.1" fill="none" stroke="url(#bowlFill)" stroke-width="34" stroke-linecap="round"/><path d="M 631.8 789.7 Q 627.8 757.4 601.0 740.5" fill="none" stroke="url(#redGrad)" stroke-width="42" stroke-linecap="round"/><path d="M 631.8 789.7 Q 627.8 757.4 601.0 740.5" fill="none" stroke="url(#bowlFill)" stroke-width="28" stroke-linecap="round"/><path d="M 282.8 700.1 L 286.0 713.1 L 289.9 726.2 L 294.3 739.4 L 299.4 752.5 L 305.2 765.5 L 311.7 778.4 L 319.0 791.0 L 327.0 803.4 L 335.9 815.5 L 345.5 827.1 L 356.0 838.2 L 367.3 848.7 L 379.3 858.5 L 392.0 867.6 L 405.4 875.8 L 419.4 883.0 L 433.9 889.3 L 449.0 894.5 L 464.4 898.6 L 480.1 901.6 L 496.0 903.4 L 512.0 904.0 L 528.0 903.4 L 543.9 901.6 L 559.6 898.6 L 575.0 894.5 L 590.1 889.3 L 604.6 883.0 L 618.6 875.8 L 632.0 867.6 L 644.7 858.5 L 656.8 848.7 L 668.0 838.2 L 678.5 827.1 L 688.1 815.5 L 697.0 803.4 L 705.0 791.0 L 712.3 778.4 L 718.8 765.5 L 724.6 752.5 L 682.8 713.2 L 676.5 722.0 L 669.8 730.4 L 662.7 738.5 L 655.1 746.2 L 647.1 753.5 L 638.8 760.3 L 630.2 766.7 L 621.2 772.7 L 611.9 778.2 L 602.3 783.2 L 592.5 787.6 L 582.5 791.6 L 572.2 795.0 L 561.8 797.9 L 551.3 800.2 L 540.7 802.0 L 530.0 803.2 L 519.2 803.9 L 508.4 804.0 L 497.6 803.5 L 486.9 802.5 L 476.2 800.9 L 465.7 798.7 L 455.2 796.0 L 444.9 792.8 L 434.8 789.0 L 424.9 784.7 L 415.3 779.9 L 405.9 774.6 L 396.8 768.8 L 388.0 762.5 L 379.6 755.8 L 371.5 748.7 L 363.8 741.1 L 356.5 733.1 L 349.7 724.8 L 343.3 716.2 L 337.3 707.2 L 331.8 697.9 L 326.8 688.3 Z" fill="url(#bowlFill)" stroke="url(#redGrad)" stroke-width="8" stroke-linejoin="round"/>
+
+  <!-- EYES -->
+  
+  <g transform="translate(344 292) scale(-1 1)">
+    <clipPath id="eyeclipL"><path d="M -146.0 14.0 C -80.3 -96.6, 65.7 -105.0, 146.0 -14.0 C 80.3 46.2, -73.0 46.2, -146.0 14.0 Z"/></clipPath>
+    <!-- glow under the eye -->
+    <path d="M -146.0 14.0 C -80.3 -96.6, 65.7 -105.0, 146.0 -14.0 C 80.3 46.2, -73.0 46.2, -146.0 14.0 Z" fill="#2FD2FF" opacity="0.45" filter="url(#blur18)"/>
+    <!-- sclera -->
+    <path d="M -146.0 14.0 C -80.3 -96.6, 65.7 -105.0, 146.0 -14.0 C 80.3 46.2, -73.0 46.2, -146.0 14.0 Z" fill="url(#sclera)"/>
+    <g clip-path="url(#eyeclipL)">
+      <!-- the eyeball is a sphere: darker towards both corners -->
+      <ellipse cx="-138.7" cy="14.0" rx="70" ry="90" fill="#8FA2BE" opacity="0.5" filter="url(#blur18)"/>
+      <ellipse cx="138.7" cy="-14.0" rx="70" ry="90" fill="#8FA2BE" opacity="0.5" filter="url(#blur18)"/>
+      <circle cx="6" cy="8" r="86" fill="#19C8FF" opacity="0.5" filter="url(#blur10)"/>
+      <circle cx="6" cy="8" r="74" fill="url(#iris)"/>
+      <!-- white blooms low in the iris -->
+      <ellipse cx="-28" cy="48" rx="26" ry="14" fill="#FFFFFF" opacity="0.85" filter="url(#blur6)"/>
+      <ellipse cx="48" cy="38" rx="18" ry="12" fill="#FFFFFF" opacity="0.7" filter="url(#blur6)"/>
+      <ellipse cx="12" cy="62" rx="30" ry="10" fill="#FFFFFF" opacity="0.6" filter="url(#blur6)"/>
+      <line x1="40.0" y1="8.0" x2="53.0" y2="8.0" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="1.8" stroke-linecap="round"/><line x1="45.6" y1="18.6" x2="64.0" y2="23.5" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="2.7" stroke-linecap="round"/><line x1="41.0" y1="22.8" x2="73.2" y2="36.5" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="1.8" stroke-linecap="round"/><line x1="36.0" y1="26.0" x2="54.0" y2="36.8" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="2.7" stroke-linecap="round"/><line x1="35.2" y1="38.2" x2="53.9" y2="57.6" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round"/><line x1="28.9" y1="39.6" x2="36.6" y2="50.1" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="2.7" stroke-linecap="round"/><line x1="22.9" y1="39.8" x2="36.5" y2="65.4" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="1.8" stroke-linecap="round"/><line x1="20.7" y1="48.4" x2="22.4" y2="53.1" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="2.7" stroke-linecap="round"/><line x1="9.5" y1="47.8" x2="11.3" y2="68.8" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="1.8" stroke-linecap="round"/><line x1="4.1" y1="44.9" x2="2.1" y2="81.9" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="2.7" stroke-linecap="round"/><line x1="-0.5" y1="41.4" x2="-4.9" y2="64.0" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round"/><line x1="-12.0" y1="44.9" x2="-24.7" y2="70.9" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="2.7" stroke-linecap="round"/><line x1="-15.2" y1="39.5" x2="-23.6" y2="51.9" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="1.8" stroke-linecap="round"/><line x1="-17.4" y1="34.0" x2="-38.2" y2="57.0" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="2.7" stroke-linecap="round"/><line x1="-26.2" y1="35.0" x2="-31.5" y2="39.5" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="1.8" stroke-linecap="round"/><line x1="-29.3" y1="24.5" x2="-50.2" y2="34.2" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="2.7" stroke-linecap="round"/><line x1="-28.4" y1="18.5" x2="-65.7" y2="29.9" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round"/><line x1="-36.5" y1="14.7" x2="-51.3" y2="17.1" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="2.7" stroke-linecap="round"/><line x1="-33.8" y1="3.8" x2="-64.6" y2="0.6" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="1.8" stroke-linecap="round"/><line x1="-29.9" y1="-1.0" x2="-46.4" y2="-5.1" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="2.7" stroke-linecap="round"/><line x1="-25.5" y1="-4.7" x2="-56.1" y2="-17.1" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="1.8" stroke-linecap="round"/><line x1="-29.5" y1="-12.5" x2="-37.3" y2="-17.0" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="2.7" stroke-linecap="round"/><line x1="-20.9" y1="-18.9" x2="-38.5" y2="-36.5" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round"/><line x1="-15.1" y1="-20.0" x2="-39.7" y2="-52.7" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="2.7" stroke-linecap="round"/><line x1="-14.4" y1="-28.7" x2="-22.6" y2="-43.6" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="1.8" stroke-linecap="round"/><line x1="-3.4" y1="-29.8" x2="-11.4" y2="-61.9" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="2.7" stroke-linecap="round"/><line x1="2.2" y1="-27.8" x2="0.3" y2="-46.7" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="1.8" stroke-linecap="round"/><line x1="7.5" y1="-35.0" x2="8.4" y2="-60.0" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="2.7" stroke-linecap="round"/><line x1="12.9" y1="-31.4" x2="14.9" y2="-42.2" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round"/><line x1="21.6" y1="-25.5" x2="33.0" y2="-50.0" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="2.7" stroke-linecap="round"/><line x1="24.5" y1="-20.5" x2="31.6" y2="-31.4" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="1.8" stroke-linecap="round"/><line x1="32.9" y1="-22.9" x2="45.4" y2="-37.3" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="2.7" stroke-linecap="round"/><line x1="37.5" y1="-13.2" x2="66.5" y2="-32.8" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="1.8" stroke-linecap="round"/><line x1="37.5" y1="-7.3" x2="56.3" y2="-16.5" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="2.7" stroke-linecap="round"/><line x1="45.9" y1="-5.0" x2="71.6" y2="-13.3" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round"/><line x1="44.4" y1="1.2" x2="57.2" y2="-1.0" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="2.7" stroke-linecap="round"/>
+      <!-- limbal ring, heavier at the top -->
+      <circle cx="6" cy="8" r="73" fill="none" stroke="#082356" stroke-width="3.5" opacity="0.9"/>
+      <circle cx="6" cy="8" r="71" fill="none" stroke="#082356" stroke-width="6" opacity="0.6" stroke-dasharray="200 446" transform="rotate(200 6 8)"/>
+      <!-- pupil -->
+      <circle cx="6" cy="8" r="34" fill="#0A2A66" opacity="0.8"/>
+      <circle cx="6" cy="8" r="31" fill="url(#pupil)"/>
+      <!-- the upper lid casts a soft shadow onto the eyeball -->
+      <path d="M -146.0 14.0 C -80.3 -96.6, 65.7 -105.0, 146.0 -14.0 L 146.0 -94.0 L -146.0 -66.0 Z" fill="#061A3E" opacity="0.55" filter="url(#blur10)"/>
+      <!-- inner corner (caruncle) -->
+      <ellipse cx="-132.0" cy="16.0" rx="16" ry="9" fill="#E9A9B6" opacity="0.8" filter="url(#blur6)"/>
+      <!-- waterline: a light wet edge along the lower lid -->
+      <path d="M 146.0 -14.0 C 80.3 46.2, -73.0 46.2, -146.0 14.0" fill="none" stroke="#F6F9FF" stroke-width="5" opacity="0.8" transform="translate(0 -3)"/>
+    </g>
+    <!-- lids -->
+    <path d="M -146.0 14.0 C -80.3 -96.6, 65.7 -105.0, 146.0 -14.0 C 65.7 -139.0, -80.3 -124.6, -146.0 14.0 Z" fill="#0A1222"/>
+    <path d="M 146.0 -14.0 C 80.3 46.2, -73.0 46.2, -146.0 14.0" fill="none" stroke="#1E2A44" stroke-width="3" stroke-linecap="round" opacity="0.9" transform="translate(0 3)"/>
+    <!-- sharp flick at the outer corner -->
+    <path d="M 142.0 -12.0 L 170.0 -28.0" stroke="#0A1222" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  
+  <g transform="translate(680 292) scale(1 1)">
+    <clipPath id="eyeclipR"><path d="M -146.0 14.0 C -80.3 -96.6, 65.7 -105.0, 146.0 -14.0 C 80.3 46.2, -73.0 46.2, -146.0 14.0 Z"/></clipPath>
+    <!-- glow under the eye -->
+    <path d="M -146.0 14.0 C -80.3 -96.6, 65.7 -105.0, 146.0 -14.0 C 80.3 46.2, -73.0 46.2, -146.0 14.0 Z" fill="#2FD2FF" opacity="0.45" filter="url(#blur18)"/>
+    <!-- sclera -->
+    <path d="M -146.0 14.0 C -80.3 -96.6, 65.7 -105.0, 146.0 -14.0 C 80.3 46.2, -73.0 46.2, -146.0 14.0 Z" fill="url(#sclera)"/>
+    <g clip-path="url(#eyeclipR)">
+      <!-- the eyeball is a sphere: darker towards both corners -->
+      <ellipse cx="-138.7" cy="14.0" rx="70" ry="90" fill="#8FA2BE" opacity="0.5" filter="url(#blur18)"/>
+      <ellipse cx="138.7" cy="-14.0" rx="70" ry="90" fill="#8FA2BE" opacity="0.5" filter="url(#blur18)"/>
+      <circle cx="6" cy="8" r="86" fill="#19C8FF" opacity="0.5" filter="url(#blur10)"/>
+      <circle cx="6" cy="8" r="74" fill="url(#iris)"/>
+      <!-- white blooms low in the iris -->
+      <ellipse cx="-28" cy="48" rx="26" ry="14" fill="#FFFFFF" opacity="0.85" filter="url(#blur6)"/>
+      <ellipse cx="48" cy="38" rx="18" ry="12" fill="#FFFFFF" opacity="0.7" filter="url(#blur6)"/>
+      <ellipse cx="12" cy="62" rx="30" ry="10" fill="#FFFFFF" opacity="0.6" filter="url(#blur6)"/>
+      <line x1="40.0" y1="8.0" x2="53.0" y2="8.0" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="1.8" stroke-linecap="round"/><line x1="45.6" y1="18.6" x2="64.0" y2="23.5" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="2.7" stroke-linecap="round"/><line x1="41.0" y1="22.8" x2="73.2" y2="36.5" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="1.8" stroke-linecap="round"/><line x1="36.0" y1="26.0" x2="54.0" y2="36.8" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="2.7" stroke-linecap="round"/><line x1="35.2" y1="38.2" x2="53.9" y2="57.6" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round"/><line x1="28.9" y1="39.6" x2="36.6" y2="50.1" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="2.7" stroke-linecap="round"/><line x1="22.9" y1="39.8" x2="36.5" y2="65.4" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="1.8" stroke-linecap="round"/><line x1="20.7" y1="48.4" x2="22.4" y2="53.1" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="2.7" stroke-linecap="round"/><line x1="9.5" y1="47.8" x2="11.3" y2="68.8" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="1.8" stroke-linecap="round"/><line x1="4.1" y1="44.9" x2="2.1" y2="81.9" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="2.7" stroke-linecap="round"/><line x1="-0.5" y1="41.4" x2="-4.9" y2="64.0" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round"/><line x1="-12.0" y1="44.9" x2="-24.7" y2="70.9" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="2.7" stroke-linecap="round"/><line x1="-15.2" y1="39.5" x2="-23.6" y2="51.9" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="1.8" stroke-linecap="round"/><line x1="-17.4" y1="34.0" x2="-38.2" y2="57.0" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="2.7" stroke-linecap="round"/><line x1="-26.2" y1="35.0" x2="-31.5" y2="39.5" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="1.8" stroke-linecap="round"/><line x1="-29.3" y1="24.5" x2="-50.2" y2="34.2" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="2.7" stroke-linecap="round"/><line x1="-28.4" y1="18.5" x2="-65.7" y2="29.9" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round"/><line x1="-36.5" y1="14.7" x2="-51.3" y2="17.1" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="2.7" stroke-linecap="round"/><line x1="-33.8" y1="3.8" x2="-64.6" y2="0.6" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="1.8" stroke-linecap="round"/><line x1="-29.9" y1="-1.0" x2="-46.4" y2="-5.1" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="2.7" stroke-linecap="round"/><line x1="-25.5" y1="-4.7" x2="-56.1" y2="-17.1" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="1.8" stroke-linecap="round"/><line x1="-29.5" y1="-12.5" x2="-37.3" y2="-17.0" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="2.7" stroke-linecap="round"/><line x1="-20.9" y1="-18.9" x2="-38.5" y2="-36.5" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round"/><line x1="-15.1" y1="-20.0" x2="-39.7" y2="-52.7" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="2.7" stroke-linecap="round"/><line x1="-14.4" y1="-28.7" x2="-22.6" y2="-43.6" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="1.8" stroke-linecap="round"/><line x1="-3.4" y1="-29.8" x2="-11.4" y2="-61.9" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="2.7" stroke-linecap="round"/><line x1="2.2" y1="-27.8" x2="0.3" y2="-46.7" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="1.8" stroke-linecap="round"/><line x1="7.5" y1="-35.0" x2="8.4" y2="-60.0" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="2.7" stroke-linecap="round"/><line x1="12.9" y1="-31.4" x2="14.9" y2="-42.2" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round"/><line x1="21.6" y1="-25.5" x2="33.0" y2="-50.0" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="2.7" stroke-linecap="round"/><line x1="24.5" y1="-20.5" x2="31.6" y2="-31.4" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="1.8" stroke-linecap="round"/><line x1="32.9" y1="-22.9" x2="45.4" y2="-37.3" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="2.7" stroke-linecap="round"/><line x1="37.5" y1="-13.2" x2="66.5" y2="-32.8" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="1.8" stroke-linecap="round"/><line x1="37.5" y1="-7.3" x2="56.3" y2="-16.5" stroke="#0B2F6E" stroke-opacity="0.40" stroke-width="2.7" stroke-linecap="round"/><line x1="45.9" y1="-5.0" x2="71.6" y2="-13.3" stroke="#0B2F6E" stroke-opacity="0.55" stroke-width="1.8" stroke-linecap="round"/><line x1="44.4" y1="1.2" x2="57.2" y2="-1.0" stroke="#0B2F6E" stroke-opacity="0.70" stroke-width="2.7" stroke-linecap="round"/>
+      <!-- limbal ring, heavier at the top -->
+      <circle cx="6" cy="8" r="73" fill="none" stroke="#082356" stroke-width="3.5" opacity="0.9"/>
+      <circle cx="6" cy="8" r="71" fill="none" stroke="#082356" stroke-width="6" opacity="0.6" stroke-dasharray="200 446" transform="rotate(200 6 8)"/>
+      <!-- pupil -->
+      <circle cx="6" cy="8" r="34" fill="#0A2A66" opacity="0.8"/>
+      <circle cx="6" cy="8" r="31" fill="url(#pupil)"/>
+      <!-- the upper lid casts a soft shadow onto the eyeball -->
+      <path d="M -146.0 14.0 C -80.3 -96.6, 65.7 -105.0, 146.0 -14.0 L 146.0 -94.0 L -146.0 -66.0 Z" fill="#061A3E" opacity="0.55" filter="url(#blur10)"/>
+      <!-- inner corner (caruncle) -->
+      <ellipse cx="-132.0" cy="16.0" rx="16" ry="9" fill="#E9A9B6" opacity="0.8" filter="url(#blur6)"/>
+      <!-- waterline: a light wet edge along the lower lid -->
+      <path d="M 146.0 -14.0 C 80.3 46.2, -73.0 46.2, -146.0 14.0" fill="none" stroke="#F6F9FF" stroke-width="5" opacity="0.8" transform="translate(0 -3)"/>
+    </g>
+    <!-- lids -->
+    <path d="M -146.0 14.0 C -80.3 -96.6, 65.7 -105.0, 146.0 -14.0 C 65.7 -139.0, -80.3 -124.6, -146.0 14.0 Z" fill="#0A1222"/>
+    <path d="M 146.0 -14.0 C 80.3 46.2, -73.0 46.2, -146.0 14.0" fill="none" stroke="#1E2A44" stroke-width="3" stroke-linecap="round" opacity="0.9" transform="translate(0 3)"/>
+    <!-- sharp flick at the outer corner -->
+    <path d="M 142.0 -12.0 L 170.0 -28.0" stroke="#0A1222" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>
