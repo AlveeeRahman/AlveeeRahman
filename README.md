@@ -25,7 +25,7 @@ Two of my own, still in active development.
 | | Project | What it does |
 |---|---|---|
 | <img src="assets/tigerocr.png" width="44" alt=""> | [TigerOCR](https://tigerocr.buildforpeople.dev) | Hosted GPU OCR: send a PDF or image, get clean Markdown back with tables and formulas preserved. A remote MCP server and REST API, billed by the GPU second. In beta. |
-| <img src="assets/murasaki.png" width="44" alt=""> | A purple-team platform for authorized security research: an LLM-driven reverse-engineering toolchain (Ghidra, radare2, binwalk, QEMU), malware detection (YARA and a malware-as-image CNN), and threat modeling mapped to CVSS and ATT&CK for ICS, behind one API or MCP endpoint and driven by an agent harness. Offense and its defense in one service, with power-grid / ICS research in mind. Built and tested, MIT and self-hostable on Azure; invite-only when hosted. |
+| <img src="assets/murasaki.png" width="44" alt=""> | [Murasaki]| A purple-team platform for authorized security research: an LLM-driven reverse-engineering toolchain (Ghidra, radare2, binwalk, QEMU), malware detection (YARA and a malware-as-image CNN), and threat modeling mapped to CVSS and ATT&CK for ICS, behind one API or MCP endpoint and driven by an agent harness. Offense and its defense in one service, with power-grid / ICS research in mind. Built and tested, MIT and self-hostable on Azure; invite-only when hosted. |
 
 ## How I work with Claude
 
