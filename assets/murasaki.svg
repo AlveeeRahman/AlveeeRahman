@@ -71,12 +71,6 @@
   <!-- ambient glow of the orb -->
   <circle cx="512" cy="598" r="236" fill="#8A2BE2" opacity="0.55" filter="url(#blur40)"/>
 
-  <!-- the eyes steer both forces: attention threads from each pupil into the core -->
-  <path d="M 350 300 Q 430 420 512 598" fill="none" stroke="#7FD8FF" stroke-width="10" stroke-linecap="round" opacity="0.35" filter="url(#blur10)"/>
-  <path d="M 674 300 Q 594 420 512 598" fill="none" stroke="#7FD8FF" stroke-width="10" stroke-linecap="round" opacity="0.35" filter="url(#blur10)"/>
-  <path d="M 350 300 Q 430 420 512 598" fill="none" stroke="url(#threadL)" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M 674 300 Q 594 420 512 598" fill="none" stroke="url(#threadR)" stroke-width="2.5" stroke-linecap="round"/>
-
   <!-- RED: the vortex arc, pulls in -->
   <path d="M 288.2 447.0 A 270 270 0 0 0 278.2 733.0" fill="none" stroke="#E0243F" stroke-width="26" stroke-linecap="round" opacity="0.5" filter="url(#blur18)"/>
   <path d="M 288.2 447.0 A 270 270 0 0 0 278.2 733.0" fill="none" stroke="url(#redGrad)" stroke-width="14" stroke-linecap="round"/>
@@ -108,8 +102,8 @@
   <circle cx="512" cy="598" r="9" fill="#FFFFFF"/>
 
   <!-- RED: the cradle, takes apart -->
-  <path d="M 307.6 716.0 A 236 236 0 0 0 702.9 736.7" fill="none" stroke="#E0243F" stroke-width="70" stroke-linecap="round" opacity="0.35" filter="url(#blur18)"/>
-  <path d="M 320.3 717.8 Q 331.9 693.8 357.7 694.4" fill="none" stroke="url(#redGrad)" stroke-width="60" stroke-linecap="round"/><path d="M 320.3 717.8 Q 331.9 693.8 357.7 694.4" fill="none" stroke="url(#bowlFill)" stroke-width="46" stroke-linecap="round"/><path d="M 392.2 789.7 Q 403.3 747.7 435.7 720.1" fill="none" stroke="url(#redGrad)" stroke-width="50" stroke-linecap="round"/><path d="M 392.2 789.7 Q 403.3 747.7 435.7 720.1" fill="none" stroke="url(#bowlFill)" stroke-width="36" stroke-linecap="round"/><path d="M 472.8 820.6 Q 469.9 766.8 490.8 718.1" fill="none" stroke="url(#redGrad)" stroke-width="50" stroke-linecap="round"/><path d="M 472.8 820.6 Q 469.9 766.8 490.8 718.1" fill="none" stroke="url(#bowlFill)" stroke-width="36" stroke-linecap="round"/><path d="M 559.0 819.1 Q 561.6 771.0 539.9 729.1" fill="none" stroke="url(#redGrad)" stroke-width="48" stroke-linecap="round"/><path d="M 559.0 819.1 Q 561.6 771.0 539.9 729.1" fill="none" stroke="url(#bowlFill)" stroke-width="34" stroke-linecap="round"/><path d="M 631.8 789.7 Q 627.8 757.4 601.0 740.5" fill="none" stroke="url(#redGrad)" stroke-width="42" stroke-linecap="round"/><path d="M 631.8 789.7 Q 627.8 757.4 601.0 740.5" fill="none" stroke="url(#bowlFill)" stroke-width="28" stroke-linecap="round"/><path d="M 282.8 700.1 L 286.0 713.1 L 289.9 726.2 L 294.3 739.4 L 299.4 752.5 L 305.2 765.5 L 311.7 778.4 L 319.0 791.0 L 327.0 803.4 L 335.9 815.5 L 345.5 827.1 L 356.0 838.2 L 367.3 848.7 L 379.3 858.5 L 392.0 867.6 L 405.4 875.8 L 419.4 883.0 L 433.9 889.3 L 449.0 894.5 L 464.4 898.6 L 480.1 901.6 L 496.0 903.4 L 512.0 904.0 L 528.0 903.4 L 543.9 901.6 L 559.6 898.6 L 575.0 894.5 L 590.1 889.3 L 604.6 883.0 L 618.6 875.8 L 632.0 867.6 L 644.7 858.5 L 656.8 848.7 L 668.0 838.2 L 678.5 827.1 L 688.1 815.5 L 697.0 803.4 L 705.0 791.0 L 712.3 778.4 L 718.8 765.5 L 724.6 752.5 L 682.8 713.2 L 676.5 722.0 L 669.8 730.4 L 662.7 738.5 L 655.1 746.2 L 647.1 753.5 L 638.8 760.3 L 630.2 766.7 L 621.2 772.7 L 611.9 778.2 L 602.3 783.2 L 592.5 787.6 L 582.5 791.6 L 572.2 795.0 L 561.8 797.9 L 551.3 800.2 L 540.7 802.0 L 530.0 803.2 L 519.2 803.9 L 508.4 804.0 L 497.6 803.5 L 486.9 802.5 L 476.2 800.9 L 465.7 798.7 L 455.2 796.0 L 444.9 792.8 L 434.8 789.0 L 424.9 784.7 L 415.3 779.9 L 405.9 774.6 L 396.8 768.8 L 388.0 762.5 L 379.6 755.8 L 371.5 748.7 L 363.8 741.1 L 356.5 733.1 L 349.7 724.8 L 343.3 716.2 L 337.3 707.2 L 331.8 697.9 L 326.8 688.3 Z" fill="url(#bowlFill)" stroke="url(#redGrad)" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M 352.0 706.0 C 359.7 642.0, 408.3 642.0, 416.0 706.0 C 423.7 642.0, 472.3 642.0, 480.0 706.0 C 487.7 642.0, 536.3 642.0, 544.0 706.0 C 551.7 642.0, 600.3 642.0, 608.0 706.0 C 615.7 642.0, 664.3 642.0, 672.0 706.0 C 716.0 758.0, 642.0 830.0, 512.0 828.0 C 382.0 830.0, 308.0 758.0, 352.0 706.0 Z" fill="#E0243F" opacity="0.4" filter="url(#blur18)"/>
+  <path d="M 352.0 706.0 C 359.7 642.0, 408.3 642.0, 416.0 706.0 C 423.7 642.0, 472.3 642.0, 480.0 706.0 C 487.7 642.0, 536.3 642.0, 544.0 706.0 C 551.7 642.0, 600.3 642.0, 608.0 706.0 C 615.7 642.0, 664.3 642.0, 672.0 706.0 C 716.0 758.0, 642.0 830.0, 512.0 828.0 C 382.0 830.0, 308.0 758.0, 352.0 706.0 Z" fill="url(#bowlFill)" stroke="url(#redGrad)" stroke-width="8" stroke-linejoin="round"/>
 
   <!-- EYES -->
   
