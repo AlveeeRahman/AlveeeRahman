@@ -1,6 +1,6 @@
 """DS-style animated pixel icons: 64 x 64 sprites with cel shading, coloured outlines, glints and eased motion.
 
-Run with numpy and Pillow installed: python3 assets/pixel/make_pixels.py. Writes out_hd/<name>.gif (128 px, nearest-neighbour 2x) and a review sheet.
+Run with numpy, scipy and Pillow installed: python3 assets/pixel/make_pixels.py. The car is traced from logo_car.png (the OpenCarMind logo cut-out).
 """
 import math
 import os
@@ -135,41 +135,95 @@ def tile(cv, top, bottom=None, edge="#4b5260", radius=12):
 
 
 # ===================================================================== the eight projects
+# The car is traced from the OpenCarMind logo cut-out at pixel size, so the sprite keeps the logo's shape.
+LOGO_CAR = os.environ.get("OCM_LOGO_CAR", os.path.join(os.path.dirname(os.path.abspath(__file__)), "logo_car.png"))
+
+
+def _car_parts(width=46):
+    from scipy import ndimage
+    src = np.array(Image.open(LOGO_CAR).convert("RGBA")).astype(float)
+    amber = (src[..., 0] > 150) & (src[..., 2] < 140) & (src[..., 3] > 40)
+    alpha = src[..., 3] / 255
+    ys, xs = np.where(alpha > 0.05)
+    box = (slice(ys.min(), ys.max() + 1), slice(xs.min(), xs.max() + 1))
+    h = round(width * (ys.max() - ys.min()) / (xs.max() - xs.min()))
+
+    def small(a):
+        im = Image.fromarray((np.clip(a[box], 0, 1) * 255).astype(np.uint8)).resize((width, h), Image.LANCZOS)
+        return np.array(im) > 127
+    body, chip = small(np.where(amber, 0, alpha)), small(amber.astype(float))
+    filled = ndimage.binary_fill_holes(body | chip)
+    holes = filled & ~body & ~chip
+    lab, k = ndimage.label(holes)
+    parts = {"windshield": np.zeros_like(holes), "lights": np.zeros_like(holes), "grille": np.zeros_like(holes)}
+    for i in range(1, k + 1):
+        m = lab == i
+        cy, cx = np.argwhere(m).mean(0)
+        if cy < h * 0.42:
+            parts["windshield"] |= m
+        elif abs(cx - width / 2) > width * 0.2:
+            parts["lights"] |= m
+        else:
+            parts["grille"] |= m
+    d = ndimage.distance_transform_edt(body)
+    gy, gx = np.gradient(np.minimum(d, 2.5))
+    return body, chip, parts, gx, gy
+
+
+_CAR = None
+
+
 def opencarmind(f):
+    global _CAR
+    if _CAR is None:
+        _CAR = _car_parts()
+    body, chip, parts, gx, gy = _CAR
+    h, w = body.shape
     cv = Canvas(); tile(cv, "#16a08d", "#0a554f", edge=None)
     t = f / FRAMES
-    # road in perspective, with dashes flowing toward the viewer
-    for k in range(18):
+    for k in range(18):                                                          # road in perspective
         y = 63 - k
         half = 3 + (18 - k) * 1.1
         cv.flat((YY >= y) & (YY < y + 1) & (np.abs(XX - 32) <= half), "#0b4842")
         cv.flat((YY >= y) & (YY < y + 1) & (np.abs(np.abs(XX - 32) - half) < 0.8), "#5fb8ac")
-    for k in range(3):
+    for k in range(3):                                                           # dashes flow toward the viewer
         p = (t + k / 3) % 1.0
         y = 47 + ease(p) * 16
-        hgt = 1 + p * 3
-        cv.flat((YY >= y) & (YY < y + hgt) & (np.abs(XX - 32) <= 0.6 + p * 0.9), "#e6fbf6")
+        cv.flat((YY >= y) & (YY < y + 1 + p * 3) & (np.abs(XX - 32) <= 0.6 + p * 0.9), "#e6fbf6")
     bob = 1 if 0.25 < (t * 2) % 1 < 0.75 else 0
-    oy = 9 + bob
-    cv.shadow(32, 49, 23, 3, 0.4)
-    m, n = Canvas.rbox(14, oy + 1, 36, 16, 8, 3); cv.shade(m, n, "#e3f6f1")                  # cabin
-    m, n = Canvas.rbox(18, oy + 4, 28, 10, 4, 1.5); cv.shade(m, n, "#13706a", spec=False)      # windshield
-    sweep = (t * 1.6) % 1.6 - 0.3                                                              # glass shine sweeps across
-    cv.line(18 + sweep * 30, oy + 13, 24 + sweep * 30, oy + 4, "#8fe0d4", 1.6, 0.85)
-    chip = "#f7a21b" if (f // 6) % 2 == 0 else "#c2630a"
-    m, n = Canvas.rbox(29, oy + 6, 6, 6, 1.5, 1.5); cv.shade(m, n, chip)
-    cv.line(22, oy + 9, 28, oy + 9, "#d9f3ee", 1); cv.line(36, oy + 9, 42, oy + 9, "#d9f3ee", 1)
-    m, n = Canvas.rbox(8, oy + 15, 48, 17, 7, 3.5); cv.shade(m, n, "#eefaf7")                  # body
-    m, n = Canvas.rbox(4, oy + 17, 6, 5, 2, 1.5); cv.shade(m, n, "#e3f6f1")                    # mirrors
-    m, n = Canvas.rbox(54, oy + 17, 6, 5, 2, 1.5); cv.shade(m, n, "#e3f6f1")
-    lit = (f // 6) % 2 == 0
-    for x in (16, 48):
-        m, n = Canvas.ellipsoid(x, oy + 21, 5.5, 3); cv.shade(m, n, "#ffe7a1" if lit else "#9bd7cd")
-        if lit:
-            cv.glow(x, oy + 21, 10, "#fff2b8", 0.55)
-    m, n = Canvas.rbox(24, oy + 26, 16, 3, 1.5, 1); cv.shade(m, n, "#0e6d66", spec=False)    # grille
-    for x in (12, 44):
-        m, n = Canvas.rbox(x, oy + 30, 8, 7, 2.5, 2); cv.shade(m, n, "#2b3b3a")                # wheels
+    x0, y0 = (N - w) // 2, 12 + bob
+    cv.shadow(32, y0 + h + 1, w / 2 - 2, 2.5, 0.4)
+
+    def place(m):
+        out = np.zeros((N, N), bool)
+        out[y0:y0 + h, x0:x0 + w] = m
+        return out
+
+    def place_f(a):
+        out = np.zeros((N, N))
+        out[y0:y0 + h, x0:x0 + w] = a
+        return out
+    n = np.stack([-place_f(gx), -place_f(gy), np.ones((N, N))], -1)
+    n /= np.linalg.norm(n, axis=-1, keepdims=True)
+    cv.shade(place(body), n, "#eaf8f4")
+    flat_n = np.dstack([np.zeros((N, N)), np.zeros((N, N)), np.ones((N, N))])
+    ws = place(parts["windshield"])
+    cv.shade(ws, flat_n, "#0f6a63", outline=False, spec=False)
+    sweep = (t * 1.5) % 1.5 - 0.25                                                # shine sweeps over the glass
+    sx = x0 + sweep * w
+    cv.put(ws & (np.abs((XX - sx) + (YY - y0) * 0.6) < 1.4), rgb("#9de6da"), 0.8)
+    on = (f // 6) % 2 == 0
+    lights = place(parts["lights"])
+    cv.shade(lights, flat_n, "#ffe7a1" if on else "#7cc9bd", outline=False, spec=False)
+    if on:
+        for cx in (x0 + w * 0.2, x0 + w * 0.8):
+            cv.glow(cx, y0 + h * 0.58, 9, "#fff2b8", 0.45)
+    cv.shade(place(parts["grille"]), flat_n, "#0e5f59", outline=False, spec=False)
+    m = place(chip)
+    cv.shade(m, flat_n, "#f7a21b" if on else "#c2630a", outline=False, spec=False)
+    if on:
+        cy, cx = np.argwhere(m).mean(0)
+        cv.glow(cx, cy, 5, "#ffd27a", 0.5)
     return cv
 
 
@@ -205,26 +259,36 @@ def research_hound(f):
 
 
 def skill_vision(f):
+    """Friendly, flat eyes like the original icon: no bulge and no shadow, a gentle glance and a sliding blink."""
     cv = Canvas(); tile(cv, "#232323", "#141414")
     t = f / FRAMES
-    look = math.sin(2 * math.pi * t) * 2.6
-    blink = abs(t - 0.62) < 0.05
+    look = 2.2 * math.sin(2 * math.pi * t)
+    lid = 0.0
+    if 0.56 < t < 0.72:                                                             # lid slides down and back up
+        lid = ease(1 - abs(t - 0.64) / 0.08)
     for cx in (21, 43):
-        cv.shadow(cx, 41, 9, 2, 0.35)
-        m, n = Canvas.ellipsoid(cx, 26, 11, 12); cv.shade(m, n, "#f3f4f6")
-        if blink:
-            m, n = Canvas.ellipsoid(cx, 26, 11.2, 12.2); cv.shade(m, n, "#3a3f47", spec=False)
-            cv.line(cx - 8, 28, cx + 8, 28, "#11151a", 1.2)
+        cy, rx = 25, 8.5
+        ry = 9.5 * (1 - 0.92 * lid)                                               # the eye squashes as it closes
+        if lid > 0.8:                                                              # closed: a soft curved lid line
+            for dx in np.linspace(-rx + 1, rx - 1, 40):
+                y = cy + 1.5 - 2.6 * (1 - (dx / rx) ** 2)
+                cv.flat(np.hypot(XX - (cx + dx), YY - y) < 0.9, "#d4dbe4")
             continue
-        m, n = Canvas.ellipsoid(cx + look, 27, 6.5, 7); cv.shade(m, n, "#36b4e8")
-        m, n = Canvas.ellipsoid(cx + look, 27, 3.2, 3.5); cv.shade(m, n, "#0b0f14", outline=False)
-        cv.flat(np.hypot(XX - (cx + look - 2.4), YY - 24) < 1.5, "#ffffff")
-        cv.flat(np.hypot(XX - (cx + look + 2), YY - 30) < 0.7, "#d6f2ff")
+        u, v = (XX - cx) / rx, (YY - cy) / ry
+        oval = u * u + v * v <= 1
+        cv.flat(oval, "#f4f6f8")
+        u2, v2 = (XX - cx) / rx, (YY - cy + 2.2 * ry / 9.5) / ry
+        cv.flat(oval & ~(u2 * u2 + v2 * v2 <= 1), "#d4dbe4")                        # soft shade along the bottom
+        iris = np.hypot(XX - cx - look, YY - cy - 0.8) <= 4.6
+        cv.flat(iris & oval, "#3cb8ec")
+        cv.flat(iris & oval & ~(np.hypot(XX - cx - look, YY - cy - 0.8) <= 3.6), "#2a8fc4")
+        cv.flat(oval & (np.hypot(XX - cx - look, YY - cy - 0.8) <= 2.1), "#10202e")
+        cv.flat(oval & (np.hypot(XX - cx - look + 1.7, YY - cy + 1.2) <= 1.3), "#ffffff")   # one catch-light
+        cv.put(oval & ~erode(oval), rgb("#aeb8c4"))                                     # light outline, not a dark ring
     pulse = 0.5 + 0.5 * wave(f)
     col = mix(rgb("#2c9be0"), rgb("#7fd4ff"), pulse)
-    for w, c in ((4.2, col * 0.45), (2.6, col)):
-        cv.line(23, 49, 29, 55, c, w); cv.line(29, 55, 42, 42, c, w)
-    cv.line(24, 48.5, 28.6, 53.2, "#e6f7ff", 0.8)
+    cv.line(25, 47, 30, 52, col * 0.5, 3.6); cv.line(30, 52, 40, 42, col * 0.5, 3.6)
+    cv.line(25, 47, 30, 52, col, 2.2); cv.line(30, 52, 40, 42, col, 2.2)
     return cv
 
 
