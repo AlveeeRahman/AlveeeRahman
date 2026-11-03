@@ -10,23 +10,23 @@ I have been working with AI since 2020, but never got the time to create a git f
 
 <table>
 <tr>
-<td width="72" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/research-hound"><img src="https://raw.githubusercontent.com/AlveeeRahman/research-hound/main/docs/assets/icon.png" width="48" height="48" alt="research-hound icon"></a></td>
+<td width="88" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/research-hound"><img src="assets/pixel/research-hound.gif" width="64" height="64" alt="research-hound icon, animated"></a></td>
 <td valign="middle"><a href="https://github.com/AlveeeRahman/research-hound"><b>research-hound</b></a><br>A five-stage research workflow for Claude Code, with 21 scripts that check citations and claims instead of trusting the model.</td>
 </tr>
 <tr>
-<td width="72" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/skill-vision"><img src="https://raw.githubusercontent.com/AlveeeRahman/skill-vision/main/docs/assets/icon.png" width="48" height="48" alt="skill-vision icon"></a></td>
+<td width="88" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/skill-vision"><img src="assets/pixel/skill-vision.gif" width="64" height="64" alt="skill-vision icon, animated"></a></td>
 <td valign="middle"><a href="https://github.com/AlveeeRahman/skill-vision"><b>skill-vision</b></a><br>Validates Claude Agent Skills for spec conformance, quality and security, and counts the context tokens each one costs.</td>
 </tr>
 <tr>
-<td width="72" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/agent-oracle"><img src="https://raw.githubusercontent.com/AlveeeRahman/agent-oracle/main/docs/assets/icon.png" width="48" height="48" alt="agent-oracle icon"></a></td>
+<td width="88" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/agent-oracle"><img src="assets/pixel/agent-oracle.gif" width="64" height="64" alt="agent-oracle icon, animated"></a></td>
 <td valign="middle"><a href="https://github.com/AlveeeRahman/agent-oracle"><b>agent-oracle</b></a><br>Decides how an agent system should be built before it runs, from the number of agents to what gets locked down.</td>
 </tr>
 <tr>
-<td width="72" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/mr-usage"><img src="https://raw.githubusercontent.com/AlveeeRahman/mr-usage/main/docs/assets/icon.png" width="48" height="48" alt="mr-usage icon"></a></td>
+<td width="88" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/mr-usage"><img src="assets/pixel/mr-usage.gif" width="64" height="64" alt="mr-usage icon, animated"></a></td>
 <td valign="middle"><a href="https://github.com/AlveeeRahman/mr-usage"><b>mr-usage</b></a><br>A Rust and Tauri desktop app that shows what is left on nine paid APIs, with keys kept in the OS keystore.</td>
 </tr>
 <tr>
-<td width="72" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/llm-dogfight"><img src="https://raw.githubusercontent.com/AlveeeRahman/llm-dogfight/main/docs/assets/icon.png" width="48" height="48" alt="llm-dogfight icon"></a></td>
+<td width="88" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/llm-dogfight"><img src="assets/pixel/llm-dogfight.gif" width="64" height="64" alt="llm-dogfight icon, animated"></a></td>
 <td valign="middle"><a href="https://github.com/AlveeeRahman/llm-dogfight"><b>llm-dogfight</b></a><br>Two small local language models command rival saucer fleets in your terminal while a genetic algorithm evolves their tactics.</td>
 </tr>
 </table>
@@ -39,15 +39,15 @@ Three of my own, still in active development.
 
 <table>
 <tr>
-<td width="72" align="center" valign="middle"><a href="https://tigerocr.buildforpeople.dev"><img src="assets/tigerocr.png" width="48" height="48" alt="TigerOCR icon"></a></td>
+<td width="88" align="center" valign="middle"><a href="https://tigerocr.buildforpeople.dev"><img src="assets/pixel/tigerocr.gif" width="64" height="64" alt="TigerOCR icon, animated"></a></td>
 <td valign="middle"><a href="https://tigerocr.buildforpeople.dev"><b>TigerOCR</b></a> &nbsp;<code>beta</code><br>Hosted GPU OCR that turns PDFs and images into clean Markdown, as a remote MCP server and REST API.</td>
 </tr>
 <tr>
-<td width="72" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="assets/opencarmind.png" width="48" height="48" alt="OpenCarMind icon"></a></td>
+<td width="88" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="assets/pixel/opencarmind.gif" width="64" height="64" alt="OpenCarMind icon, animated"></a></td>
 <td valign="middle"><a href="https://github.com/AlveeeRahman/OpenCarMind"><b>OpenCarMind</b></a> &nbsp;<code>beta</code><br>A car logger for the ESP32-S3 with a 93 KB on-chip neural network and a desktop app for Windows, macOS and Linux.</td>
 </tr>
 <tr>
-<td width="72" align="center" valign="middle"><img src="assets/murasaki.png" width="48" height="48" alt="Murasaki icon"></td>
+<td width="88" align="center" valign="middle"><img src="assets/pixel/murasaki.gif" width="64" height="64" alt="Murasaki icon, animated"></td>
 <td valign="middle"><b>Murasaki</b> &nbsp;<code>invite only</code><br>A purple-team platform for authorized security research, with AI-driven reverse engineering and ICS threat modeling.</td>
 </tr>
 </table>
