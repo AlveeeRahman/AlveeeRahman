@@ -1,331 +1,349 @@
-"""Pixel-art animated icons for the profile's projects: 32 x 32 grid, exported 4x with nearest-neighbour, looping GIFs."""
+"""DS-style animated pixel icons: 64 x 64 sprites with cel shading, coloured outlines, glints and eased motion.
+
+Run with numpy and Pillow installed: python3 assets/pixel/make_pixels.py. Writes out_hd/<name>.gif (128 px, nearest-neighbour 2x) and a review sheet.
+"""
 import math
 import os
+
+import numpy as np
 from PIL import Image
 
-N = 32
-SCALE = 4
-OUT = os.path.join(os.path.dirname(__file__), "out")  # run with Pillow installed: python3 assets/pixel/make_pixels.py
-CLEAR = None
+N = 64
+SCALE = 2
+FRAMES = 24
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out_hd")
+LIGHT = np.array([-0.55, -0.65, 0.52])
+LIGHT = LIGHT / np.linalg.norm(LIGHT)
+YY, XX = np.mgrid[0:N, 0:N].astype(float) + 0.5
 
 
-def hexc(h):
+def rgb(h):
     h = h.lstrip("#")
-    return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+    return np.array([int(h[i:i + 2], 16) for i in (0, 2, 4)], float)
 
 
-class Frame:
+def mix(a, b, t):
+    return a + (b - a) * t
+
+
+def ease(t):
+    """Smooth in and out, so motion slows at its ends like hand-animated sprites."""
+    return 0.5 - 0.5 * math.cos(math.pi * t)
+
+
+def wave(f, period=FRAMES, phase=0.0):
+    return math.sin(2 * math.pi * (f / period + phase))
+
+
+class Canvas:
     def __init__(self):
-        self.p = [[CLEAR] * N for _ in range(N)]
+        self.c = np.zeros((N, N, 3))
+        self.a = np.zeros((N, N))
 
-    def px(self, x, y, c):
-        if 0 <= x < N and 0 <= y < N and c is not None:
-            self.p[y][x] = hexc(c) if isinstance(c, str) else c
+    def put(self, mask, color, alpha=1.0):
+        col = color if isinstance(color, np.ndarray) and color.ndim == 3 else np.broadcast_to(np.asarray(color, float), (N, N, 3))
+        al = np.where(mask, alpha, 0.0) if np.isscalar(alpha) else np.where(mask, alpha, 0.0)
+        self.c = self.c * (1 - al[..., None]) + col * al[..., None]
+        self.a = np.maximum(self.a, np.where(mask, 1.0, self.a) if np.isscalar(alpha) and alpha >= 1 else self.a + (1 - self.a) * al)
 
-    def rect(self, x, y, w, h, c):
-        for j in range(y, y + h):
-            for i in range(x, x + w):
-                self.px(i, j, c)
-
-    def disc(self, cx, cy, r, c):
-        for j in range(N):
-            for i in range(N):
-                if (i - cx) ** 2 + (j - cy) ** 2 <= r * r + r * 0.6:
-                    self.px(i, j, c)
-
-    def ellipse(self, cx, cy, rx, ry, c):
-        for j in range(N):
-            for i in range(N):
-                if ((i - cx) / rx) ** 2 + ((j - cy) / ry) ** 2 <= 1.0:
-                    self.px(i, j, c)
-
-    def line(self, x0, y0, x1, y1, c):
-        dx, dy = abs(x1 - x0), -abs(y1 - y0)
-        sx, sy = (1 if x0 < x1 else -1), (1 if y0 < y1 else -1)
-        err = dx + dy
-        while True:
-            self.px(x0, y0, c)
-            if x0 == x1 and y0 == y1:
-                return
-            e2 = 2 * err
-            if e2 >= dy:
-                err += dy; x0 += sx
-            if e2 <= dx:
-                err += dx; y0 += sy
-
-    def tile(self, top, bottom=None, radius=6, edge="#4b5260"):
-        """Rounded tile. A gradient is drawn as four flat bands, the pixel-art way. The 1 px edge in a mid-tone keeps a
-        dark tile visible on GitHub's dark theme (#0d1117) and a light tile visible on white."""
-        bottom = bottom or top
-        t, b = hexc(top), hexc(bottom)
-        for j in range(N):
-            k = min(3, j * 4 // N) / 3
-            row = tuple(round(t[i] + (b[i] - t[i]) * k) for i in range(3))
-            for i in range(N):
-                if self.inside(i, j, radius):
-                    self.p[j][i] = row
-        if edge:
-            e = hexc(edge)
-            inside = [[self.p[j][i] is not None for i in range(N)] for j in range(N)]
-            for j in range(N):
-                for i in range(N):
-                    if inside[j][i] and any(not (0 <= i + di < N and 0 <= j + dj < N and inside[j + dj][i + di])
-                                            for di, dj in ((1, 0), (-1, 0), (0, 1), (0, -1))):
-                        self.p[j][i] = e
+    # ---------------------------------------------------------------- shapes with normals
+    @staticmethod
+    def ellipsoid(cx, cy, rx, ry):
+        u, v = (XX - cx) / rx, (YY - cy) / ry
+        d = u * u + v * v
+        mask = d <= 1.0
+        z = np.sqrt(np.clip(1 - d, 0, 1))
+        n = np.stack([u, v, z], -1)
+        n /= np.linalg.norm(n, axis=-1, keepdims=True) + 1e-9
+        return mask, n
 
     @staticmethod
-    def inside(i, j, r):
-        for cx, cy in ((r, r), (N - 1 - r, r), (r, N - 1 - r), (N - 1 - r, N - 1 - r)):
-            if (i < r and j < r and cx == r and cy == r) or (i > N - 1 - r and j < r and cx == N - 1 - r and cy == r) \
-               or (i < r and j > N - 1 - r and cx == r and cy == N - 1 - r) or (i > N - 1 - r and j > N - 1 - r and cx == N - 1 - r and cy == N - 1 - r):
-                return (i - cx) ** 2 + (j - cy) ** 2 <= r * r + 1
-        return True
+    def rbox(x, y, w, h, r, bevel=2.5):
+        # distance to a rounded rectangle, then a normal that tilts only near the edge (a bevel)
+        qx = np.abs(XX - (x + w / 2)) - (w / 2 - r)
+        qy = np.abs(YY - (y + h / 2)) - (h / 2 - r)
+        outside = np.hypot(np.maximum(qx, 0), np.maximum(qy, 0)) + np.minimum(np.maximum(qx, qy), 0) - r
+        mask = outside <= 0
+        inner = -outside
+        t = np.clip(1 - inner / bevel, 0, 1)
+        gx = np.sign(XX - (x + w / 2)) * (qx > qy) * 1.0
+        gy = np.sign(YY - (y + h / 2)) * (qy >= qx) * 1.0
+        n = np.stack([gx * t, gy * t, np.ones_like(t)], -1)
+        n /= np.linalg.norm(n, axis=-1, keepdims=True)
+        return mask, n
+
+    def shade(self, mask, n, base, outline=True, spec=True, tones=(0.18, 0.5, 0.82), out_k=0.42, alpha=1.0):
+        """Cel shading: four flat tones from the light direction, a specular glint, a darker outline of the same hue."""
+        base = rgb(base) if isinstance(base, str) else base
+        lam = np.clip(n @ LIGHT, 0, 1)
+        dark, mid, light, hi = mix(base, base * 0.55, 0.85), base, mix(base, np.array([255, 255, 255.0]), 0.28), mix(base, np.array([255, 255, 255.0]), 0.62)
+        col = np.where((lam < tones[0])[..., None], dark, mid)
+        col = np.where((lam >= tones[1])[..., None], light, col)
+        if spec:
+            r = 2 * lam[..., None] * n - LIGHT
+            s = np.clip(r[..., 2], 0, 1)
+            col = np.where(((s > 0.93) & (lam > tones[2]))[..., None], hi, col)
+        self.put(mask, col, alpha)
+        if outline:
+            edge = mask & ~erode(mask)
+            self.put(edge, base * out_k, alpha)
+
+    def flat(self, mask, color, alpha=1.0):
+        self.put(mask, rgb(color) if isinstance(color, str) else color, alpha)
+
+    def glow(self, cx, cy, r, color, strength=0.8):
+        d = np.hypot(XX - cx, YY - cy)
+        al = np.clip(1 - d / r, 0, 1) ** 2 * strength
+        # posterise the glow into three steps: soft light still reads as pixel art
+        al = np.round(al * 3) / 3
+        self.put(al > 0, rgb(color), al)
+
+    def line(self, x0, y0, x1, y1, color, width=1.0, alpha=1.0):
+        px, py = XX - x0, YY - y0
+        dx, dy = x1 - x0, y1 - y0
+        L2 = dx * dx + dy * dy or 1
+        t = np.clip((px * dx + py * dy) / L2, 0, 1)
+        d = np.hypot(px - t * dx, py - t * dy)
+        self.put(d <= width / 2 + 0.25, rgb(color) if isinstance(color, str) else color, alpha)
+
+    def shadow(self, cx, cy, rx, ry, k=0.35):
+        u, v = (XX - cx) / rx, (YY - cy) / ry
+        self.put(u * u + v * v <= 1, np.zeros(3), k)
 
 
-def save(name, frames, ms):
-    colors = sorted({c for f in frames for row in f.p for c in row if c is not None})
-    assert len(colors) <= 255, (name, len(colors))
-    palette = [0, 0, 0]  # index 0 is the transparent corner colour
-    for c in colors:
-        palette += list(c)
-    index = {c: i + 1 for i, c in enumerate(colors)}
-    imgs = []
-    for f in frames:
-        im = Image.new("P", (N, N))
-        im.putpalette(palette + [0] * (768 - len(palette)))
-        im.putdata([index[c] if c is not None else 0 for row in f.p for c in row])
-        imgs.append(im.resize((N * SCALE, N * SCALE), Image.NEAREST))
-    os.makedirs(OUT, exist_ok=True)
-    path = os.path.join(OUT, f"{name}.gif")
-    imgs[0].save(path, save_all=True, append_images=imgs[1:], duration=ms, loop=0, disposal=2, transparency=0, optimize=False)
-    return path, imgs
+def erode(m):
+    e = m.copy()
+    e[1:, :] &= m[:-1, :]; e[:-1, :] &= m[1:, :]; e[:, 1:] &= m[:, :-1]; e[:, :-1] &= m[:, 1:]
+    return e
 
 
-def stamp(F, art, x0, y0, colors):
-    """Draws a character map: each character is a colour key, '.' is left as it is."""
-    for j, line in enumerate(art.strip("\n").split("\n")):
-        for i, ch in enumerate(line):
-            if ch != "." and ch in colors:
-                F.px(x0 + i, y0 + j, colors[ch])
+def tile(cv, top, bottom=None, edge="#4b5260", radius=12):
+    """Rounded tile with a bevel: lighter top rim, darker bottom rim, banded gradient."""
+    t, b = rgb(top), rgb(bottom or top)
+    mask, _ = Canvas.rbox(0, 0, N, N, radius, bevel=1)
+    band = np.minimum(3, (YY * 4 // N)) / 3
+    col = t + (b - t) * band[..., None]
+    cv.put(mask, col)
+    inner = erode(mask)
+    rim = inner & ~erode(inner)
+    cv.put(rim & (YY < N / 2), np.minimum(t * 1.25 + 18, 255))
+    cv.put(rim & (YY >= N / 2), b * 0.7)
+    if edge:
+        cv.put(mask & ~inner, rgb(edge))
+    cv.tile_mask = mask
+    return mask
 
 
-# ------------------------------------------------------------------ projects
-CAR = """
-......MMMMMMMMMMMM......
-....MMTTTTTTTTTTTTMM....
-...MTTTTTTTTTTTTTTTTM...
-..MTTTTTTTTCCTTTTTTTTM..
-..MTTTTMMMMCCMMMMTTTTM..
-.MMMMMMMMMMMMMMMMMMMMMM.
-MMMMMMMMMMMMMMMMMMMMMMMM
-.MLLLLMMMMMMMMMMMMLLLLM.
-.MLLLLMMMMMMMMMMMMLLLLM.
-.MMMMMMMMMMMMMMMMMMMMMM.
-.MMMMMMGGGGGGGGGGMMMMMM.
-.MMMMMMMMMMMMMMMMMMMMMM.
-..MMMM............MMMM..
-..MMMM............MMMM..
-"""
+# ===================================================================== the eight projects
+def opencarmind(f):
+    cv = Canvas(); tile(cv, "#16a08d", "#0a554f", edge=None)
+    t = f / FRAMES
+    # road in perspective, with dashes flowing toward the viewer
+    for k in range(18):
+        y = 63 - k
+        half = 3 + (18 - k) * 1.1
+        cv.flat((YY >= y) & (YY < y + 1) & (np.abs(XX - 32) <= half), "#0b4842")
+        cv.flat((YY >= y) & (YY < y + 1) & (np.abs(np.abs(XX - 32) - half) < 0.8), "#5fb8ac")
+    for k in range(3):
+        p = (t + k / 3) % 1.0
+        y = 47 + ease(p) * 16
+        hgt = 1 + p * 3
+        cv.flat((YY >= y) & (YY < y + hgt) & (np.abs(XX - 32) <= 0.6 + p * 0.9), "#e6fbf6")
+    bob = 1 if 0.25 < (t * 2) % 1 < 0.75 else 0
+    oy = 9 + bob
+    cv.shadow(32, 49, 23, 3, 0.4)
+    m, n = Canvas.rbox(14, oy + 1, 36, 16, 8, 3); cv.shade(m, n, "#e3f6f1")                  # cabin
+    m, n = Canvas.rbox(18, oy + 4, 28, 10, 4, 1.5); cv.shade(m, n, "#13706a", spec=False)      # windshield
+    sweep = (t * 1.6) % 1.6 - 0.3                                                              # glass shine sweeps across
+    cv.line(18 + sweep * 30, oy + 13, 24 + sweep * 30, oy + 4, "#8fe0d4", 1.6, 0.85)
+    chip = "#f7a21b" if (f // 6) % 2 == 0 else "#c2630a"
+    m, n = Canvas.rbox(29, oy + 6, 6, 6, 1.5, 1.5); cv.shade(m, n, chip)
+    cv.line(22, oy + 9, 28, oy + 9, "#d9f3ee", 1); cv.line(36, oy + 9, 42, oy + 9, "#d9f3ee", 1)
+    m, n = Canvas.rbox(8, oy + 15, 48, 17, 7, 3.5); cv.shade(m, n, "#eefaf7")                  # body
+    m, n = Canvas.rbox(4, oy + 17, 6, 5, 2, 1.5); cv.shade(m, n, "#e3f6f1")                    # mirrors
+    m, n = Canvas.rbox(54, oy + 17, 6, 5, 2, 1.5); cv.shade(m, n, "#e3f6f1")
+    lit = (f // 6) % 2 == 0
+    for x in (16, 48):
+        m, n = Canvas.ellipsoid(x, oy + 21, 5.5, 3); cv.shade(m, n, "#ffe7a1" if lit else "#9bd7cd")
+        if lit:
+            cv.glow(x, oy + 21, 10, "#fff2b8", 0.55)
+    m, n = Canvas.rbox(24, oy + 26, 16, 3, 1.5, 1); cv.shade(m, n, "#0e6d66", spec=False)    # grille
+    for x in (12, 44):
+        m, n = Canvas.rbox(x, oy + 30, 8, 7, 2.5, 2); cv.shade(m, n, "#2b3b3a")                # wheels
+    return cv
 
 
-def opencarmind():
-    out = []
-    for f in range(12):
-        F = Frame(); F.tile("#14917f", "#0b5f58", edge=None)
-        for k in range(16):                                   # road edges converge toward the horizon
-            F.px(15 - k // 2 - 1, 30 - k, "#0a4b45" if k < 9 else None)
-            F.px(16 + k // 2 + 1, 30 - k, "#0a4b45" if k < 9 else None)
-        for k in range(2):                                    # centre dashes flow toward the viewer
-            dy = 22 + ((f + 6 * k) % 12) * 9 // 12
-            F.rect(15, dy, 2, 1 + (dy - 22) // 4, "#9fd9cf")
-        bob = 1 if f % 4 in (1, 2) else 0
-        on = f % 6 < 3
-        stamp(F, CAR, 4, 5 + bob, {"M": "#e8f5f2", "T": "#0f766e", "C": "#f59e0b" if on else "#b45309",
-                                   "L": "#fde68a" if on else "#bfe9e1", "G": "#0f766e"})
-        out.append(F)
-    return out, 110
+def research_hound(f):
+    cv = Canvas(); tile(cv, "#232323", "#141414")
+    t = f / FRAMES
+    sniff = ease((t * 4) % 1) if (t * 4) % 2 < 1 else ease(1 - (t * 4) % 1)
+    sx = sniff * 2
+    cv.shadow(22, 52, 14, 3, 0.45)
+    m, n = Canvas.ellipsoid(13 + sx * 0.3, 30, 6, 13); cv.shade(m, n, "#b4760a")              # ear behind
+    m, n = Canvas.ellipsoid(22 + sx * 0.5, 26, 13, 12); cv.shade(m, n, "#efa514")             # skull
+    m, n = Canvas.ellipsoid(35 + sx, 31, 11, 7); cv.shade(m, n, "#efa514")                    # muzzle
+    m, n = Canvas.ellipsoid(45 + sx, 29, 3.4, 3.0); cv.shade(m, n, "#2a1a10")                 # nose
+    m, n = Canvas.ellipsoid(15 + sx * 0.3, 33, 5, 11); cv.shade(m, n, "#c4800c")              # ear front
+    m, n = Canvas.ellipsoid(27 + sx * 0.6, 22, 2.6, 2.8); cv.shade(m, n, "#1c120a", outline=False)   # eye
+    cv.flat((np.hypot(XX - 26.4 - sx * 0.6, YY - 21) < 0.9), "#ffffff")
+    m, n = Canvas.rbox(17, 37, 13, 9, 4, 2); cv.shade(m, n, "#e19b12")                         # neck
+    if sniff > 0.6:
+        for k, (dx, dy) in enumerate(((5, -4), (7, -1), (6, 3))):
+            cv.flat(np.hypot(XX - 49 - sx - dx * 0.4, YY - 29 - dy) < 0.9, "#9aa0a6", 0.8)
+    # page with a folded corner, lines turning into checks one by one
+    m, n = Canvas.rbox(38, 36, 20, 22, 2, 1.5); cv.shade(m, n, "#fbfbf8", spec=False)
+    cv.flat((XX >= 52) & (YY < 42) & (XX - 52 > YY - 36), "#141414")
+    cv.flat((XX >= 52) & (YY < 42) & (XX - 52 <= YY - 36) & (XX < 58) & (YY >= 36), "#cfcfca")
+    for k, y in enumerate((43, 47, 51)):
+        done = t > 0.35 + k * 0.17
+        cv.flat((YY >= y) & (YY < y + 1.5) & (XX >= (47 if done else 41)) & (XX <= 54), "#b9b9b4")
+        if done:
+            pop = min(1.0, (t - (0.35 + k * 0.17)) * 10)
+            cv.line(41, y + 0.5, 42.5, y + 2 * pop, "#16a34a", 1.4)
+            cv.line(42.5, y + 2 * pop, 45, y - 1.5 * pop, "#16a34a", 1.4)
+    return cv
 
 
-HOUND = """
-.....AAAAA..........
-...AAAAAAAAA........
-..DAAAAAAAAAA.......
-.DDAAAAAAAAAAA......
-.DDAAAKKAAAAAAA.....
-DDDAAAKKAAAAAAAAAA..
-DDDAAAAAAAAAAAAAAAAK
-DDDAAAAAAAAAAAAAAAKK
-DDDDAAAAAAAAAAAAAA..
-DDDDAAAAAAAAAAAAA...
-.DDDDAAAAAAAA.......
-..DDDAAAAAAA........
-...DDAAAAAA.........
-.....AAAAAA.........
-.....AAAAAA.........
-"""
-PAGE = """
-WWWWWWWFF.
-WWWWWWWFFF
-WWWWWWWWWW
-WWWWWWWWWW
-WWWWWWWWWW
-WWWWWWWWWW
-WWWWWWWWWW
-WWWWWWWWWW
-WWWWWWWWWW
-WWWWWWWWWW
-"""
+def skill_vision(f):
+    cv = Canvas(); tile(cv, "#232323", "#141414")
+    t = f / FRAMES
+    look = math.sin(2 * math.pi * t) * 2.6
+    blink = abs(t - 0.62) < 0.05
+    for cx in (21, 43):
+        cv.shadow(cx, 41, 9, 2, 0.35)
+        m, n = Canvas.ellipsoid(cx, 26, 11, 12); cv.shade(m, n, "#f3f4f6")
+        if blink:
+            m, n = Canvas.ellipsoid(cx, 26, 11.2, 12.2); cv.shade(m, n, "#3a3f47", spec=False)
+            cv.line(cx - 8, 28, cx + 8, 28, "#11151a", 1.2)
+            continue
+        m, n = Canvas.ellipsoid(cx + look, 27, 6.5, 7); cv.shade(m, n, "#36b4e8")
+        m, n = Canvas.ellipsoid(cx + look, 27, 3.2, 3.5); cv.shade(m, n, "#0b0f14", outline=False)
+        cv.flat(np.hypot(XX - (cx + look - 2.4), YY - 24) < 1.5, "#ffffff")
+        cv.flat(np.hypot(XX - (cx + look + 2), YY - 30) < 0.7, "#d6f2ff")
+    pulse = 0.5 + 0.5 * wave(f)
+    col = mix(rgb("#2c9be0"), rgb("#7fd4ff"), pulse)
+    for w, c in ((4.2, col * 0.45), (2.6, col)):
+        cv.line(23, 49, 29, 55, c, w); cv.line(29, 55, 42, 42, c, w)
+    cv.line(24, 48.5, 28.6, 53.2, "#e6f7ff", 0.8)
+    return cv
 
 
-def research_hound():
-    out = []
-    for f in range(12):
-        F = Frame(); F.tile("#191919")
-        sniff = 1 if f % 4 in (1, 2) else 0
-        stamp(F, HOUND, 3 + sniff, 6, {"A": "#eca208", "D": "#b97c06", "K": "#191919"})
-        if sniff:
-            F.px(24 + sniff, 10, "#8a8a8a"); F.px(25 + sniff, 12, "#8a8a8a")
-        stamp(F, PAGE, 19, 19, {"W": "#fdfefd", "F": "#c9c9c9"})
-        for k, yy in enumerate((22, 24, 26)):
-            if f >= 6 + 2 * k:
-                F.px(20, yy, "#16a34a"); F.px(21, yy + 1, "#16a34a"); F.px(22, yy, "#16a34a"); F.px(23, yy - 1, "#16a34a")
-                F.rect(24, yy, 3, 1, "#b8b8b8")
-            else:
-                F.rect(20, yy, 7, 1, "#b8b8b8")
-        out.append(F)
-    return out, 140
+def agent_oracle(f):
+    cv = Canvas(); tile(cv, "#232323", "#141414")
+    t = f / FRAMES
+    cv.shadow(32, 55, 16, 3, 0.45)
+    m, n = Canvas.rbox(17, 46, 30, 6, 3, 2); cv.shade(m, n, "#e8dcc0")                          # stand
+    m, n = Canvas.rbox(21, 42, 22, 6, 2.5, 2); cv.shade(m, n, "#fbf5e3")
+    cv.glow(32, 26, 24, "#c9b4ef", 0.35)
+    m, n = Canvas.ellipsoid(32, 26, 18, 18); cv.shade(m, n, "#c8b4e6", spec=False)               # glass
+    # the network inside turns in 3D: nodes on a tilted ring, nearer ones larger and brighter
+    a0 = 2 * math.pi * t
+    pts = []
+    for k in range(4):
+        a = a0 + k * math.pi / 2
+        x, z = math.cos(a) * 12, math.sin(a)
+        y = math.sin(a) * 5
+        pts.append((32 + x, 26 + y - 1, z))
+    for x, y, z in pts:
+        cv.line(32, 25, x, y, mix(rgb("#5b4a86"), rgb("#8d7bb8"), 0.5 + 0.5 * z), 2.4)
+        cv.line(32, 25, x, y, mix(rgb("#ffffff"), rgb("#d9cdf2"), 0.5 - 0.5 * z), 1.1)
+    for x, y, z in sorted(pts, key=lambda p: p[2]):
+        r = 2.6 + z * 0.9
+        m, n = Canvas.ellipsoid(x, y, r, r); cv.shade(m, n, "#ffffff" if z > 0 else "#ece6fa", out_k=0.45)
+    m, n = Canvas.ellipsoid(32, 25, 3.2, 3.2); cv.shade(m, n, "#ffffff", out_k=0.45)
+    cv.line(21, 18, 26, 12, "#f4efff", 1.6, 0.9)                                                  # glass reflection
+    cv.flat(np.hypot(XX - 24, YY - 20) < 1.2, "#ffffff")
+    m, _ = Canvas.ellipsoid(32, 26, 18, 18); cv.put(m & ~erode(m), rgb("#6d5a94"))
+    if (f // 3) % 4 == 0:                                                                          # twinkle
+        for dx, dy in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1)):
+            cv.flat((np.abs(XX - 46.5 - dx) < 0.5) & (np.abs(YY - 11.5 - dy) < 0.5), "#ffffff")
+    return cv
 
 
-def skill_vision():
-    out = []
-    look = [0, 0, 1, 1, 1, 0, 0, -1, -1, -1, 0, 0]
-    for f in range(12):
-        F = Frame(); F.tile("#191919")
-        blink = f == 5
-        for cx in (10, 21):
-            if blink:
-                F.rect(cx - 5, 13, 11, 1, "#f5f5f5")
-            else:
-                F.disc(cx, 13, 5, "#f5f5f5")
-                F.disc(cx + look[f], 13, 3, "#4cc9f0")
-                F.disc(cx + look[f], 13, 1, "#0b0b0b")
-                F.px(cx + look[f] - 1, 11, "#ffffff")
-        ck = "#38bdf8" if f % 6 < 4 else "#7dd3fc"
-        F.line(12, 23, 14, 25, ck); F.line(14, 25, 20, 19, ck)
-        F.line(12, 24, 14, 26, ck); F.line(14, 26, 20, 20, ck)
-        out.append(F)
-    return out, 130
+def mr_usage(f):
+    cv = Canvas(); tile(cv, "#232323", "#141414")
+    rows = [(17, "#3b82f6", 0.72, 0.0), (31, "#3b82f6", 0.58, 0.33), (45, "#f5b014", 0.22, 0.66)]
+    for y, c, base, ph in rows:
+        m, n = Canvas.rbox(10, y - 4, 44, 9, 4.5, 2); cv.shade(m, n, "#1d2940", spec=False)     # track
+        w = 44 * (base + 0.16 * wave(f, phase=ph))
+        m, n = Canvas.rbox(10, y - 4, max(9, w), 9, 4.5, 2.5); cv.shade(m, n, c)
+        g = (f / FRAMES + ph) % 1
+        gx = 12 + g * (max(9, w) - 6)
+        cv.line(gx, y - 2, gx + 3, y - 2, "#ffffff", 1, 0.75)                                       # glint runs along the bar
+    return cv
 
 
-def agent_oracle():
-    out = []
-    for f in range(12):
-        F = Frame(); F.tile("#191919")
-        F.rect(10, 24, 12, 2, "#fdf9ec"); F.rect(8, 26, 16, 2, "#e8dfc4")         # base
-        F.disc(16, 14, 9, "#ccbae4")
-        F.disc(16, 14, 7, "#d9cbee")
-        a = f / 12 * 2 * math.pi
-        nodes = [(16 + round(5 * math.cos(a + k * 2.094)), 14 + round(4 * math.sin(a + k * 2.094))) for k in range(3)]
-        hub = (16, 14)
-        for n in nodes:
-            F.line(hub[0], hub[1], n[0], n[1], "#ffffff")
-        for n in nodes + [hub]:
-            F.rect(n[0], n[1], 2, 2, "#ffffff")
-        if f % 4 == 0:
-            F.px(21, 8, "#ffffff"); F.px(22, 7, "#ffffff"); F.px(20, 7, "#e9e0f7"); F.px(21, 6, "#e9e0f7")   # sparkle
-        out.append(F)
-    return out, 120
+def llm_dogfight(f):
+    cv = Canvas(); tile(cv, "#1f1f22", "#121214")
+    t = f / FRAMES
+    rng = np.random.default_rng(7)
+    for sx, sy in rng.integers(4, 60, size=(14, 2)):                                               # starfield twinkle
+        if (sx + sy + f) % 6:
+            cv.flat((np.abs(XX - sx - 0.5) < 0.5) & (np.abs(YY - sy - 0.5) < 0.5), "#6b7280" if (sx + f) % 5 else "#e5e7eb")
+    b1, b2 = 2.2 * wave(f), -2.2 * wave(f)
+
+    def saucer(cx, cy, body, dome):
+        cv.shadow(cx, cy + 9, 9, 1.6, 0.25)
+        m, n = Canvas.ellipsoid(cx, cy - 3, 6, 5); cv.shade(m, n, dome)
+        m, n = Canvas.ellipsoid(cx, cy + 1, 14, 4.2); cv.shade(m, n, body)
+        for k in (-8, 0, 8):
+            on = (f // 3 + k) % 2 == 0
+            cv.flat(np.hypot(XX - cx - k, YY - cy - 2) < 1.1, "#ffffff" if on else "#fff3b0")
+    saucer(20, 18 + b1, "#53cfc2", "#bdf0ea")
+    saucer(44, 42 + b2, "#d23d76", "#f6b0cb")
+    if 0.15 < t < 0.3:
+        cv.line(27, 22 + b1, 37, 37 + b2, "#5ad1c5", 3, 0.5); cv.line(27, 22 + b1, 37, 37 + b2, "#e6fffb", 1.2)
+    if 0.65 < t < 0.8:
+        cv.line(37, 38 + b2, 27, 23 + b1, "#e0457f", 3, 0.5); cv.line(37, 38 + b2, 27, 23 + b1, "#ffe4ef", 1.2)
+    for hit, (hx, hy) in ((0.3 < t < 0.4, (38, 37 + b2)), (0.8 < t < 0.9, (26, 23 + b1))):
+        if hit:
+            cv.glow(hx, hy, 8, "#fff3b0", 0.9)
+            for dx, dy in ((3, 0), (-3, 0), (0, 3), (0, -3)):
+                cv.line(hx, hy, hx + dx, hy + dy, "#ffffff", 1)
+    return cv
 
 
-def mr_usage():
-    out = []
-    for f in range(16):
-        F = Frame(); F.tile("#191919")
-        tracks = [(9, "#3b82f6", 0.0), (15, "#3b82f6", 2.1), (21, "#f5b014", 4.2)]
-        for y, c, ph in tracks:
-            F.rect(6, y, 20, 3, "#1e2a44")
-            base = 0.25 if c == "#f5b014" else 0.65
-            w = max(2, round(20 * (base + 0.25 * math.sin(f / 16 * 2 * math.pi + ph))))
-            F.rect(6, y, w, 3, c)
-            F.px(6 + w - 1, y, "#93c5fd" if c != "#f5b014" else "#fde68a")
-        out.append(F)
-    return out, 110
+def tigerocr(f):
+    cv = Canvas(); tile(cv, "#f2b03a", "#c95511", edge=None)
+    t = f / FRAMES
+    phase = t * 16
+    stripe = ((XX + YY + phase) % 22) < 6
+    inside = cv.tile_mask & erode(erode(cv.tile_mask))
+    cv.flat(stripe & inside, "#1a140c")
+    cv.flat(stripe & inside & ((((XX + YY + phase) % 22) < 1.2)), "#3a2a14")
+    y = 6 + ease(t) * 50                                                                          # scan beam with glow
+    for dy, a in ((-3, 0.25), (-2, 0.4), (-1, 0.7), (0, 1.0), (1, 0.55), (2, 0.25)):
+        cv.put(inside & (np.abs(YY - (y + dy)) < 0.5), rgb("#fff4d6"), a)
+    return cv
 
 
-def llm_dogfight():
-    out = []
-    for f in range(12):
-        F = Frame(); F.tile("#191918")
-        b1 = round(math.sin(f / 12 * 2 * math.pi))
-        b2 = -b1
-
-        def saucer(cx, cy, body, dome):
-            F.ellipse(cx, cy, 6, 2, body)
-            F.ellipse(cx, cy - 2, 3, 2, dome)
-            F.px(cx - 4, cy, "#ffffff"); F.px(cx, cy + 1, "#ffffff"); F.px(cx + 4, cy, "#ffffff")
-        saucer(10, 10 + b1, "#5ad1c5", "#bdeee9")
-        saucer(22, 21 + b2, "#c4336b", "#f2a7c3")
-        if f in (3, 4):
-            F.line(14, 12 + b1, 19, 18 + b2, "#5ad1c5")
-        if f in (9, 10):
-            F.line(18, 19 + b2, 13, 13 + b1, "#c4336b")
-        if f in (5, 11):
-            hx, hy = (20, 19 + b2) if f == 5 else (12, 12 + b1)
-            F.px(hx, hy, "#ffffff"); F.px(hx + 1, hy, "#fff3b0"); F.px(hx - 1, hy, "#fff3b0"); F.px(hx, hy - 1, "#fff3b0"); F.px(hx, hy + 1, "#fff3b0")
-        out.append(F)
-    return out, 120
-
-
-def tigerocr():
-    out = []
-    for f in range(12):
-        F = Frame(); F.tile("#e79e26", "#cf6215", edge=None)
-        for j in range(N):
-            for i in range(N):
-                if F.p[j][i] is not None and ((i + j + f) % 16) in (0, 1, 2, 3):
-                    F.p[j][i] = hexc("#17140d")
-        y = 4 + f * 2
-        if y < 28:
-            for i in range(N):
-                if F.p[y][i] is not None:
-                    F.p[y][i] = hexc("#fff3d6")
-                if y + 1 < N and F.p[y + 1][i] is not None and F.p[y + 1][i] != hexc("#17140d"):
-                    F.p[y + 1][i] = hexc("#f7c56a")
-        out.append(F)
-    return out, 110
-
-
-def murasaki():
-    """Blue is pushed out from the core and red is pulled in. Where they cross, the orb glows purple."""
-    out = []
-    frames = 16
-    for f in range(frames):
-        F = Frame(); F.tile("#07050c", edge="#3b2a55")
-        cx, cy = 16, 16
-        pulse = 1 if f % 8 < 4 else 0
-        F.disc(cx, cy, 6 + pulse, "#2f104c")
-        F.disc(cx, cy, 5, "#5b2a86")
-        F.disc(cx, cy, 3 + pulse, "#8b3fd1")
-        F.disc(cx, cy, 1, "#c37af0")
-        F.px(cx - 2, cy - 2, "#f3e3ff")
-        for k in range(6):
-            # blue: repelled outward along six spokes, each spoke a little behind the last
-            ph = ((f + 3 * k) % frames) / frames
-            a = k * math.pi / 3 + 0.25
-            r = 4 + ph * 10
-            x, y = round(cx + r * math.cos(a)), round(cy + r * math.sin(a))
-            tx, ty = round(cx + (r - 1.6) * math.cos(a)), round(cy + (r - 1.6) * math.sin(a))
-            if r < 13:
-                F.px(tx, ty, "#1e3a8a"); F.rect(x, y, 2, 2, "#38bdf8" if ph < 0.6 else "#60a5fa")
-            # red: pulled inward along the spokes in between
-            a2 = a + math.pi / 6
-            r2 = 13 - ph * 9
-            x2, y2 = round(cx + r2 * math.cos(a2)), round(cy + r2 * math.sin(a2))
-            tx2, ty2 = round(cx + (r2 + 1.6) * math.cos(a2)), round(cy + (r2 + 1.6) * math.sin(a2))
-            if r2 > 5:
-                F.px(tx2, ty2, "#7f1d1d"); F.rect(x2, y2, 2, 2, "#ef4444" if ph < 0.6 else "#f87171")
-        out.append(F)
-    return out, 90
+def murasaki(f):
+    """Blue is pushed out of the core, red is pulled in, and the purple orb glows where they cross."""
+    cv = Canvas(); tile(cv, "#0d0918", "#05030a", edge="#3b2a55")
+    t = f / FRAMES
+    pulse = 0.5 + 0.5 * wave(f, phase=0.25)
+    cv.glow(32, 32, 22 + 3 * pulse, "#6d28d9", 0.55)
+    for k in range(8):
+        ph = (t + k / 8) % 1
+        a = k * math.pi / 4 + 0.3
+        r = 9 + ease(ph) * 20                                       # blue: repelled outward
+        x, y = 32 + r * math.cos(a), 32 + r * math.sin(a)
+        if r < 28:
+            cv.line(32 + (r - 5) * math.cos(a), 32 + (r - 5) * math.sin(a), x, y, "#1e3a8a", 1.4, 0.8)
+            cv.glow(x, y, 4, "#60a5fa", 0.9)
+            cv.flat(np.hypot(XX - x, YY - y) < 1.1, "#e0f2ff")
+        a2 = a + math.pi / 8
+        r2 = 29 - ease(ph) * 19                                     # red: pulled inward
+        x2, y2 = 32 + r2 * math.cos(a2), 32 + r2 * math.sin(a2)
+        if r2 > 11:
+            cv.line(32 + (r2 + 5) * math.cos(a2), 32 + (r2 + 5) * math.sin(a2), x2, y2, "#7f1d1d", 1.4, 0.8)
+            cv.glow(x2, y2, 4, "#f87171", 0.9)
+            cv.flat(np.hypot(XX - x2, YY - y2) < 1.1, "#ffe4e4")
+    rr = 10 + 1.2 * pulse
+    m, n = Canvas.ellipsoid(32, 32, rr, rr); cv.shade(m, n, mix(rgb("#7c3aed"), rgb("#a855f7"), pulse))
+    m, n = Canvas.ellipsoid(32, 32, rr * 0.5, rr * 0.5); cv.shade(m, n, "#d8b4fe", outline=False)
+    cv.flat(np.hypot(XX - 28.5, YY - 28.5) < 1.6, "#ffffff")
+    return cv
 
 
 ALL = {
@@ -334,21 +352,45 @@ ALL = {
     "tigerocr": tigerocr, "murasaki": murasaki,
 }
 
+
+def to_gif(name, canvases, ms=70):
+    """One shared palette for all frames (no flicker), hard transparency only at the rounded corners."""
+    rgbs = [np.clip(cv.c, 0, 255).astype(np.uint8) for cv in canvases]
+    alpha = [cv.a > 0.5 for cv in canvases]
+    stack = np.concatenate([r[a] for r, a in zip(rgbs, alpha)])
+    sample = Image.fromarray(stack.reshape(-1, 1, 3))
+    pal_img = sample.quantize(colors=255, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
+    pal = np.array(pal_img.getpalette()[:255 * 3], float).reshape(-1, 3)
+    frames = []
+    for r, a in zip(rgbs, alpha):
+        flat = r.reshape(-1, 3).astype(float)
+        idx = np.argmin(((flat[:, None, :] - pal[None, :, :]) ** 2).sum(-1), axis=1) + 1
+        idx[~a.reshape(-1)] = 0
+        im = Image.fromarray(idx.reshape(N, N).astype(np.uint8), "P")
+        im.putpalette([0, 0, 0] + pal.astype(int).flatten().tolist())
+        frames.append(im.resize((N * SCALE, N * SCALE), Image.NEAREST))
+    os.makedirs(OUT, exist_ok=True)
+    path = os.path.join(OUT, f"{name}.gif")
+    frames[0].save(path, save_all=True, append_images=frames[1:], duration=ms, loop=0, disposal=2, transparency=0, optimize=False)
+    return path, frames
+
+
 if __name__ == "__main__":
-    sheet_rows = []
-    for name, fn in ALL.items():
-        frames, ms = fn()
-        path, imgs = save(name, frames, ms)
-        print(f"{name}: {len(frames)} frames, {ms} ms, {os.path.getsize(path)} bytes")
-        sheet_rows.append([im.convert("RGBA") for im in imgs[:12]])
-    # contact sheet for review: every frame, on GitHub's light page (left) and dark page (right)
-    cell = N * SCALE // 2
-    cols = 12
-    sheet = Image.new("RGBA", (2 * cols * (cell + 4) + 16, len(sheet_rows) * (cell + 4)), (255, 255, 255, 255))
-    sheet.paste((13, 17, 23, 255), (cols * (cell + 4) + 16, 0, sheet.width, sheet.height))
-    for r, row in enumerate(sheet_rows):
-        for c, im in enumerate(row[:cols]):
-            small = im.resize((cell, cell), Image.NEAREST)
-            for off in (0, cols * (cell + 4) + 16):
-                sheet.paste(small, (off + c * (cell + 4), r * (cell + 4)), small)
-    sheet.save(os.path.join(OUT, "contact_sheet.png"))
+    import sys
+    pick = sys.argv[1:] or list(ALL)
+    sheets = []
+    for name in pick:
+        canvases = [ALL[name](f) for f in range(FRAMES)]
+        path, frames = to_gif(name, canvases)
+        print(f"{name}: {len(frames)} frames, {os.path.getsize(path) // 1024} KB")
+        sheets.append(frames)
+    # review: frames 0, 6, 12, 18 of each, on GitHub's light and dark page colours
+    cell = N * SCALE
+    sheet = Image.new("RGB", (8 * (cell + 6) + 12, len(sheets) * (cell + 6)), (255, 255, 255))
+    sheet.paste((13, 17, 23), (4 * (cell + 6) + 12, 0, sheet.width, sheet.height))
+    for r, frames in enumerate(sheets):
+        for c, fi in enumerate((0, 6, 12, 18)):
+            im = frames[fi].convert("RGBA")
+            for off in (0, 4 * (cell + 6) + 12):
+                sheet.paste(im, (off + c * (cell + 6), r * (cell + 6)), im)
+    sheet.save(os.path.join(OUT, "review.png"))
