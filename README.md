@@ -20,11 +20,12 @@ NVIDIA SkillSpector scans the three skills on every push, and each ships with a 
 
 ## In the works
 
-Two of my own, still in active development.
+Three of my own, still in active development.
 
 | | Project | What it does |
 |---|---|---|
 | <img src="assets/tigerocr.png" width="44" alt=""> | [TigerOCR](https://tigerocr.buildforpeople.dev) | Hosted GPU OCR: send a PDF or image, get clean Markdown back with tables and formulas preserved. A remote MCP server and REST API, billed by the GPU second. In beta. |
+| <img src="assets/opencarmind.png" width="44" alt=""> | [OpenCarMind](https://github.com/AlveeeRahman/OpenCarMind) | An open-source car logger built from an ESP32-S3 board and a Bluetooth OBD-II adapter. It records every drive, and a 93 KB neural network on the chip labels each moment as stopped, braking, accelerating or cruising while it estimates brake pressure, torque and fuel rate. Drives go to the SD card and, over home Wi-Fi, to a desktop app for Windows, macOS and Linux that also pairs and flashes the board over USB. No account and no cloud. In beta. |
 | <img src="assets/murasaki.png" width="44" alt=""> | Murasaki| A purple-team platform for authorized security research: an LLM-driven reverse-engineering toolchain (Ghidra, radare2, binwalk, QEMU), malware detection (YARA and a malware-as-image CNN), and threat modeling mapped to CVSS and ATT&CK for ICS, behind one API or MCP endpoint and driven by an agent harness. Offense and its defense in one service, with power-grid / ICS research in mind. Built and tested, MIT and self-hostable on Azure; invite-only when hosted. |
 
 ## How I work with Claude
