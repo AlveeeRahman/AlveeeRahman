@@ -8,13 +8,28 @@ I have been working with AI since 2020, but never got the time to create a git f
 
 ## What I build
 
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Project | What it does |
-|---|---|---|
-| <img src="https://raw.githubusercontent.com/AlveeeRahman/research-hound/main/docs/assets/icon.png" width="44" alt=""> | [research-hound](https://github.com/AlveeeRahman/research-hound) | A five-stage research workflow for Claude Code, from question to rubric score, with 21 scripts that verify citations, audit claims and lint manuscripts instead of trusting the model. |
-| <img src="https://raw.githubusercontent.com/AlveeeRahman/skill-vision/main/docs/assets/icon.png" width="44" alt=""> | [skill-vision](https://github.com/AlveeeRahman/skill-vision) | A validator for Claude Agent Skills: spec conformance, script execution, quality and security scores, a Mermaid map of the skill, and the context tokens each skill costs. Zero dependencies. |
-| <img src="https://raw.githubusercontent.com/AlveeeRahman/agent-oracle/main/docs/assets/icon.png" width="44" alt=""> | [agent-oracle](https://github.com/AlveeeRahman/agent-oracle) | Decides how an agent system should be built before it runs: how many agents, which topology, what bounds the loop, what gets locked down before unattended work starts. Cites the papers it leans on. |
-| <img src="https://raw.githubusercontent.com/AlveeeRahman/mr-usage/main/docs/assets/icon.png" width="44" alt=""> | [mr-usage](https://github.com/AlveeeRahman/mr-usage) | A Rust and Tauri desktop app that shows what is left on nine paid APIs in one window. Keys live in the OS keystore and never reach the UI. 109 tests on three operating systems. |
-| <img src="https://raw.githubusercontent.com/AlveeeRahman/llm-dogfight/main/docs/assets/icon.png" width="44" alt=""> | [llm-dogfight](https://github.com/AlveeeRahman/llm-dogfight) | Two small local language models command rival saucer teams in your terminal. A 0.8 MB Rust binary, a Python sidecar on CUDA or Apple MLX, and a genetic algorithm that evolves each team's doctrine. |
+<table>
+<tr>
+<td width="72" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/research-hound"><img src="https://raw.githubusercontent.com/AlveeeRahman/research-hound/main/docs/assets/icon.png" width="48" height="48" alt="research-hound icon"></a></td>
+<td valign="middle"><a href="https://github.com/AlveeeRahman/research-hound"><b>research-hound</b></a><br>A five-stage research workflow for Claude Code, with 21 scripts that check citations and claims instead of trusting the model.</td>
+</tr>
+<tr>
+<td width="72" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/skill-vision"><img src="https://raw.githubusercontent.com/AlveeeRahman/skill-vision/main/docs/assets/icon.png" width="48" height="48" alt="skill-vision icon"></a></td>
+<td valign="middle"><a href="https://github.com/AlveeeRahman/skill-vision"><b>skill-vision</b></a><br>Validates Claude Agent Skills for spec conformance, quality and security, and counts the context tokens each one costs.</td>
+</tr>
+<tr>
+<td width="72" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/agent-oracle"><img src="https://raw.githubusercontent.com/AlveeeRahman/agent-oracle/main/docs/assets/icon.png" width="48" height="48" alt="agent-oracle icon"></a></td>
+<td valign="middle"><a href="https://github.com/AlveeeRahman/agent-oracle"><b>agent-oracle</b></a><br>Decides how an agent system should be built before it runs, from the number of agents to what gets locked down.</td>
+</tr>
+<tr>
+<td width="72" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/mr-usage"><img src="https://raw.githubusercontent.com/AlveeeRahman/mr-usage/main/docs/assets/icon.png" width="48" height="48" alt="mr-usage icon"></a></td>
+<td valign="middle"><a href="https://github.com/AlveeeRahman/mr-usage"><b>mr-usage</b></a><br>A Rust and Tauri desktop app that shows what is left on nine paid APIs, with keys kept in the OS keystore.</td>
+</tr>
+<tr>
+<td width="72" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/llm-dogfight"><img src="https://raw.githubusercontent.com/AlveeeRahman/llm-dogfight/main/docs/assets/icon.png" width="48" height="48" alt="llm-dogfight icon"></a></td>
+<td valign="middle"><a href="https://github.com/AlveeeRahman/llm-dogfight"><b>llm-dogfight</b></a><br>Two small local language models command rival saucer fleets in your terminal while a genetic algorithm evolves their tactics.</td>
+</tr>
+</table>
 
 NVIDIA SkillSpector scans the three skills on every push, and each ships with a `.skillspector-baseline.yaml` that names every suppressed finding and why.
 
@@ -22,11 +37,20 @@ NVIDIA SkillSpector scans the three skills on every push, and each ships with a 
 
 Three of my own, still in active development.
 
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Project | What it does |
-|---|---|---|
-| <img src="assets/tigerocr.png" width="44" alt=""> | [TigerOCR](https://tigerocr.buildforpeople.dev) | Hosted GPU OCR: send a PDF or image, get clean Markdown back with tables and formulas preserved. A remote MCP server and REST API, billed by the GPU second. In beta. |
-| <img src="assets/opencarmind.png" width="44" alt=""> | [OpenCarMind](https://github.com/AlveeeRahman/OpenCarMind) | An open-source car logger built from an ESP32-S3 board and a Bluetooth OBD-II adapter. It records every drive, and a 93 KB neural network on the chip labels each moment as stopped, braking, accelerating or cruising while it estimates brake pressure, torque and fuel rate. Drives go to the SD card and, over home Wi-Fi, to a desktop app for Windows, macOS and Linux that also pairs and flashes the board over USB. No account and no cloud. In beta. |
-| <img src="assets/murasaki.png" width="44" alt=""> | Murasaki| A purple-team platform for authorized security research: an LLM-driven reverse-engineering toolchain (Ghidra, radare2, binwalk, QEMU), malware detection (YARA and a malware-as-image CNN), and threat modeling mapped to CVSS and ATT&CK for ICS, behind one API or MCP endpoint and driven by an agent harness. Offense and its defense in one service, with power-grid / ICS research in mind. Built and tested, MIT and self-hostable on Azure; invite-only when hosted. |
+<table>
+<tr>
+<td width="72" align="center" valign="middle"><a href="https://tigerocr.buildforpeople.dev"><img src="assets/tigerocr.png" width="48" height="48" alt="TigerOCR icon"></a></td>
+<td valign="middle"><a href="https://tigerocr.buildforpeople.dev"><b>TigerOCR</b></a> &nbsp;<code>beta</code><br>Hosted GPU OCR that turns PDFs and images into clean Markdown, as a remote MCP server and REST API.</td>
+</tr>
+<tr>
+<td width="72" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="assets/opencarmind.png" width="48" height="48" alt="OpenCarMind icon"></a></td>
+<td valign="middle"><a href="https://github.com/AlveeeRahman/OpenCarMind"><b>OpenCarMind</b></a> &nbsp;<code>beta</code><br>A car logger for the ESP32-S3 with a 93 KB on-chip neural network and a desktop app for Windows, macOS and Linux.</td>
+</tr>
+<tr>
+<td width="72" align="center" valign="middle"><img src="assets/murasaki.png" width="48" height="48" alt="Murasaki icon"></td>
+<td valign="middle"><b>Murasaki</b> &nbsp;<code>invite only</code><br>A purple-team platform for authorized security research, with AI-driven reverse engineering and ICS threat modeling.</td>
+</tr>
+</table>
 
 ## How I work with Claude
 
