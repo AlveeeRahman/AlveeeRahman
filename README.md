@@ -8,7 +8,7 @@ I have been working with AI since 2020, but never got the time to create a git f
 
 ## What I build
 
-| | Project | What it does |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Project | What it does |
 |---|---|---|
 | <img src="https://raw.githubusercontent.com/AlveeeRahman/research-hound/main/docs/assets/icon.png" width="44" alt=""> | [research-hound](https://github.com/AlveeeRahman/research-hound) | A five-stage research workflow for Claude Code, from question to rubric score, with 21 scripts that verify citations, audit claims and lint manuscripts instead of trusting the model. |
 | <img src="https://raw.githubusercontent.com/AlveeeRahman/skill-vision/main/docs/assets/icon.png" width="44" alt=""> | [skill-vision](https://github.com/AlveeeRahman/skill-vision) | A validator for Claude Agent Skills: spec conformance, script execution, quality and security scores, a Mermaid map of the skill, and the context tokens each skill costs. Zero dependencies. |
@@ -22,7 +22,7 @@ NVIDIA SkillSpector scans the three skills on every push, and each ships with a 
 
 Three of my own, still in active development.
 
-| | Project | What it does |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Project | What it does |
 |---|---|---|
 | <img src="assets/tigerocr.png" width="44" alt=""> | [TigerOCR](https://tigerocr.buildforpeople.dev) | Hosted GPU OCR: send a PDF or image, get clean Markdown back with tables and formulas preserved. A remote MCP server and REST API, billed by the GPU second. In beta. |
 | <img src="assets/opencarmind.png" width="44" alt=""> | [OpenCarMind](https://github.com/AlveeeRahman/OpenCarMind) | An open-source car logger built from an ESP32-S3 board and a Bluetooth OBD-II adapter. It records every drive, and a 93 KB neural network on the chip labels each moment as stopped, braking, accelerating or cruising while it estimates brake pressure, torque and fuel rate. Drives go to the SD card and, over home Wi-Fi, to a desktop app for Windows, macOS and Linux that also pairs and flashes the board over USB. No account and no cloud. In beta. |
