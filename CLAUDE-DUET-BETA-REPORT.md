@@ -20,41 +20,6 @@ All times are UTC on November 11, 2026. I've left out the names of my private pr
 
 I confirmed in the chat that reports 6 and 7 were sent (20:08 and 20:36). Reports 1 to 5 went through the same in-app report card.
 
-## All issues
-
-| # | Issue | Area | First seen | Reported |
-|---|-------|------|-----------|----------|
-| 1 | "On it" replies instead of concrete progress | Status | 01:47 | Yes (3, 6) |
-| 2 | Status answers ignore what the chat already shows | Status | 09:00 | Yes (6) |
-| 3 | Progress reported for work that never started | Status | 08:43 | Part of 7 |
-| 4 | A failure report about tasks that were running fine | Status | 11:10 | No |
-| 5 | Updates arrive as one large block or as low-value noise | Status | 07:00 | Yes (4) |
-| 6 | "Can't tell you how far it got" when the answer existed | Status | 06:10 | No |
-| 7 | Background task results never reached me | Status | 06:16 | Yes (2) |
-| 8 | Every voice reply posted twice, and replies restart mid-sentence | Voice | 02:33 | No |
-| 9 | Background audio treated as my speech | Voice | 02:33 | No |
-| 10 | Speech in other languages transcribed and answered | Voice | 02:46 | No |
-| 11 | Text-to-speech made "Ha" sound unsettling | Voice | 02:57 | No |
-| 12 | Voice replies that contradict themselves | Voice | 07:08 | No |
-| 13 | Voice loses context mid-call | Voice | 06:16 | No |
-| 14 | Calls end on a time limit in the middle of a request | Voice | 07:02 | No |
-| 15 | No way to file a report or get check-ins from a voice call | Voice | 06:56 | No |
-| 16 | Minor speech-to-text mishearings | Voice | 08:01 | No |
-| 17 | Notifications with nothing to show for them | Notifications | 04:49 | Yes (1) |
-| 18 | "There's something in the app for you" when nothing was visible | Notifications | 02:42 | No |
-| 19 | Every relay to Claude Code needs its own approval, and work waits silently until then | Notifications | 03:00 | No |
-| 20 | Morning brief posted twice, with raw task IDs in the text | Notifications | 14:36 | No |
-| 21 | Said memory was off after I had turned it on | Memory | 08:11 | No |
-| 22 | Saved design choices to memory that I hadn't asked it to keep | Memory | 04:57 | No |
-| 23 | Attributed failures to an unrelated setting | Memory | 02:53 | No |
-| 24 | Work handed back to me as steps to take | Delegation | 02:29 | Yes (5) |
-| 25 | Questions answered inconsistently | Delegation | 02:55 | No |
-| 26 | Incorrect information led me to stop a valid hardware test | Delegation | 03:00 | No |
-| 27 | Relays to channels arrive incomplete and never start | Channels | 20:27 | Yes (7) |
-| 28 | Confirmations that don't accept a clear yes | Confirmations | 08:01 | No |
-| 29 | A blocked request with no explanation | Confirmations | 09:10 | No |
-| 30 | A background task didn't follow a rule I had set | Confirmations | 09:17 | No |
-
 ## Status and progress
 
 ### 1. "On it" replies instead of concrete progress
@@ -265,4 +230,4 @@ Background tasks kept running through call drops and usage resets. Overnight wor
 
 ## How I put this together
 
-I went back through the full main-chat history for November 10 and 11, 2026 and the assistant's memory, and checked each time and each quoted assistant line against the chat log. Issues I reported to Anthropic are marked in the tables. Private project names, repository names and pull request details are removed.
+I went back through the full main-chat history for November 10 and 11, 2026 and the assistant's memory, and checked each time and each quoted assistant line against the chat log. The issues I reported to Anthropic are listed in the reports table at the top. Private project names, repository names and pull request details are removed.
