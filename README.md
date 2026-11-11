@@ -71,6 +71,10 @@ My Claude Code sessions run in the cloud with a short rulebook that Claude reads
 
 The icons on the five repositories above came out of one such sessions (Clearly I am no Photo Editor). Firecrawl read each project page, Higgsfield rendered the marks on the same near-black tile as the mr-usage app icon, Claude Design laid out the family, and Claude Code pushed the commits.
 
+### Claude Duet beta notes
+
+I'm beta testing Claude Duet, Anthropic's chief-of-staff style assistant. After two days of heavy use I wrote up 30 pieces of feedback, including the seven reports I sent to Anthropic: [read the notes](CLAUDE-DUET-BETA-REPORT.md).
+
 ## Google Scholar
 
 <a href="https://scholar.google.com/citations?user=wRWUQQYAAAAJ"><img src="assets/scholar.png" alt="Google Scholar as of October 2026: 37 citations, h-index 4. Citations per year: 4 in 2023, 5 in 2024, 15 in 2025, 13 in 2026." width="100%"></a>
