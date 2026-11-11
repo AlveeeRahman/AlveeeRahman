@@ -29,6 +29,10 @@ I have been working with AI since 2020, but never got the time to create a git f
 <td width="88" align="center" valign="middle"><a href="https://github.com/AlveeeRahman/llm-dogfight"><img src="assets/pixel/llm-dogfight.gif" width="64" height="64" alt="llm-dogfight icon, animated"></a></td>
 <td valign="middle"><a href="https://github.com/AlveeeRahman/llm-dogfight"><b>llm-dogfight</b></a><br>Two small local language models command rival saucer fleets in your terminal while a genetic algorithm evolves their tactics.</td>
 </tr>
+<tr>
+<td width="88" align="center" valign="middle"><img src="assets/pixel/glassvgl.gif" width="64" height="64" alt="GlassVGL icon, animated"></td>
+<td valign="middle"><b>GlassVGL</b> &nbsp;<code>$5</code><br>A frosted-glass theme pack for LVGL 9 screens on microcontrollers that styles every widget with one call, packaged for Arduino, PlatformIO and ESP-IDF.</td>
+</tr>
 </table>
 
 NVIDIA SkillSpector scans the three skills on every push, and each ships with a `.skillspector-baseline.yaml` that names every suppressed finding and why.
