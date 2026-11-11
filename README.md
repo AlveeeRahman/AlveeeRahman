@@ -35,7 +35,7 @@ NVIDIA SkillSpector scans the three skills on every push, and each ships with a 
 
 ## In the works
 
-Three of my own, still in active development.
+Four of my own, still in active development.
 
 <table>
 <tr>
@@ -49,6 +49,10 @@ Three of my own, still in active development.
 <tr>
 <td width="88" align="center" valign="middle"><img src="assets/pixel/murasaki.gif" width="64" height="64" alt="Murasaki icon, animated"></td>
 <td valign="middle"><b>Murasaki</b> &nbsp;<code>invite only</code><br>A purple-team platform for authorized security research, with AI-driven reverse engineering and ICS threat modeling.</td>
+</tr>
+<tr>
+<td width="88" align="center" valign="middle"><img src="assets/pixel/liteeda.gif" width="64" height="64" alt="LiteEDA icon, animated"></td>
+<td valign="middle"><b>LiteEDA</b> &nbsp;<code>alpha</code><br>A Rust and Tauri desktop IDE that builds and flashes ESP32 and Arduino firmware and runs the open-source FPGA flow, with an on-device assistant.</td>
 </tr>
 </table>
 

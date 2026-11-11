@@ -410,10 +410,47 @@ def murasaki(f):
     return cv
 
 
+def liteeda(f):
+    """The LiteEDA Pulse mark on its green tile, with the pulse sliding sideways like a trace on a scope."""
+    cv = Canvas(); tile(cv, "#44d9a2", "#0c7f53", edge=None)
+    # the period is longer than the trace plus the pulse, so the pulse is never split across both ends
+    x0, x1, period, width = 6, 58, 72, 16
+    lo, hi = 40, 24                                                            # the logo's low and high levels
+    s = 3 * f + 32                                                             # 3 px a frame; frame 0 is centred like the logo
+
+    def level(x):
+        return hi if (x - x0 - s) % period >= period - width else lo
+    pts, y = [(x0, level(x0))], level(x0)
+    for x in range(x0 + 1, x1 + 1):
+        if level(x) != y:                                                      # an edge: a vertical step
+            pts += [(x, y), (x, level(x))]
+            y = level(x)
+    pts.append((x1, y))
+    segs = list(zip(pts, pts[1:]))
+
+    def near(r, dy=0.0):
+        m = np.zeros((N, N), bool)
+        for (ax, ay), (bx, by) in segs:
+            px, py, dx, dy2 = XX - ax, YY - ay - dy, bx - ax, by - ay
+            t = np.clip((px * dx + py * dy2) / (dx * dx + dy2 * dy2 or 1), 0, 1)
+            m |= np.hypot(px - t * dx, py - t * dy2) <= r
+        return m
+    fade = np.ceil(np.clip((np.minimum(XX - x0, x1 - XX) + 1) / 12, 0, 1) * 4) / 4   # the trace fades in and out at its ends
+    cv.put(near(3.2, 2), np.zeros(3) + rgb("#03341f"), fade * 0.35)          # soft drop shadow, as on the app icon
+    cv.put(near(3.6), np.zeros(3) + rgb("#0a6644"), fade)                    # darker rim of the same green
+    band = np.clip((YY - hi + 2) / (lo - hi + 4), 0, 1)                       # white at the top, mint at the bottom
+    col = mix(rgb("#ffffff"), rgb("#dcf4e9"), np.round(band * 3)[..., None] / 3)
+    cv.put(near(2.75), col, fade)
+    for x, y in pts[1:-1]:                                                     # glint on the high plateau's corners
+        if y == hi:
+            cv.put(np.hypot(XX - x, YY - y + 1) < 1.0, rgb("#ffffff"), fade)
+    return cv
+
+
 ALL = {
     "opencarmind": opencarmind, "research-hound": research_hound, "skill-vision": skill_vision,
     "agent-oracle": agent_oracle, "mr-usage": mr_usage, "llm-dogfight": llm_dogfight,
-    "tigerocr": tigerocr, "murasaki": murasaki,
+    "tigerocr": tigerocr, "murasaki": murasaki, "liteeda": liteeda,
 }
 
 
