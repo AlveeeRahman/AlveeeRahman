@@ -139,33 +139,35 @@ def tile(cv, top, bottom=None, edge="#4b5260", radius=12):
 LOGO_CAR = os.environ.get("OCM_LOGO_CAR", os.path.join(os.path.dirname(os.path.abspath(__file__)), "logo_car.png"))
 
 
-def _car_parts(width=46):
+def _car_parts(width=44):
+    """Splits the logo cut-out into parts by colour: cream body and wheels, dark windscreen, amber chip and lights, grey grille."""
     from scipy import ndimage
     src = np.array(Image.open(LOGO_CAR).convert("RGBA")).astype(float)
-    amber = (src[..., 0] > 150) & (src[..., 2] < 140) & (src[..., 3] > 40)
-    alpha = src[..., 3] / 255
-    ys, xs = np.where(alpha > 0.05)
+    r, g, b, a = src[..., 0], src[..., 1], src[..., 2], src[..., 3]
+    solid = a > 128
+    cream = solid & (r > 200) & (g > 200) & (b > 180)
+    amber = solid & (r > 200) & (g > 110) & (g < 190) & (b < 110)
+    grey = solid & (b > 150) & (r < 190) & (r > 120)
+    dark = solid & (r < 70) & (g < 70) & (b < 80)
+    ys, xs = np.where(solid)
     box = (slice(ys.min(), ys.max() + 1), slice(xs.min(), xs.max() + 1))
     h = round(width * (ys.max() - ys.min()) / (xs.max() - xs.min()))
 
-    def small(a):
-        im = Image.fromarray((np.clip(a[box], 0, 1) * 255).astype(np.uint8)).resize((width, h), Image.LANCZOS)
+    def small(m):
+        im = Image.fromarray((m[box] * 255).astype(np.uint8)).resize((width, h), Image.LANCZOS)
         return np.array(im) > 127
-    body, chip = small(np.where(amber, 0, alpha)), small(amber.astype(float))
-    filled = ndimage.binary_fill_holes(body | chip)
-    holes = filled & ~body & ~chip
-    lab, k = ndimage.label(holes)
-    parts = {"windshield": np.zeros_like(holes), "lights": np.zeros_like(holes), "grille": np.zeros_like(holes)}
+    silhouette = small(solid)
+    lab, k = ndimage.label(small(amber))
+    chip, lights = np.zeros_like(silhouette), np.zeros_like(silhouette)
     for i in range(1, k + 1):
         m = lab == i
-        cy, cx = np.argwhere(m).mean(0)
-        if cy < h * 0.42:
-            parts["windshield"] |= m
-        elif abs(cx - width / 2) > width * 0.2:
-            parts["lights"] |= m
+        if np.argwhere(m).mean(0)[0] < h * 0.4:                                 # the chip sits in the windscreen
+            chip |= m
         else:
-            parts["grille"] |= m
-    d = ndimage.distance_transform_edt(body)
+            lights |= m
+    parts = {"windshield": small(dark) & ~chip, "lights": lights, "grille": small(grey)}
+    body = silhouette & ~parts["windshield"] & ~chip & ~lights & ~parts["grille"]
+    d = ndimage.distance_transform_edt(silhouette)
     gy, gx = np.gradient(np.minimum(d, 2.5))
     return body, chip, parts, gx, gy
 
@@ -174,25 +176,26 @@ _CAR = None
 
 
 def opencarmind(f):
+    """The night-drive mark: a cream car with an amber chip in the windscreen, driving down a dark road."""
     global _CAR
     if _CAR is None:
         _CAR = _car_parts()
     body, chip, parts, gx, gy = _CAR
     h, w = body.shape
-    cv = Canvas(); tile(cv, "#16a08d", "#0a554f", edge=None)
+    cv = Canvas(); tile(cv, "#1c2a3b", "#111a25", edge="#34465c")
     t = f / FRAMES
     for k in range(18):                                                          # road in perspective
         y = 63 - k
         half = 3 + (18 - k) * 1.1
-        cv.flat((YY >= y) & (YY < y + 1) & (np.abs(XX - 32) <= half), "#0b4842")
-        cv.flat((YY >= y) & (YY < y + 1) & (np.abs(np.abs(XX - 32) - half) < 0.8), "#5fb8ac")
+        cv.flat((YY >= y) & (YY < y + 1) & (np.abs(XX - 32) <= half), "#0b121b")
+        cv.flat((YY >= y) & (YY < y + 1) & (np.abs(np.abs(XX - 32) - half) < 0.8), "#4a5d75")
     for k in range(3):                                                           # dashes flow toward the viewer
         p = (t + k / 3) % 1.0
         y = 47 + ease(p) * 16
-        cv.flat((YY >= y) & (YY < y + 1 + p * 3) & (np.abs(XX - 32) <= 0.6 + p * 0.9), "#e6fbf6")
+        cv.flat((YY >= y) & (YY < y + 1 + p * 3) & (np.abs(XX - 32) <= 0.6 + p * 0.9), "#f2ece1")
     bob = 1 if 0.25 < (t * 2) % 1 < 0.75 else 0
     x0, y0 = (N - w) // 2, 12 + bob
-    cv.shadow(32, y0 + h + 1, w / 2 - 2, 2.5, 0.4)
+    cv.shadow(32, y0 + h + 1, w / 2 - 2, 2.5, 0.5)
 
     def place(m):
         out = np.zeros((N, N), bool)
@@ -205,25 +208,25 @@ def opencarmind(f):
         return out
     n = np.stack([-place_f(gx), -place_f(gy), np.ones((N, N))], -1)
     n /= np.linalg.norm(n, axis=-1, keepdims=True)
-    cv.shade(place(body), n, "#eaf8f4")
+    cv.shade(place(body), n, "#f2ece1")
     flat_n = np.dstack([np.zeros((N, N)), np.zeros((N, N)), np.ones((N, N))])
     ws = place(parts["windshield"])
-    cv.shade(ws, flat_n, "#0f6a63", outline=False, spec=False)
+    cv.flat(ws, "#15202d")                                                     # glass stays the tile's night blue, as on the logo
     sweep = (t * 1.5) % 1.5 - 0.25                                                # shine sweeps over the glass
     sx = x0 + sweep * w
-    cv.put(ws & (np.abs((XX - sx) + (YY - y0) * 0.6) < 1.4), rgb("#9de6da"), 0.8)
+    cv.put(ws & (np.abs((XX - sx) + (YY - y0) * 0.6) < 1.4), rgb("#4a5d75"), 0.8)
     on = (f // 6) % 2 == 0
     lights = place(parts["lights"])
-    cv.shade(lights, flat_n, "#ffe7a1" if on else "#7cc9bd", outline=False, spec=False)
+    cv.shade(lights, flat_n, "#ffc46b" if on else "#f59a2e", outline=False, spec=False)
     if on:
-        for cx in (x0 + w * 0.2, x0 + w * 0.8):
-            cv.glow(cx, y0 + h * 0.58, 9, "#fff2b8", 0.45)
-    cv.shade(place(parts["grille"]), flat_n, "#0e5f59", outline=False, spec=False)
+        for cx in (x0 + w * 0.17, x0 + w * 0.83):
+            cv.glow(cx, y0 + h * 0.5, 9, "#ffd9a0", 0.45)
+    cv.shade(place(parts["grille"]), flat_n, "#9da8b8", outline=False, spec=False)
     m = place(chip)
-    cv.shade(m, flat_n, "#f7a21b" if on else "#c2630a", outline=False, spec=False)
+    cv.shade(m, flat_n, "#f59a2e" if on else "#b8661a", outline=False, spec=False)
     if on:
         cy, cx = np.argwhere(m).mean(0)
-        cv.glow(cx, cy, 5, "#ffd27a", 0.5)
+        cv.glow(cx, cy, 5, "#ffc46b", 0.5)
     return cv
 
 
