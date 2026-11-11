@@ -450,10 +450,71 @@ def liteeda(f):
     return cv
 
 
+def _box_blur(img, r, passes=2):
+    """Separable box blur, repeated so it approaches a Gaussian; edges are clamped."""
+    out = img.astype(float)
+    k = 2 * r + 1
+    for _ in range(passes):
+        for axis in (0, 1):
+            pad = [(0, 0)] * out.ndim
+            pad[axis] = (r + 1, r)
+            c = np.cumsum(np.pad(out, pad, mode="edge"), axis=axis)
+            out = (np.take(c, range(k, c.shape[axis]), axis=axis) - np.take(c, range(0, c.shape[axis] - k), axis=axis)) / k
+    return out
+
+
+def glassvgl(f):
+    """The GlassVGL mark: colour shapes drift behind a frosted pane with a bevel, the LiteEDA pulse sits on the glass."""
+    cv = Canvas(); tile(cv, "#43d8a1", "#0f8357", edge=None)
+    t = f / FRAMES
+    a = 2 * math.pi * t
+    blobs = (                                                                     # the logo's mint, blue and purple shapes, each on a slow loop
+        (10 + 2.0 * math.cos(a), 7 + 1.5 * math.sin(a), 14, "#b8ffe4"),
+        (61 + 1.5 * math.cos(a + 2.1), 17 + 2.0 * math.sin(a + 2.1), 10, "#2f7dff"),
+        (55 + 2.0 * math.cos(a + 4.2), 60 + 1.5 * math.sin(a + 4.2), 14, "#8f5bff"),
+    )
+    inside = erode(erode(cv.tile_mask))                                          # keep the tile's bevelled rim on top
+    for cx, cy, r, c in blobs:
+        cv.flat(inside & (np.hypot(XX - cx, YY - cy) <= r), c)
+    px, py, pw, ph, pr = 8, 8, 48, 48, 9
+    pane, _ = Canvas.rbox(px, py, pw, ph, pr, bevel=1)
+    drop, _ = Canvas.rbox(px, py + 2, pw, ph, pr, bevel=1)
+    cv.put(drop & ~pane, rgb("#06402a"), 0.35)                                    # soft shadow under the pane
+    frost = _box_blur(cv.c, 4)                                                    # what the glass shows: the shapes behind it, blurred
+    grey = frost.mean(-1, keepdims=True)
+    frost = np.clip(grey + (frost - grey) * 1.25, 0, 255)                         # a little extra saturation, as the theme's bake does
+    band = np.round(np.clip((YY - py) / ph, 0, 1) * 3) / 3                       # lighter at the top, in four steps
+    frost = mix(frost, np.array([255.0, 255, 255]), (0.42 - 0.24 * band)[..., None])
+    frost = np.round(frost / 12) * 12                                             # posterise the blur so it stays pixel art
+    cv.put(pane, frost)
+    inner = erode(pane)
+    rim = pane & ~inner
+    cv.put(rim & (XX + YY < px + py + pw + ph - 18), rgb("#ffffff"), 0.85)       # bevel: bright on the top-left edge
+    cv.put(rim & (XX + YY >= px + py + pw + ph - 18), rgb("#0a6644"), 0.55)      # and dark on the bottom-right
+    s = (t * 1.6) % 1.6 - 0.3                                                     # a shine sweeps across the glass, then rests
+    sx = px + s * (pw + ph)
+    cv.put(inner & (np.abs(XX + YY - py - sx) < 2.2), rgb("#ffffff"), 0.35)
+    lo, hi = 40, 23
+    pts = [(14, lo), (24, lo), (24, hi), (40, hi), (40, lo), (50, lo)]
+    segs = list(zip(pts, pts[1:]))
+
+    def near(r, dy=0.0):
+        m = np.zeros((N, N), bool)
+        for (ax, ay), (bx, by) in segs:
+            qx, qy, dx, dy2 = XX - ax, YY - ay - dy, bx - ax, by - ay
+            u = np.clip((qx * dx + qy * dy2) / (dx * dx + dy2 * dy2 or 1), 0, 1)
+            m |= np.hypot(qx - u * dx, qy - u * dy2) <= r
+        return m
+    cv.put(near(2.9, 1.5), rgb("#0a6644"), 0.3)                                   # faint shadow so the pulse reads on light glass
+    col = mix(rgb("#ffffff"), rgb("#e4f7ee"), np.round(np.clip((YY - hi) / (lo - hi), 0, 1) * 2)[..., None] / 2)
+    cv.put(near(2.6), col)
+    return cv
+
+
 ALL = {
     "opencarmind": opencarmind, "research-hound": research_hound, "skill-vision": skill_vision,
     "agent-oracle": agent_oracle, "mr-usage": mr_usage, "llm-dogfight": llm_dogfight,
-    "tigerocr": tigerocr, "murasaki": murasaki, "liteeda": liteeda,
+    "tigerocr": tigerocr, "murasaki": murasaki, "liteeda": liteeda, "glassvgl": glassvgl,
 }
 
 
