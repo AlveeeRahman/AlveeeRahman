@@ -464,14 +464,14 @@ def _box_blur(img, r, passes=2):
 
 
 def glassvgl(f):
-    """The GlassVGL mark: colour shapes drift behind a frosted pane with a bevel, the LiteEDA pulse sits on the glass."""
-    cv = Canvas(); tile(cv, "#43d8a1", "#0f8357", edge=None)
+    """The GlassVGL mark on a cobalt tile: colour shapes drift behind a frosted pane with a bevel, the pulse sits on the glass."""
+    cv = Canvas(); tile(cv, "#5b8cff", "#2034a8", edge=None)
     t = f / FRAMES
     a = 2 * math.pi * t
-    blobs = (                                                                     # the logo's mint, blue and purple shapes, each on a slow loop
-        (10 + 2.0 * math.cos(a), 7 + 1.5 * math.sin(a), 14, "#b8ffe4"),
-        (61 + 1.5 * math.cos(a + 2.1), 17 + 2.0 * math.sin(a + 2.1), 10, "#2f7dff"),
-        (55 + 2.0 * math.cos(a + 4.2), 60 + 1.5 * math.sin(a + 4.2), 14, "#8f5bff"),
+    blobs = (                                                                     # aqua, pink and amber shapes, each on a slow loop
+        (10 + 2.0 * math.cos(a), 7 + 1.5 * math.sin(a), 14, "#8ff3ff"),
+        (61 + 1.5 * math.cos(a + 2.1), 17 + 2.0 * math.sin(a + 2.1), 10, "#ff8fd0"),
+        (55 + 2.0 * math.cos(a + 4.2), 60 + 1.5 * math.sin(a + 4.2), 14, "#ffc46b"),
     )
     inside = erode(erode(cv.tile_mask))                                          # keep the tile's bevelled rim on top
     for cx, cy, r, c in blobs:
@@ -479,7 +479,7 @@ def glassvgl(f):
     px, py, pw, ph, pr = 8, 8, 48, 48, 9
     pane, _ = Canvas.rbox(px, py, pw, ph, pr, bevel=1)
     drop, _ = Canvas.rbox(px, py + 2, pw, ph, pr, bevel=1)
-    cv.put(drop & ~pane, rgb("#06402a"), 0.35)                                    # soft shadow under the pane
+    cv.put(drop & ~pane, rgb("#0b1450"), 0.35)                                    # soft shadow under the pane
     frost = _box_blur(cv.c, 4)                                                    # what the glass shows: the shapes behind it, blurred
     grey = frost.mean(-1, keepdims=True)
     frost = np.clip(grey + (frost - grey) * 1.25, 0, 255)                         # a little extra saturation, as the theme's bake does
@@ -490,10 +490,13 @@ def glassvgl(f):
     inner = erode(pane)
     rim = pane & ~inner
     cv.put(rim & (XX + YY < px + py + pw + ph - 18), rgb("#ffffff"), 0.85)       # bevel: bright on the top-left edge
-    cv.put(rim & (XX + YY >= px + py + pw + ph - 18), rgb("#0a6644"), 0.55)      # and dark on the bottom-right
+    cv.put(rim & (XX + YY >= px + py + pw + ph - 18), rgb("#132a7a"), 0.55)      # and dark on the bottom-right
     s = (t * 1.6) % 1.6 - 0.3                                                     # a shine sweeps across the glass, then rests
     sx = px + s * (pw + ph)
     cv.put(inner & (np.abs(XX + YY - py - sx) < 2.2), rgb("#ffffff"), 0.35)
+    if (f // 3) % 4 == 0:                                                         # a twinkle on the pane's top-left corner
+        for dx, dy in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1)):
+            cv.flat((np.abs(XX - 13.5 - dx) < 0.5) & (np.abs(YY - 13.5 - dy) < 0.5), "#ffffff")
     lo, hi = 40, 23
     pts = [(14, lo), (24, lo), (24, hi), (40, hi), (40, lo), (50, lo)]
     segs = list(zip(pts, pts[1:]))
@@ -505,8 +508,8 @@ def glassvgl(f):
             u = np.clip((qx * dx + qy * dy2) / (dx * dx + dy2 * dy2 or 1), 0, 1)
             m |= np.hypot(qx - u * dx, qy - u * dy2) <= r
         return m
-    cv.put(near(2.9, 1.5), rgb("#0a6644"), 0.3)                                   # faint shadow so the pulse reads on light glass
-    col = mix(rgb("#ffffff"), rgb("#e4f7ee"), np.round(np.clip((YY - hi) / (lo - hi), 0, 1) * 2)[..., None] / 2)
+    cv.put(near(2.9, 1.5), rgb("#132a7a"), 0.3)                                   # faint shadow so the pulse reads on light glass
+    col = mix(rgb("#ffffff"), rgb("#e6eeff"), np.round(np.clip((YY - hi) / (lo - hi), 0, 1) * 2)[..., None] / 2)
     cv.put(near(2.6), col)
     return cv
 
