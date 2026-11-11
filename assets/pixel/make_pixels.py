@@ -514,50 +514,10 @@ def glassvgl(f):
     return cv
 
 
-def _tri(ax, ay, bx, by, cx, cy):
-    def side(px, py, qx, qy, rx, ry):
-        return (XX - qx) * (ry - qy) - (YY - qy) * (rx - qx), (px - qx) * (ry - qy) - (py - qy) * (rx - qx)
-    m = np.ones((N, N), bool)
-    for p, q, r in (((ax, ay), (bx, by), (cx, cy)), ((bx, by), (cx, cy), (ax, ay)), ((cx, cy), (ax, ay), (bx, by))):
-        v, ref = side(p[0], p[1], q[0], q[1], r[0], r[1])
-        m &= np.sign(v) != -np.sign(ref)
-    return m
-
-
-def claude_duet(f):
-    """Two chat bubbles taking turns: typing dots hop in the coral bubble, then the cream one answers."""
-    cv = Canvas(); tile(cv, "#2b2420", "#15110e", edge="#4a3f37")
-    half = FRAMES // 2
-    turn, k = divmod(f, half)                                                   # 0: coral speaks, 1: cream answers
-    bubbles = [(7, 11, 33, 23, "#d9775a", (11, 31, 19, 31, 9, 40)),
-               (24, 30, 33, 23, "#efe7da", (49, 50, 57, 50, 56, 59))]
-    for i, (x, y, w, h, col, tail) in enumerate(bubbles):
-        lift = -1.5 * math.sin(math.pi * k / half) if i == turn else 0.0          # the speaker rises a pixel or two
-        y += lift
-        tx = tuple(v + (lift if j % 2 else 0) for j, v in enumerate(tail))
-        cv.shadow(x + w / 2 + 1, y + h + 2.5, w / 2 - 3, 2.2, 0.3)
-        m, n = Canvas.rbox(x, y, w, h, 8, 2.5)
-        tm = _tri(*tx)
-        cv.shade(m | tm, np.where(tm[..., None] & ~m[..., None], np.array([0, 0, 1.0]), n), col)
-        cx, cy = x + w / 2, y + h / 2
-        dot = "#3a2a22" if i == 0 else "#8a5a46"
-        for j, dx in enumerate((-8, 0, 8)):
-            hop = 0.0
-            if i == turn:
-                ph = (k / half * 2 - j * 0.22) % 1
-                hop = -2.2 * max(0.0, math.sin(2 * math.pi * ph)) if ph < 0.5 else 0.0
-            a = 1.0 if i == turn else 0.45
-            cv.put(np.hypot(XX - (cx + dx), YY - (cy + hop)) < 2.3, rgb(dot), a)
-            if i == turn:
-                cv.put(np.hypot(XX - (cx + dx - 0.8), YY - (cy + hop - 0.8)) < 0.7, rgb("#ffffff"), 0.6)
-    return cv
-
-
 ALL = {
     "opencarmind": opencarmind, "research-hound": research_hound, "skill-vision": skill_vision,
     "agent-oracle": agent_oracle, "mr-usage": mr_usage, "llm-dogfight": llm_dogfight,
     "tigerocr": tigerocr, "murasaki": murasaki, "liteeda": liteeda, "glassvgl": glassvgl,
-    "claude-duet": claude_duet,
 }
 
 
