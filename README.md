@@ -73,7 +73,12 @@ The icons on the five repositories above came out of one such sessions (Clearly 
 
 ### Claude Duet beta notes
 
-I'm beta testing Claude Duet, Anthropic's chief-of-staff style assistant. After two days of heavy use I wrote up 30 pieces of feedback, including the seven reports I sent to Anthropic: [read the notes](CLAUDE-DUET-BETA-REPORT.md).
+<table>
+<tr>
+<td width="88" align="center" valign="middle"><a href="CLAUDE-DUET-BETA-REPORT.md"><img src="assets/pixel/claude-duet.gif" width="64" height="64" alt="Claude Duet beta notes icon, animated: two chat bubbles taking turns"></a></td>
+<td valign="middle"><a href="CLAUDE-DUET-BETA-REPORT.md"><b>Claude Duet beta notes</b></a> &nbsp;<code>beta tester</code><br>I'm beta testing Claude Duet, Anthropic's chief-of-staff style assistant. After two days of heavy use I wrote up 30 pieces of feedback, including the seven reports I sent to Anthropic.</td>
+</tr>
+</table>
 
 ## Google Scholar
 
