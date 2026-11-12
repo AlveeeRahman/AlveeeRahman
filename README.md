@@ -62,6 +62,16 @@ Four of my own, still in active development.
 
 ## How I work with Claude
 
+I'm on Claude's Ultra plan, with advanced agent access in Claude Duet. Most days I talk to Duet by voice and it runs as the orchestrator, sending work out to many Claude agents in parallel across LiteEDA, [GlassVGL](https://github.com/AlveeeRahman/GlassVGL), [OpenCarMind](https://github.com/AlveeeRahman/OpenCarMind) and buildforpeople.dev.
+
+- Each agent logs its progress in detail. What reaches me is results, blockers and questions, never status chatter.
+- No research claim gets trusted until hall-hunter has been over it.
+- Changes go in as pull requests, and I approve every merge myself.
+- Code and context live in GitHub. Large or sensitive files go to Google Drive.
+- CI stays cheap: Linux jobs on pull requests, macOS and Windows only for releases.
+
+My own research is AI and quantum annealing, applied to power systems and power electronics.
+
 My Claude Code sessions run in the cloud with a short rulebook that Claude reads before anything else.
 
 - Anything that touches the live web goes through agent-reach: SerpApi answers which pages rank, Firecrawl reads the page, and its developer, research and government indexes handle code, papers and law. The built-in search stays off unless I ask for it, because I want results I can audit.
