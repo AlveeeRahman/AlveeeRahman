@@ -77,18 +77,17 @@ Four of my own, still in active development.
   <img src="https://img.shields.io/badge/TigerOCR-2B2B2B?logo=modelcontextprotocol&logoColor=white" alt="TigerOCR">
 </p>
 
-I'm on Claude's Ultra plan, with advanced agent access in Claude Duet. Most days I talk to Duet by voice and it runs as the orchestrator, sending work out to many Claude agents in parallel across LiteEDA, [GlassVGL](https://github.com/AlveeeRahman/GlassVGL), [OpenCarMind](https://github.com/AlveeeRahman/OpenCarMind) and buildforpeople.dev.
+I'm on Claude's Ultra plan, with advanced agent access in Claude Duet. Duet runs as the orchestrator and sends work out to many Claude agents in parallel across my projects.
 
 - 📋 Each agent logs its progress in detail. What reaches me is results, blockers and questions, never status chatter.
 - 🔍 No research claim gets trusted until hall-hunter has been over it.
-- 🔀 Changes go in as pull requests, and I approve every merge myself.
-- 🗂️ Code and context live in GitHub. Large or sensitive files go to Google Drive.
-- 🐧 CI stays cheap: Linux jobs on pull requests, macOS and Windows only for releases.
+- 🔀 Every change goes in as a pull request and gets reviewed before it merges.
+- 🐧 CI stays lean: quick Linux checks on pull requests, full builds only for releases.
 
 I also have Gemini and Perplexity subscriptions. Both are good, but I open them far less, because I think Claude is the best.
 <img src="https://img.shields.io/badge/Gemini-8E75B2?style=flat-square&logo=googlegemini&logoColor=white" alt="Gemini" height="16"> <img src="https://img.shields.io/badge/Perplexity-1FB8CD?style=flat-square&logo=perplexity&logoColor=white" alt="Perplexity" height="16">
 
-My own research is AI and quantum annealing, applied to power systems and power electronics.
+Outside the tooling, my research is AI and quantum annealing, applied to power systems and power electronics.
 
 My Claude Code sessions run in the cloud with a short rulebook that Claude reads before anything else.
 
@@ -97,7 +96,7 @@ My Claude Code sessions run in the cloud with a short rulebook that Claude reads
 - ✅ Skills get validated by skill-vision before they ship. Agent designs start with agent-oracle's four questions. Papers go through research-hound, which checks that each DOI resolves and that its metadata matches the citation.
 - ⚛️ The quantum-computing skill covers Qiskit, PennyLane, QuTiP and D-Wave Ocean, which is where the power systems work and the Claude work meet.
 
-The icons on the first five repositories in What I build came out of one such sessions (Clearly I am no Photo Editor). Firecrawl read each project page, the profile's own pixel script drew each mark as a 24-frame animated GIF, Claude Design laid out the family, and Claude Code pushed the commits.
+The icons on the first five repositories in What I build came out of one such session (Clearly I am no Photo Editor). Firecrawl read each project page, the profile's own pixel script drew each mark as a 24-frame animated GIF, Claude Design laid out the family, and Claude Code pushed the commits.
 
 ## Google Scholar
 
