@@ -63,8 +63,9 @@ Four of my own, still in active development.
 ## How I work with Claude
 
 <p>
-  <img src="https://img.shields.io/badge/Claude_Ultra-D97757?logo=claude&logoColor=white" alt="Claude Ultra">
-  <img src="https://img.shields.io/badge/Claude_Duet-D97757?logo=claude&logoColor=white" alt="Claude Duet">
+  <img src="https://img.shields.io/badge/Claude-%E2%98%85%20Ultra-C15F3C?style=for-the-badge&logo=claude&logoColor=F4E3D7&labelColor=1A1410" alt="Claude Ultra">
+  <img src="https://img.shields.io/badge/Claude-Duet-6B4FBB?style=for-the-badge&logo=claude&logoColor=white&labelColor=2A2140" alt="Claude Duet">
+  <br>
   <img src="https://img.shields.io/badge/Claude_Code-191919?logo=claude&logoColor=D97757" alt="Claude Code">
   <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="GitHub">
   <br>
