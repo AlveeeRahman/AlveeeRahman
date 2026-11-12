@@ -62,22 +62,33 @@ Four of my own, still in active development.
 
 ## How I work with Claude
 
+<p>
+  <img src="https://img.shields.io/badge/Claude_Ultra-D97757?logo=claude&logoColor=white" alt="Claude Ultra">
+  <img src="https://img.shields.io/badge/Claude_Duet-D97757?logo=claude&logoColor=white" alt="Claude Duet">
+  <img src="https://img.shields.io/badge/Claude_Code-191919?logo=claude&logoColor=D97757" alt="Claude Code">
+  <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="GitHub">
+  <img src="https://img.shields.io/badge/Google_Drive-4285F4?logo=googledrive&logoColor=white" alt="Google Drive">
+</p>
+
 I'm on Claude's Ultra plan, with advanced agent access in Claude Duet. Most days I talk to Duet by voice and it runs as the orchestrator, sending work out to many Claude agents in parallel across LiteEDA, [GlassVGL](https://github.com/AlveeeRahman/GlassVGL), [OpenCarMind](https://github.com/AlveeeRahman/OpenCarMind) and buildforpeople.dev.
 
-- Each agent logs its progress in detail. What reaches me is results, blockers and questions, never status chatter.
-- No research claim gets trusted until hall-hunter has been over it.
-- Changes go in as pull requests, and I approve every merge myself.
-- Code and context live in GitHub. Large or sensitive files go to Google Drive.
-- CI stays cheap: Linux jobs on pull requests, macOS and Windows only for releases.
+- 📋 Each agent logs its progress in detail. What reaches me is results, blockers and questions, never status chatter.
+- 🔍 No research claim gets trusted until hall-hunter has been over it.
+- 🔀 Changes go in as pull requests, and I approve every merge myself.
+- 🗂️ Code and context live in GitHub. Large or sensitive files go to Google Drive.
+- 🐧 CI stays cheap: Linux jobs on pull requests, macOS and Windows only for releases.
+
+I also have Gemini and Perplexity subscriptions. Both are good, but I open them far less, because I think Claude is the best.
+<img src="https://img.shields.io/badge/Gemini-8E75B2?style=flat-square&logo=googlegemini&logoColor=white" alt="Gemini" height="16"> <img src="https://img.shields.io/badge/Perplexity-1FB8CD?style=flat-square&logo=perplexity&logoColor=white" alt="Perplexity" height="16">
 
 My own research is AI and quantum annealing, applied to power systems and power electronics.
 
 My Claude Code sessions run in the cloud with a short rulebook that Claude reads before anything else.
 
-- Anything that touches the live web goes through agent-reach: SerpApi answers which pages rank, Firecrawl reads the page, and its developer, research and government indexes handle code, papers and law. The built-in search stays off unless I ask for it, because I want results I can audit.
-- Every draft that leaves a session passes through humanizer, and anything that looks too confident gets hall-hunter, which has to name the file, line and contradicting fact for every finding or report it as unverified.
-- Skills get validated by skill-vision before they ship. Agent designs start with agent-oracle's four questions. Papers go through research-hound, which checks that each DOI resolves and that its metadata matches the citation.
-- The quantum-computing skill covers Qiskit, PennyLane, QuTiP and D-Wave Ocean, which is where the power systems work and the Claude work meet.
+- 🌐 Anything that touches the live web goes through agent-reach: SerpApi answers which pages rank, Firecrawl reads the page, and its developer, research and government indexes handle code, papers and law. The built-in search stays off unless I ask for it, because I want results I can audit.
+- ✍️ Every draft that leaves a session passes through humanizer, and anything that looks too confident gets hall-hunter, which has to name the file, line and contradicting fact for every finding or report it as unverified.
+- ✅ Skills get validated by skill-vision before they ship. Agent designs start with agent-oracle's four questions. Papers go through research-hound, which checks that each DOI resolves and that its metadata matches the citation.
+- ⚛️ The quantum-computing skill covers Qiskit, PennyLane, QuTiP and D-Wave Ocean, which is where the power systems work and the Claude work meet.
 
 The icons on the first five repositories in What I build came out of one such sessions (Clearly I am no Photo Editor). Firecrawl read each project page, the profile's own pixel script drew each mark as a 24-frame animated GIF, Claude Design laid out the family, and Claude Code pushed the commits.
 
