@@ -63,11 +63,18 @@ Four of my own, still in active development.
 ## How I work with Claude
 
 <p>
-  <img src="https://img.shields.io/badge/Claude_Ultra-D97757?logo=claude&logoColor=white" alt="Claude Ultra">
-  <img src="https://img.shields.io/badge/Claude_Duet-D97757?logo=claude&logoColor=white" alt="Claude Duet">
+  <img src="https://img.shields.io/badge/Claude-%E2%98%85%20Ultra-C15F3C?style=for-the-badge&logo=claude&logoColor=F4E3D7&labelColor=1A1410" alt="Claude Ultra">
+  <img src="https://img.shields.io/badge/Claude-Duet-6B4FBB?style=for-the-badge&logo=claude&logoColor=white&labelColor=2A2140" alt="Claude Duet">
+  <br>
   <img src="https://img.shields.io/badge/Claude_Code-191919?logo=claude&logoColor=D97757" alt="Claude Code">
   <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="GitHub">
-  <img src="https://img.shields.io/badge/Google_Drive-4285F4?logo=googledrive&logoColor=white" alt="Google Drive">
+  <br>
+  <img src="https://img.shields.io/badge/Firecrawl-2B2B2B?logo=modelcontextprotocol&logoColor=white" alt="Firecrawl">
+  <img src="https://img.shields.io/badge/SerpApi-2B2B2B?logo=modelcontextprotocol&logoColor=white" alt="SerpApi">
+  <img src="https://img.shields.io/badge/Hugging_Face-FFD21E?logo=huggingface&logoColor=black" alt="Hugging Face">
+  <img src="https://img.shields.io/badge/Higgsfield-2B2B2B?logo=modelcontextprotocol&logoColor=white" alt="Higgsfield">
+  <img src="https://img.shields.io/badge/OpenSEO-2B2B2B?logo=modelcontextprotocol&logoColor=white" alt="OpenSEO">
+  <img src="https://img.shields.io/badge/TigerOCR-2B2B2B?logo=modelcontextprotocol&logoColor=white" alt="TigerOCR">
 </p>
 
 I'm on Claude's Ultra plan, with advanced agent access in Claude Duet. Most days I talk to Duet by voice and it runs as the orchestrator, sending work out to many Claude agents in parallel across LiteEDA, [GlassVGL](https://github.com/AlveeeRahman/GlassVGL), [OpenCarMind](https://github.com/AlveeeRahman/OpenCarMind) and buildforpeople.dev.
