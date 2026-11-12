@@ -75,13 +75,11 @@ Four of my own, still in active development.
 <td width="50%" align="center" valign="top">
 <a href="https://tigerocr.buildforpeople.dev"><img src="assets/icons/tigerocr.png" width="64" height="64" alt="TigerOCR icon"></a><br>
 <a href="https://tigerocr.buildforpeople.dev"><b>TigerOCR</b></a><br>
-<a href="https://tigerocr.buildforpeople.dev"><img src="https://img.shields.io/badge/beta-1F6FEB?style=flat-square" alt="beta"></a><br>
 <sub>Hosted GPU OCR that turns PDFs and images into clean Markdown, as a remote MCP server and REST API.</sub>
 </td>
 <td width="50%" align="center" valign="top">
 <a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="assets/icons/opencarmind.png" width="64" height="64" alt="OpenCarMind icon"></a><br>
 <a href="https://github.com/AlveeeRahman/OpenCarMind"><b>OpenCarMind</b></a><br>
-<a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="https://img.shields.io/badge/beta-1F6FEB?style=flat-square" alt="beta"></a><br>
 <sub>A car logger for the ESP32-S3 with a 93 KB on-chip neural network and a desktop app for Windows, macOS and Linux.</sub>
 </td>
 </tr>
