@@ -91,8 +91,8 @@ Four of my own, still in active development.
 <sub>A purple-team platform for authorized security research, with AI-driven reverse engineering and ICS threat modeling.</sub>
 </td>
 <td width="50%" align="center" valign="top">
-<img src="assets/icons/liteeda.png" width="64" height="64" alt="LiteEDA icon"><br>
-<b>LiteEDA</b><br>
+<img src="assets/icons/light-eda.png" width="64" height="64" alt="Light EDA icon"><br>
+<b>Light EDA</b><br>
 <img src="https://img.shields.io/badge/alpha-D97757?style=flat-square" alt="alpha"><br>
 <sub>A Rust and Tauri desktop IDE that builds and flashes ESP32 and Arduino firmware and runs the open-source FPGA flow, with an on-device assistant.</sub>
 </td>
