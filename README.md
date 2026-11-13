@@ -55,8 +55,8 @@ I've been working with AI since 2020 and never got around to making a GitHub for
 <td width="33%" align="center" valign="top" colspan="2">
 <a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="assets/icons/opencarmind.png" width="44" height="44" alt="OpenCarMind icon"></a><br>
 <a href="https://github.com/AlveeeRahman/OpenCarMind"><b>OpenCarMind</b></a><br>
-<a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="https://img.shields.io/badge/ESP32--S3-firmware-191919?style=flat-square&logo=espressif&logoColor=white" alt="ESP32-S3 firmware"></a><br>
-<sub>A car logger for the ESP32-S3 with a 93 KB on-chip neural network and a desktop app for Windows, macOS and Linux.</sub>
+<a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="https://img.shields.io/badge/ESP32--S3-firmware-191919?style=flat-square&logo=espressif&logoColor=white" alt="ESP32-S3 firmware"></a> <a href="https://github.com/AlveeeRahman/OpenCarMind/releases/tag/edgeos-2.1.0"><img src="https://img.shields.io/badge/ESP32--S31-EdgeOS-191919?style=flat-square&logo=espressif&logoColor=white" alt="ESP32-S31 EdgeOS"></a><br>
+<sub>A car logger with an on-chip neural network for the ESP32-S3 and the early-access ESP-Mosaico (ESP32-S31), plus a desktop app for Windows, macOS and Linux.</sub>
 </td>
 </tr>
 </table>
@@ -115,7 +115,7 @@ Four of my own, still in active development.
 </tr>
 <tr>
 <td width="74" align="center"><a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="assets/icons/opencarmind.png" width="48" height="48" alt="OpenCarMind icon"></a></td>
-<td><a href="https://github.com/AlveeeRahman/OpenCarMind"><b>OpenCarMind</b></a><br><sub>A car logger for the ESP32-S3 with a 93 KB on-chip neural network and a desktop app for Windows, macOS and Linux.</sub></td>
+<td><a href="https://github.com/AlveeeRahman/OpenCarMind"><b>OpenCarMind</b></a><br><sub>A car logger with an on-chip neural network for the ESP32-S3 and the early-access ESP-Mosaico (ESP32-S31), plus a desktop app for Windows, macOS and Linux.</sub></td>
 </tr>
 <tr>
 <td width="74" align="center"><a href="https://tigerocr.buildforpeople.dev"><img src="assets/icons/tigerocr.png" width="48" height="48" alt="TigerOCR icon"></a></td>
