@@ -21,36 +21,42 @@ I've been working with AI since 2020 and never got around to making a GitHub for
 <table>
 <tr>
 <td width="33%" align="center" valign="top" colspan="2">
-<a href="https://github.com/AlveeeRahman/research-hound"><img src="assets/icons/research-hound.png" width="64" height="64" alt="research-hound icon"></a><br>
+<a href="https://github.com/AlveeeRahman/research-hound"><img src="assets/icons/research-hound.png" width="44" height="44" alt="research-hound icon"></a><br>
 <a href="https://github.com/AlveeeRahman/research-hound"><b>research-hound</b></a><br>
 <a href="https://github.com/AlveeeRahman/research-hound"><img src="https://img.shields.io/badge/Claude_Code-skill-191919?style=flat-square&logo=claude&logoColor=D97757" alt="Claude Code skill"></a><br>
 <sub>A five-stage research workflow for Claude Code, with 21 scripts that check citations and claims instead of trusting the model.</sub>
 </td>
 <td width="33%" align="center" valign="top" colspan="2">
-<a href="https://github.com/AlveeeRahman/skill-vision"><img src="assets/icons/skill-vision.png" width="64" height="64" alt="skill-vision icon"></a><br>
+<a href="https://github.com/AlveeeRahman/skill-vision"><img src="assets/icons/skill-vision.png" width="44" height="44" alt="skill-vision icon"></a><br>
 <a href="https://github.com/AlveeeRahman/skill-vision"><b>skill-vision</b></a><br>
 <a href="https://github.com/AlveeeRahman/skill-vision"><img src="https://img.shields.io/badge/Claude_Code-skill-191919?style=flat-square&logo=claude&logoColor=D97757" alt="Claude Code skill"></a><br>
 <sub>Validates Claude Agent Skills for spec conformance, quality and security, and counts the context tokens each one costs.</sub>
 </td>
 <td width="33%" align="center" valign="top" colspan="2">
-<a href="https://github.com/AlveeeRahman/agent-oracle"><img src="assets/icons/agent-oracle.png" width="64" height="64" alt="agent-oracle icon"></a><br>
+<a href="https://github.com/AlveeeRahman/agent-oracle"><img src="assets/icons/agent-oracle.png" width="44" height="44" alt="agent-oracle icon"></a><br>
 <a href="https://github.com/AlveeeRahman/agent-oracle"><b>agent-oracle</b></a><br>
 <a href="https://github.com/AlveeeRahman/agent-oracle"><img src="https://img.shields.io/badge/Claude_Code-skill-191919?style=flat-square&logo=claude&logoColor=D97757" alt="Claude Code skill"></a><br>
 <sub>Decides how an agent system should be built before it runs, from the number of agents to what gets locked down.</sub>
 </td>
 </tr>
 <tr>
-<td width="50%" align="center" valign="top" colspan="3">
-<a href="https://github.com/AlveeeRahman/mr-usage"><img src="assets/icons/mr-usage.png" width="64" height="64" alt="mr-usage icon"></a><br>
+<td width="33%" align="center" valign="top" colspan="2">
+<a href="https://github.com/AlveeeRahman/mr-usage"><img src="assets/icons/mr-usage.png" width="44" height="44" alt="mr-usage icon"></a><br>
 <a href="https://github.com/AlveeeRahman/mr-usage"><b>mr-usage</b></a><br>
 <a href="https://github.com/AlveeeRahman/mr-usage"><img src="https://img.shields.io/badge/Rust-Tauri-191919?style=flat-square&logo=rust&logoColor=white" alt="Rust and Tauri"></a><br>
 <sub>A Rust and Tauri desktop app that shows what is left on nine paid APIs, with keys kept in the OS keystore.</sub>
 </td>
-<td width="50%" align="center" valign="top" colspan="3">
-<a href="https://github.com/AlveeeRahman/llm-dogfight"><img src="assets/icons/llm-dogfight.png" width="64" height="64" alt="llm-dogfight icon"></a><br>
+<td width="33%" align="center" valign="top" colspan="2">
+<a href="https://github.com/AlveeeRahman/llm-dogfight"><img src="assets/icons/llm-dogfight.png" width="44" height="44" alt="llm-dogfight icon"></a><br>
 <a href="https://github.com/AlveeeRahman/llm-dogfight"><b>llm-dogfight</b></a><br>
 <a href="https://github.com/AlveeeRahman/llm-dogfight"><img src="https://img.shields.io/badge/Terminal-game-191919?style=flat-square&logo=gnometerminal&logoColor=white" alt="Terminal game"></a><br>
 <sub>Two small local language models command rival saucer fleets in your terminal while a genetic algorithm evolves their tactics.</sub>
+</td>
+<td width="33%" align="center" valign="top" colspan="2">
+<a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="assets/icons/opencarmind.png" width="44" height="44" alt="OpenCarMind icon"></a><br>
+<a href="https://github.com/AlveeeRahman/OpenCarMind"><b>OpenCarMind</b></a><br>
+<a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="https://img.shields.io/badge/ESP32--S3-firmware-191919?style=flat-square&logo=espressif&logoColor=white" alt="ESP32-S3 firmware"></a><br>
+<sub>A car logger for the ESP32-S3 with a 93 KB on-chip neural network and a desktop app for Windows, macOS and Linux.</sub>
 </td>
 </tr>
 </table>
