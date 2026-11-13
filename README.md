@@ -59,72 +59,61 @@ I've been working with AI since 2020 and never got around to making a GitHub for
 
 ## Products
 
-Two paid products, priced in US dollars before sales tax.
+One-time prices in US dollars, before sales tax. None of these is on sale yet.
 
 <table>
 <tr>
-<td width="82" align="center" valign="top"><a href="https://github.com/AlveeeRahman/GlassVGL"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/glassvgl-dark.png"><img src="assets/icons/glassvgl.png" width="56" height="56" alt="GlassVGL icon"></picture></a></td>
-<td colspan="2" valign="top"><a href="https://github.com/AlveeeRahman/GlassVGL"><b>GlassVGL</b></a><br>
-A frosted-glass theme for LVGL 9, from a 240x240 round screen to a 1024x600 panel on ESP32, RP2040, STM32 and the PC. Two glass packs for Linux desktops go with it, all coming soon to Gumroad as one-time purchases. Every GlassVGL product was checked and works in light and dark mode.
-</td>
-</tr>
-<tr>
-<td align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-edge-gui-dark.png"><img src="assets/icons/tiers/glassvgl-edge-gui.png" width="36" height="36" alt=""></picture></td>
-<td><b>GlassVGL Edge GUI</b><br><sub>The LVGL glass theme, royalty-free in your own products</sub></td>
-<td align="right"><b>$12.99</b></td>
-</tr>
-<tr>
-<td align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-icons-dark.png"><img src="assets/icons/tiers/glassvgl-icons.png" width="36" height="36" alt=""></picture></td>
-<td><b>GlassVGL Icons</b><br><sub>A glass icon theme for Linux desktops</sub></td>
-<td align="right"><b>$8.99</b></td>
-</tr>
-<tr>
-<td align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-desktop-dark.png"><img src="assets/icons/tiers/glassvgl-desktop.png" width="36" height="36" alt=""></picture></td>
-<td><b>GlassVGL Desktop</b><br><sub>A glass GTK and GNOME Shell theme for Ubuntu 24.04</sub></td>
-<td align="right"><b>$19.99</b></td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="82" align="center" valign="top"><img src="assets/icons/light-eda.png" width="56" height="56" alt="Light EDA icon"></td>
-<td colspan="2" valign="top"><b>Light EDA</b><br>
-A Rust and Tauri desktop IDE, now in alpha, that builds and flashes ESP32 and Arduino firmware and runs the open-source FPGA flow, with an on-device assistant. Each price is a one-time payment with nothing to renew. None of it is on sale yet.
-</td>
-</tr>
-<tr>
-<td align="center"><img src="assets/icons/tiers/light-eda-pro.png" width="36" height="36" alt=""></td>
+<td width="62" align="center"><img src="assets/icons/tiers/light-eda-pro.png" width="36" height="36" alt=""></td>
 <td><b>Light EDA Pro</b><br><sub>A lifetime key for the desktop IDE</sub></td>
 <td align="right"><b>$59.99</b></td>
 </tr>
 <tr>
-<td align="center"><img src="assets/icons/tiers/light-eda-student.png" width="36" height="36" alt=""></td>
+<td width="62" align="center"><img src="assets/icons/tiers/light-eda-student.png" width="36" height="36" alt=""></td>
 <td><b>Light EDA Pro for students</b><br><sub>The same key, after a school-email check</sub></td>
 <td align="right"><b>$36.49</b></td>
 </tr>
 <tr>
-<td align="center"><img src="assets/icons/tiers/light-eda-ipad.png" width="36" height="36" alt=""></td>
+<td width="62" align="center"><img src="assets/icons/tiers/light-eda-ipad.png" width="36" height="36" alt=""></td>
 <td><b>Light EDA for iPad</b><br><sub>The iPad app, paid up front with no in-app purchases</sub></td>
 <td align="right"><b>$9.99</b></td>
+</tr>
+<tr>
+<td width="62" align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-edge-gui-dark.png"><img src="assets/icons/tiers/glassvgl-edge-gui.png" width="36" height="36" alt=""></picture></td>
+<td><a href="https://github.com/AlveeeRahman/GlassVGL"><b>GlassVGL Edge GUI</b></a><br><sub>The LVGL glass theme, royalty-free in your own products</sub></td>
+<td align="right"><b>$12.99</b></td>
+</tr>
+<tr>
+<td width="62" align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-icons-dark.png"><img src="assets/icons/tiers/glassvgl-icons.png" width="36" height="36" alt=""></picture></td>
+<td><a href="https://github.com/AlveeeRahman/GlassVGL"><b>GlassVGL Icons</b></a><br><sub>A glass icon theme for Linux desktops</sub></td>
+<td align="right"><b>$8.99</b></td>
+</tr>
+<tr>
+<td width="62" align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-desktop-dark.png"><img src="assets/icons/tiers/glassvgl-desktop.png" width="36" height="36" alt=""></picture></td>
+<td><a href="https://github.com/AlveeeRahman/GlassVGL"><b>GlassVGL Desktop</b></a><br><sub>A glass GTK and GNOME Shell theme for Ubuntu 24.04</sub></td>
+<td align="right"><b>$19.99</b></td>
 </tr>
 </table>
 
 ## In the works
 
-Three of my own, still in active development.
+Four of my own, still in active development.
 
 <table>
 <tr>
-<td width="74" align="center"><a href="https://tigerocr.buildforpeople.dev"><img src="assets/icons/tigerocr.png" width="48" height="48" alt="TigerOCR icon"></a></td>
-<td><a href="https://tigerocr.buildforpeople.dev"><b>TigerOCR</b></a><br><sub>Hosted GPU OCR that turns PDFs and images into clean Markdown, as a remote MCP server and REST API.</sub></td>
+<td width="74" align="center"><img src="assets/icons/light-eda.png" width="48" height="48" alt="Light EDA icon"></td>
+<td><b>Light EDA</b><br><sub>A Rust and Tauri desktop IDE, now in alpha, that builds and flashes ESP32 and Arduino firmware and runs the open-source FPGA flow, with an on-device assistant.</sub></td>
+</tr>
+<tr>
+<td width="74" align="center"><img src="assets/icons/murasaki.png" width="48" height="48" alt="Murasaki icon"></td>
+<td><b>Murasaki</b><br><sub>Invite only. A purple-team platform for authorized security research, with AI-driven reverse engineering and ICS threat modeling.</sub></td>
 </tr>
 <tr>
 <td width="74" align="center"><a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="assets/icons/opencarmind.png" width="48" height="48" alt="OpenCarMind icon"></a></td>
 <td><a href="https://github.com/AlveeeRahman/OpenCarMind"><b>OpenCarMind</b></a><br><sub>A car logger for the ESP32-S3 with a 93 KB on-chip neural network and a desktop app for Windows, macOS and Linux.</sub></td>
 </tr>
 <tr>
-<td width="74" align="center"><img src="assets/icons/murasaki.png" width="48" height="48" alt="Murasaki icon"></td>
-<td><b>Murasaki</b><br><sub>Invite only. A purple-team platform for authorized security research, with AI-driven reverse engineering and ICS threat modeling.</sub></td>
+<td width="74" align="center"><a href="https://tigerocr.buildforpeople.dev"><img src="assets/icons/tigerocr.png" width="48" height="48" alt="TigerOCR icon"></a></td>
+<td><a href="https://tigerocr.buildforpeople.dev"><b>TigerOCR</b></a><br><sub>Hosted GPU OCR that turns PDFs and images into clean Markdown, as a remote MCP server and REST API.</sub></td>
 </tr>
 </table>
 
