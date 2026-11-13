@@ -58,8 +58,10 @@ I've been working with AI since 2020 and never got around to making a GitHub for
 <a href="https://github.com/AlveeeRahman/GlassVGL"><img src="assets/icons/glassvgl.png" width="64" height="64" align="left" alt="GlassVGL icon"></a>
 <a href="https://github.com/AlveeeRahman/GlassVGL"><b>GlassVGL</b></a>&nbsp;
 <a href="https://github.com/AlveeeRahman/GlassVGL"><img src="https://img.shields.io/badge/LVGL-9-191919?style=flat-square" alt="LVGL 9"></a>
-<a href="https://github.com/AlveeeRahman/GlassVGL"><img src="https://img.shields.io/badge/Pro_%2412.99-not_on_sale_yet-6E7681?style=flat-square&labelColor=2EA043" alt="GlassVGL Pro, $12.99, not on sale yet"></a><br>
-<sub>A frosted-glass theme for LVGL 9 on microcontrollers, with free samples for Arduino, PlatformIO, ESP-IDF and Zephyr. It is built for ESP32, RP2040 and STM32 boards as well as the PC, and one theme scales from a 240x240 round screen to a 1024x600 panel, picking a FULL, LITE or FLAT render mode from the memory on the board. The theme itself is GlassVGL Pro, $12.99 on Gumroad or $11.99 on Ko-fi, not on sale yet.</sub>
+<a href="https://github.com/AlveeeRahman/GlassVGL"><img src="https://img.shields.io/badge/Pro_%2412.99-not_on_sale_yet-6E7681?style=flat-square&labelColor=2EA043" alt="GlassVGL Pro, $12.99, not on sale yet"></a>
+<a href="https://github.com/AlveeeRahman/GlassVGL"><img src="https://img.shields.io/badge/Icons_%245.99-not_on_sale_yet-6E7681?style=flat-square&labelColor=2EA043" alt="GlassVGL Icons, $5.99, not on sale yet"></a>
+<a href="https://github.com/AlveeeRahman/GlassVGL"><img src="https://img.shields.io/badge/Ubuntu_theme_%2415.99-not_on_sale_yet-6E7681?style=flat-square&labelColor=2EA043" alt="GlassVGL Ubuntu theme, $15.99, not on sale yet"></a><br>
+<sub>A frosted-glass theme for LVGL 9 on microcontrollers, with free samples for Arduino, PlatformIO, ESP-IDF and Zephyr. It is built for ESP32, RP2040 and STM32 boards as well as the PC, and one theme scales from a 240x240 round screen to a 1024x600 panel, picking a FULL, LITE or FLAT render mode from the memory on the board. The theme itself is GlassVGL Pro, $12.99 on Gumroad or $11.99 on Ko-fi, not on sale yet. Two packs for Linux desktops follow it: GlassVGL Icons, a glass icon pack, at $5.99, and GlassVGL Desktop, a glass GTK and GNOME Shell theme for Ubuntu, at $15.99. Neither is on sale yet.</sub>
 </td>
 </tr>
 </table>
@@ -94,7 +96,10 @@ Four of my own, still in active development.
 <img src="assets/icons/light-eda.png" width="64" height="64" alt="Light EDA icon"><br>
 <b>Light EDA</b><br>
 <img src="https://img.shields.io/badge/alpha-D97757?style=flat-square" alt="alpha"><br>
-<sub>A Rust and Tauri desktop IDE that builds and flashes ESP32 and Arduino firmware and runs the open-source FPGA flow, with an on-device assistant.</sub>
+<img src="https://img.shields.io/badge/Pro_%2459.99-not_on_sale_yet-6E7681?style=flat-square&labelColor=2EA043" alt="Light EDA Pro, $59.99, not on sale yet">
+<img src="https://img.shields.io/badge/Student_%2436.49-not_on_sale_yet-6E7681?style=flat-square&labelColor=2EA043" alt="Light EDA Pro for students, $36.49, not on sale yet">
+<img src="https://img.shields.io/badge/iPad_%249.99-not_on_sale_yet-6E7681?style=flat-square&labelColor=2EA043" alt="Light EDA for iPad, $9.99, not on sale yet"><br>
+<sub>A Rust and Tauri desktop IDE that builds and flashes ESP32 and Arduino firmware and runs the open-source FPGA flow, with an on-device assistant. Light EDA Pro is a one-time $59.99 for a lifetime key, or $36.49 for students after a school-email check. The iPad app is $9.99 up front, with no in-app purchases. None of it is on sale yet.</sub>
 </td>
 </tr>
 </table>
