@@ -63,7 +63,7 @@ Two paid products, priced in US dollars before sales tax.
 
 <table>
 <tr>
-<td width="64" align="center" valign="top"><a href="https://github.com/AlveeeRahman/GlassVGL"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/glassvgl-dark.png"><img src="assets/icons/glassvgl.png" width="56" height="56" alt="GlassVGL icon"></picture></a></td>
+<td width="82" align="center" valign="top"><a href="https://github.com/AlveeeRahman/GlassVGL"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/glassvgl-dark.png"><img src="assets/icons/glassvgl.png" width="56" height="56" alt="GlassVGL icon"></picture></a></td>
 <td colspan="2" valign="top"><a href="https://github.com/AlveeeRahman/GlassVGL"><b>GlassVGL</b></a><br>
 A frosted-glass theme for LVGL 9, from a 240x240 round screen to a 1024x600 panel on ESP32, RP2040, STM32 and the PC. Two glass packs for Linux desktops go with it, all coming soon to Gumroad as one-time purchases. Every GlassVGL product was checked and works in light and dark mode.
 </td>
@@ -87,7 +87,7 @@ A frosted-glass theme for LVGL 9, from a 240x240 round screen to a 1024x600 pane
 
 <table>
 <tr>
-<td width="64" align="center" valign="top"><img src="assets/icons/light-eda.png" width="56" height="56" alt="Light EDA icon"></td>
+<td width="82" align="center" valign="top"><img src="assets/icons/light-eda.png" width="56" height="56" alt="Light EDA icon"></td>
 <td colspan="2" valign="top"><b>Light EDA</b><br>
 A Rust and Tauri desktop IDE, now in alpha, that builds and flashes ESP32 and Arduino firmware and runs the open-source FPGA flow, with an on-device assistant. Each price is a one-time payment with nothing to renew. None of it is on sale yet.
 </td>
@@ -115,15 +115,15 @@ Three of my own, still in active development.
 
 <table>
 <tr>
-<td width="64" align="center"><a href="https://tigerocr.buildforpeople.dev"><img src="assets/icons/tigerocr.png" width="48" height="48" alt="TigerOCR icon"></a></td>
+<td width="74" align="center"><a href="https://tigerocr.buildforpeople.dev"><img src="assets/icons/tigerocr.png" width="48" height="48" alt="TigerOCR icon"></a></td>
 <td><a href="https://tigerocr.buildforpeople.dev"><b>TigerOCR</b></a><br><sub>Hosted GPU OCR that turns PDFs and images into clean Markdown, as a remote MCP server and REST API.</sub></td>
 </tr>
 <tr>
-<td width="64" align="center"><a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="assets/icons/opencarmind.png" width="48" height="48" alt="OpenCarMind icon"></a></td>
+<td width="74" align="center"><a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="assets/icons/opencarmind.png" width="48" height="48" alt="OpenCarMind icon"></a></td>
 <td><a href="https://github.com/AlveeeRahman/OpenCarMind"><b>OpenCarMind</b></a><br><sub>A car logger for the ESP32-S3 with a 93 KB on-chip neural network and a desktop app for Windows, macOS and Linux.</sub></td>
 </tr>
 <tr>
-<td width="64" align="center"><img src="assets/icons/murasaki.png" width="48" height="48" alt="Murasaki icon"></td>
+<td width="74" align="center"><img src="assets/icons/murasaki.png" width="48" height="48" alt="Murasaki icon"></td>
 <td><b>Murasaki</b><br><sub>Invite only. A purple-team platform for authorized security research, with AI-driven reverse engineering and ICS threat modeling.</sub></td>
 </tr>
 </table>
