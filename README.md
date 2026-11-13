@@ -76,22 +76,22 @@ One-time prices in US dollars, before sales tax. None of these is on sale yet.
 <tr>
 <td width="62" align="center"><img src="assets/icons/tiers/light-eda-student.png" width="36" height="36" alt=""></td>
 <td><b>LightEDA Pro for students</b><br><sub>The same key, after a school-email check</sub></td>
-<td align="right"><b>$36.49</b></td>
+<td align="right"><b>$30.99</b></td>
 </tr>
 <tr>
 <td width="62" align="center"><img src="assets/icons/tiers/light-eda-ipad.png" width="36" height="36" alt=""></td>
 <td><b>LightEDA for iPad</b><br><sub>The iPad app, paid up front with no in-app purchases</sub></td>
-<td align="right"><b>$9.99</b></td>
-</tr>
-<tr>
-<td width="62" align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-edge-gui-dark.png"><img src="assets/icons/tiers/glassvgl-edge-gui.png" width="36" height="36" alt=""></picture></td>
-<td><a href="https://github.com/AlveeeRahman/GlassVGL"><b>GlassVGL Edge GUI</b></a><br><sub>The LVGL glass theme, royalty-free in your own products</sub></td>
 <td align="right"><b>$12.99</b></td>
 </tr>
 <tr>
 <td width="62" align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-icons-dark.png"><img src="assets/icons/tiers/glassvgl-icons.png" width="36" height="36" alt=""></picture></td>
 <td><a href="https://github.com/AlveeeRahman/GlassVGL"><b>GlassVGL Icons</b></a><br><sub>A glass icon theme for Linux desktops</sub></td>
-<td align="right"><b>$8.99</b></td>
+<td align="right"><b>$6.99</b></td>
+</tr>
+<tr>
+<td width="62" align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-edge-gui-dark.png"><img src="assets/icons/tiers/glassvgl-edge-gui.png" width="36" height="36" alt=""></picture></td>
+<td><a href="https://github.com/AlveeeRahman/GlassVGL"><b>GlassVGL Edge GUI</b></a><br><sub>The LVGL glass theme, royalty-free in your own products</sub></td>
+<td align="right"><b>$12.99</b></td>
 </tr>
 <tr>
 <td width="62" align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-desktop-dark.png"><img src="assets/icons/tiers/glassvgl-desktop.png" width="36" height="36" alt=""></picture></td>
