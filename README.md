@@ -70,17 +70,17 @@ One-time prices in US dollars, before sales tax. None of these is on sale yet.
 <table>
 <tr>
 <td width="62" align="center"><img src="assets/icons/tiers/light-eda-pro.png" width="36" height="36" alt=""></td>
-<td><b>Light EDA Pro</b><br><sub>A lifetime key for the desktop IDE</sub></td>
+<td><b>LightEDA Pro</b><br><sub>A lifetime key for the desktop IDE</sub></td>
 <td align="right"><b>$59.99</b></td>
 </tr>
 <tr>
 <td width="62" align="center"><img src="assets/icons/tiers/light-eda-student.png" width="36" height="36" alt=""></td>
-<td><b>Light EDA Pro for students</b><br><sub>The same key, after a school-email check</sub></td>
+<td><b>LightEDA Pro for students</b><br><sub>The same key, after a school-email check</sub></td>
 <td align="right"><b>$36.49</b></td>
 </tr>
 <tr>
 <td width="62" align="center"><img src="assets/icons/tiers/light-eda-ipad.png" width="36" height="36" alt=""></td>
-<td><b>Light EDA for iPad</b><br><sub>The iPad app, paid up front with no in-app purchases</sub></td>
+<td><b>LightEDA for iPad</b><br><sub>The iPad app, paid up front with no in-app purchases</sub></td>
 <td align="right"><b>$9.99</b></td>
 </tr>
 <tr>
@@ -106,8 +106,8 @@ Four of my own, still in active development.
 
 <table>
 <tr>
-<td width="74" align="center"><img src="assets/icons/light-eda.png" width="48" height="48" alt="Light EDA icon"></td>
-<td><b>Light EDA</b><br><sub>A Rust and Tauri desktop IDE, now in alpha, that builds and flashes ESP32 and Arduino firmware and runs the open-source FPGA flow, with an on-device assistant.</sub></td>
+<td width="74" align="center"><img src="assets/icons/light-eda.png" width="48" height="48" alt="LightEDA icon"></td>
+<td><b>LightEDA</b><br><sub>A Rust and Tauri desktop IDE, now in alpha, that builds and flashes ESP32 and Arduino firmware and runs the open-source FPGA flow, with an on-device assistant.</sub></td>
 </tr>
 <tr>
 <td width="74" align="center"><img src="assets/icons/murasaki.png" width="48" height="48" alt="Murasaki icon"></td>

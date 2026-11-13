@@ -414,7 +414,7 @@ def murasaki(f):
 
 
 def liteeda(f):
-    """The LiteEDA Pulse mark on its green tile, with the pulse sliding sideways like a trace on a scope."""
+    """The LightEDA Pulse mark on its green tile, with the pulse sliding sideways like a trace on a scope."""
     cv = Canvas(); tile(cv, "#44d9a2", "#0c7f53", edge=None)
     # the period is longer than the trace plus the pulse, so the pulse is never split across both ends
     x0, x1, period, width = 6, 58, 72, 16
