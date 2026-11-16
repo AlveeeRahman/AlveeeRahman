@@ -11,7 +11,6 @@
 <p align="center">
   <a href="https://www.linkedin.com/in/alvieee/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logoColor=white" alt="LinkedIn"></a>
   <a href="https://scholar.google.com/citations?user=wRWUQQYAAAAJ"><img src="https://img.shields.io/badge/Google_Scholar-4285F4?style=flat-square&logo=googlescholar&logoColor=white" alt="Google Scholar"></a>
-  <a href="https://claude.ai/duet-invite/O6h9tC0l4Q?e=ios_chat"><img src="https://img.shields.io/badge/Claude_Duet-Exclusive_invite-D97757?style=flat-square&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAHh0lEQVR42sWXaYydZRXHf%2Bd5nne5d2ZKO9OWDksZaQu2LErUAhEoi7KkoiCGDxCRaj%2F4ASIGTEgkLAZjDGAwkAgRaE1UNBADImvsmhigYWmglGVgoKXr0Fk6273v8jzHD%2FfOMNMZUPjCk9zkvfd973v%2B55z%2F%2BZ9zhOZRVQFERIKqtoO%2FIgQuCcGfrKodgOGznSAifcbY14zhMbB%2FFZF%2BVTWAiogCyCTjiIhmWbbaWvtLa20XQAgl3ns%2Bz7HWYowDwHv%2Fgff%2B10mSPDDZnox7DlCWxQPORatAyfPMN38XEZHPA0BVFVBA4zixIJRlsca5aPX4I6KqVkR8nudroii6Os%2FrBWBFxMzwRlBFG18QmrhEGp9PBxMAH8dpVBTF2jiOV6mqbXqeXW1tvCbP64WIRNP%2FHRp2XIwYO%2F02ipYF6n0Dh5hPA1LEcRp5n69yLlkrqoNziqKyzVq3oCxzpnkeAiapAJD37aPo3U05PIDmOSZJsa2H4WbPJeqYj4kbz4W81sjeDFFR1eBcjPflviiqneiKIrkyiuIjsqwWjDHm0JCbpEKtZzuDGx%2Bn9v6bhNFhNPhGOkTAWEySErXPJ%2F3SUtpOOZPKohPQ4NEih0NeKSKmKLKQJJUjiiJcKVlW3xjHyVl5Xtcp3qti4pT%2B9f%2Bg%2F8k%2Fo75sRMLYhnNNdjV4EdCyRIsciWJaTjqVuRf%2FiKj9cEJWmwZCVUMcp5Ln2WbJ8%2FoBa11HWRY6wfZm2Ac2P8FHj%2FwB23IYYkzD8086IogYVANhbAQ3Zx4LrrqeyrEnTAOhqupcJN6XfZJltTClzDQgLibbt5Pdv7%2FxY4arElQRmeD%2BJBJCUAUFYwRjLSGrI3HCET%2B9lcrCJYSsPlMk1EyrcQUxloOb%2FkmojyHGoqqoKpXI4Yw0jI1zVBUrQnsa01GNiYzgyxITp2hWp%2Fcvd1OODCHWNdI1lQ8yjXQSRRQHDzD21lZMUkGDxwBp5OjuG2agllON3ITXqbPkPrB26%2Fvc%2F9J79DXve19i0ir53p30P%2Fd3xEXTAAC4aQCMI9vVQzk0gEmrqAZSZ7l90xs8vG0Hc6sJt51zEmd3zSf3gf0jdX7y%2BBZGihInwkOv9vDH7y5ncXsr9bLEVFsZ3rKew04%2Fn3jBwkZlTAq6OVRQAPK9OyF4AtAWOx55YycPvvIeay85lYsWd%2FLQqz04I1Sc5daN2%2Bioxmy4%2Blw2rTqPo2dVueM%2Fb5E628insYTaCMMvbZog6eQzBcA4vcqBXsY7lVfl4W07OW%2FRAi5bdjTaBNUSOV7vHWTL7j5uWnECVgRnhG8vWsD%2BkRqZD4jIBKlr3a%2Fh8wzEoJNSMaNmhjwDEYxA7gPDWcGSjjZ6R%2Bv86509XLC4k9gatuzuZ35LyrFzWhnOCqwRRouSjmpCYpuGVBEXkfXth7GDxHFKHMczA%2FDeE0JoaLmOCw0YEQbGcm7fvJ2OSsyFizsZzgvGipLICkaE2Fr6ajmPvbmby5YeNaVSyqCkVhjtO8CFK1fyu7vuoiHHfiqAtNpKZAxSbcUHjw8wt5pw1Ve6eHT7hzzdvYf7L%2F4GAtTLwJFtVd4%2BMMyOwVE621J%2B%2FswrdM1p4dKlRzFYLyaMt8WOuhpWX3Mdzz71FFEcM179rlmPeO959pmnWHryVzly2SnwwtOUkWXjjl6eeGcPIpB75d3%2BEY6aVSV2hkuXHsnarT3csuF1Otsq7Bmu8ejlZxCAamSxIiTOsnX%2FIDc%2Bt5VXez7klptv4tprf0ae17HWIllWU2sttVqdLx9%2FPANDQ5x92nJaB%2FbQPVhj694Bzuqax3WnHcc9L3azvmcf31w4jxVd8%2Blsq%2FDYm7tY170XUFYvX8IPli0kqBI7Q63wPL%2Brj3tfeJtalvGbX93G9Tf8gjyvjwsRkud1DSEQRQnr1v2bO%2B%2B8g1179uFCyZIksHLpQs7pmkdsDfUysOmDXh7d%2FiHv9Q9TBuXY9lYuWLSADR%2F08kz3XnwIxM5iRMh8QEvP8mPmcfeDf%2BL0M1aQZbWG4WYKJM%2FrzaamxHHayJsvYbCX%2FvtuphgbZTQ0UmSN0Bo7jAhjRUlQSJ0lMsJY4Xl5bz8v7urjo7EMVZhdTTmpBb5%2Fw820n%2FkdarURnJs670xpRiE0RMKKIHHKwdeeZ9%2Ba32LjBLEWQsCrIjQqY1wntNmEWiKLMwZteqcjQ8z61mVULvwhZX0MY%2B20ZjRzOwY0eGxSZejlTfT%2B7V4IHpNW0BBm1HSAAKgYNKtD8LRfdAXt51%2BOFNkU%2BZ3cjp0q24yxZ0Gh49MxNDpiyGrM%2BtoKojlz6X3kPrLd72OSChJFCDIh3ePXUhRoNkLauZC53%2FsxLcu%2BTsjrMMNkZoylLMttkue1a6IovWfGkQwanidVfG2Ewc1PMrxlHUXf%2FsagOu6VKogh6jictuXnMvvMldhq24zTUDPVIUkqpijq1%2F7vobQ5IWEtxsWUIwepvfs69R3v4If6UcDNaic95jgqi0%2FEtc4mlAX4ckbjhw6l%2F99YPt4rgyLOYezMjwRfoGWBiPnEPWGGsfwzLCZTlpOPF5OJ609ZUD5xMfnCV7MvfDn9otfz%2FwI4vlawbmJ3fwAAAABJRU5ErkJggg%3D%3D&labelColor=191919" alt="Claude Duet exclusive invite"></a>
 </p>
 
 I've been working with AI since 2020 and never got around to making a GitHub for myself, so here I am. Below are some tools for Claude Code and a few fun apps. I built all of them around one habit I've kept since the first LLMs: verify what a chat model would otherwise just assert.
@@ -65,40 +64,32 @@ I've been working with AI since 2020 and never got around to making a GitHub for
 
 ## Products
 
-One-time prices in US dollars, before sales tax. None of these is on sale yet.
+One-time prices in US dollars, before sales tax. All four are on sale through Gumroad, with a 14-day refund on every pack.
 
 <table>
 <tr>
-<td width="62" align="center"><img src="assets/icons/tiers/light-eda-pro.png" width="36" height="36" alt=""></td>
-<td><b>LightEDA Pro</b><br><sub>A lifetime key for the desktop IDE</sub></td>
-<td align="right"><b>$59.99</b></td>
-</tr>
-<tr>
-<td width="62" align="center"><img src="assets/icons/tiers/light-eda-student.png" width="36" height="36" alt=""></td>
-<td><b>LightEDA Pro for students</b><br><sub>The same key, after a school-email check</sub></td>
-<td align="right"><b>$30.99</b></td>
-</tr>
-<tr>
-<td width="62" align="center"><img src="assets/icons/tiers/light-eda-ipad.png" width="36" height="36" alt=""></td>
-<td><b>LightEDA for iPad</b><br><sub>The iPad app, paid up front with no in-app purchases</sub></td>
-<td align="right"><b>$12.99</b></td>
+<td width="62" align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-comp-dark.png"><img src="assets/icons/tiers/glassvgl-comp.png" width="36" height="36" alt=""></picture></td>
+<td><a href="https://buildforpeople.dev/glassvgl"><b>GlassVGL.comp</b></a><br><sub>Liquid glass for the LVGL app you already have</sub></td>
+<td align="right"><b>$3.99</b></td>
 </tr>
 <tr>
 <td width="62" align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-icons-dark.png"><img src="assets/icons/tiers/glassvgl-icons.png" width="36" height="36" alt=""></picture></td>
-<td><a href="https://github.com/AlveeeRahman/GlassVGL"><b>GlassVGL Icons</b></a><br><sub>A glass icon theme for Linux desktops</sub></td>
-<td align="right"><b>$6.99</b></td>
+<td><a href="https://buildforpeople.dev/glassvgl"><b>GlassVGL Icons</b></a><br><sub>A frosted-glass icon theme for Linux desktops, in light and dark</sub></td>
+<td align="right"><b>$8.99</b></td>
 </tr>
 <tr>
 <td width="62" align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-edge-gui-dark.png"><img src="assets/icons/tiers/glassvgl-edge-gui.png" width="36" height="36" alt=""></picture></td>
-<td><a href="https://github.com/AlveeeRahman/GlassVGL"><b>GlassVGL Edge GUI</b></a><br><sub>The LVGL glass theme, royalty-free in your own products</sub></td>
+<td><a href="https://buildforpeople.dev/glassvgl"><b>GlassVGL Edge GUI</b></a><br><sub>The LVGL glass theme, royalty-free in your own products</sub></td>
 <td align="right"><b>$12.99</b></td>
 </tr>
 <tr>
 <td width="62" align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/tiers/glassvgl-desktop-dark.png"><img src="assets/icons/tiers/glassvgl-desktop.png" width="36" height="36" alt=""></picture></td>
-<td><a href="https://github.com/AlveeeRahman/GlassVGL"><b>GlassVGL Desktop</b></a><br><sub>A glass GTK and GNOME Shell theme for Ubuntu 24.04</sub></td>
+<td><a href="https://buildforpeople.dev/glassvgl"><b>GlassVGL Desktop</b></a><br><sub>Frosted glass for your whole GNOME desktop, light and dark. Linux only.</sub></td>
 <td align="right"><b>$19.99</b></td>
 </tr>
 </table>
+
+<sub>Free samples for every toolchain, seven app screens and a 25-icon sample of GlassVGL Icons are in the public <a href="https://github.com/AlveeeRahman/GlassVGL">GlassVGL repository</a>.</sub>
 
 ## In the works
 
@@ -106,8 +97,8 @@ Four of my own, still in active development.
 
 <table>
 <tr>
-<td width="74" align="center"><img src="assets/icons/light-eda.png" width="48" height="48" alt="LightEDA icon"></td>
-<td><b>LightEDA</b><br><sub>A Rust and Tauri desktop IDE, now in alpha, that builds and flashes ESP32 and Arduino firmware and runs the open-source FPGA flow, with an on-device assistant.</sub></td>
+<td width="74" align="center"><a href="https://buildforpeople.dev/lighteda"><img src="assets/icons/light-eda.png" width="48" height="48" alt="LightEDA icon"></a></td>
+<td><a href="https://buildforpeople.dev/lighteda"><b>LightEDA</b></a><br><sub>A Rust and Tauri desktop IDE, now in alpha, that builds and flashes ESP32 and Arduino firmware and runs the open-source FPGA flow, with an on-device assistant. The Pro waitlist is open.</sub></td>
 </tr>
 <tr>
 <td width="74" align="center"><img src="assets/icons/murasaki.png" width="48" height="48" alt="Murasaki icon"></td>
@@ -162,10 +153,19 @@ My Claude Code sessions run in the cloud with a short rulebook that Claude reads
 - ✅ Skills get validated by skill-vision before they ship. Agent designs start with agent-oracle's four questions. Papers go through research-hound, which checks that each DOI resolves and that its metadata matches the citation.
 - ⚛️ The quantum-computing skill covers Qiskit, PennyLane, QuTiP and D-Wave Ocean, which is where the power systems work and the Claude work meet.
 
+## Support my work
+
+Everything on GitHub stays free. If it saved you time, these are the ways to give some back, as listed on [buildforpeople.dev/support](https://buildforpeople.dev/support).
+
+- 💜 **GitHub Sponsors:** opening soon. Until then, following me on GitHub or starring a repository helps.
+- 🛍️ **Buy a pack:** sales pay for the free versions. See [Products](#products) above.
+- ⭐ **Free:** star a repository, share a project with someone who would use it, or open an issue when something breaks. Bug reports with steps to reproduce are worth a lot.
+- ✉️ **Something else in mind?** Questions, or want to sponsor a feature for your lab or company? Email [support@buildforpeople.dev](mailto:support@buildforpeople.dev).
+
 ## Google Scholar
 
 <a href="https://scholar.google.com/citations?user=wRWUQQYAAAAJ"><img src="assets/scholar.png" alt="Google Scholar as of October 2026: 37 citations, h-index 4. Citations per year: 4 in 2023, 5 in 2024, 15 in 2025, 13 in 2026." width="100%"></a>
 
 ## Find me
 
-[LinkedIn](https://www.linkedin.com/in/alvieee/) · [Google Scholar](https://scholar.google.com/citations?user=wRWUQQYAAAAJ)
+[BuildForPeople](https://buildforpeople.dev) · [LinkedIn](https://www.linkedin.com/in/alvieee/) · [Google Scholar](https://scholar.google.com/citations?user=wRWUQQYAAAAJ)
