@@ -39,30 +39,31 @@ I've been working with AI since 2020 and never got around to making a GitHub for
 </td>
 </tr>
 <tr>
-<td width="33%" align="center" valign="top" colspan="2">
+<td width="50%" align="center" valign="top" colspan="3">
 <a href="https://github.com/AlveeeRahman/mr-usage"><img src="assets/icons/mr-usage.png" width="44" height="44" alt="mr-usage icon"></a><br>
 <a href="https://github.com/AlveeeRahman/mr-usage"><b>mr-usage</b></a><br>
 <a href="https://github.com/AlveeeRahman/mr-usage"><img src="https://img.shields.io/badge/Rust-Tauri-191919?style=flat-square&logo=rust&logoColor=white" alt="Rust and Tauri"></a><br>
 <sub>A Rust and Tauri desktop app that shows what is left on nine paid APIs, with keys kept in the OS keystore.</sub>
 </td>
-<td width="33%" align="center" valign="top" colspan="2">
+<td width="50%" align="center" valign="top" colspan="3">
 <a href="https://github.com/AlveeeRahman/llm-dogfight"><img src="assets/icons/llm-dogfight.png" width="44" height="44" alt="llm-dogfight icon"></a><br>
 <a href="https://github.com/AlveeeRahman/llm-dogfight"><b>llm-dogfight</b></a><br>
 <a href="https://github.com/AlveeeRahman/llm-dogfight"><img src="https://img.shields.io/badge/Terminal-game-191919?style=flat-square&logo=gnometerminal&logoColor=white" alt="Terminal game"></a><br>
 <sub>Two small local language models command rival saucer fleets in your terminal while a genetic algorithm evolves their tactics.</sub>
 </td>
-<td width="33%" align="center" valign="top" colspan="2">
+</tr>
+<tr>
+<td width="50%" align="center" valign="top" colspan="3">
 <a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="assets/icons/opencarmind.png" width="44" height="44" alt="OpenCarMind icon"></a><br>
 <a href="https://github.com/AlveeeRahman/OpenCarMind"><b>OpenCarMind</b></a><br>
 <a href="https://github.com/AlveeeRahman/OpenCarMind"><img src="https://img.shields.io/badge/ESP32--S3-firmware-191919?style=flat-square&logo=espressif&logoColor=white" alt="ESP32-S3 firmware"></a> <a href="https://github.com/AlveeeRahman/OpenCarMind/releases/tag/edgeos-2.1.0"><img src="https://img.shields.io/badge/ESP32--S31-EdgeOS-191919?style=flat-square&logo=espressif&logoColor=white" alt="ESP32-S31 EdgeOS"></a><br>
 <sub>A car logger with an on-chip neural network for the ESP32-S3 and the early-access ESP-Mosaico (ESP32-S31), plus a desktop app for Windows, macOS and Linux.</sub>
 </td>
-<tr>
-<td width="33%" align="center" valign="top" colspan="2">
+<td width="50%" align="center" valign="top" colspan="3">
 <a href="https://github.com/AlveeeRahman/WhatAreYouSaying"><img src="assets/icons/whatareyousaying.png" width="44" height="44" alt="WhatAreYouSaying icon"></a><br>
 <a href="https://github.com/AlveeeRahman/WhatAreYouSaying"><b>WhatAreYouSaying</b></a><br>
 <a href="https://github.com/AlveeeRahman/WhatAreYouSaying"><img src="https://img.shields.io/badge/PyTorch-speech_XAI-191919?style=flat-square&logo=pytorch&logoColor=EE4C2C" alt="PyTorch speech XAI"></a><br>
-<sub>Shows which 100 ms of audio a speech-to-text model used for each word it wrote, and whether that audio was clean, by erasing the audio patch by patch. Whisper, Moonshine, and vLLM or llama.cpp servers.</sub>
+<sub>Shows which 100 ms of audio a speech-to-text model used for each word, and whether that audio was clean or noisy, by erasing the audio patch by patch. Two callable tools, sound-token and aud-cam. Whisper, Moonshine, and vLLM or llama.cpp servers.</sub>
 </td>
 </tr>
 </table>
